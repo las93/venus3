@@ -1,0 +1,156 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "b1b4d559b3ca78eda0ea840fa75c39ce",
+    "packages": [
+        {
+            "name": "las93/apollina",
+            "version": "3.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/las93/apollina.git",
+                "reference": "b21910c8622fc83d4f511162a52c461886b81895"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/las93/apollina/zipball/b21910c8622fc83d4f511162a52c461886b81895",
+                "reference": "b21910c8622fc83d4f511162a52c461886b81895",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Apollina": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paquet Judicaël",
+                    "email": "las92i@homail.fr",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library to create template in your app",
+            "homepage": "https://github.com/las93/apollina",
+            "keywords": [
+                "library"
+            ],
+            "time": "2015-01-19 23:03:44"
+        },
+        {
+            "name": "las93/attila",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/las93/attila.git",
+                "reference": "b4ba6d164459a6e39e203c067e4eec0a58cac039"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/las93/attila/zipball/b4ba6d164459a6e39e203c067e4eec0a58cac039",
+                "reference": "b4ba6d164459a6e39e203c067e4eec0a58cac039",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "orm",
+            "autoload": {
+                "psr-0": {
+                    "Attila": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paquet Judicaël",
+                    "email": "las92i@homail.fr",
+                    "role": "Developer"
+                }
+            ],
+            "description": "ORM in PHP",
+            "homepage": "https://github.com/las93/apollina",
+            "keywords": [
+                "orm"
+            ],
+            "time": "2015-01-19 23:06:53"
+        },
+        {
+            "name": "mobiledetect/mobiledetectlib",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/serbanghita/Mobile-Detect.git",
+                "reference": "b3cc9ccb3603daebff6f1545740d01a0266b4fc4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/b3cc9ccb3603daebff6f1545740d01a0266b4fc4",
+                "reference": "b3cc9ccb3603daebff6f1545740d01a0266b4fc4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "johnkary/phpunit-speedtrap": "~1.0@dev",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Mobile_Detect.php"
+                ],
+                "psr-0": {
+                    "Detection": "namespaced/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Serban Ghita",
+                    "email": "serbanghita@gmail.com",
+                    "homepage": "http://mobiledetect.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
+            "homepage": "https://github.com/serbanghita/Mobile-Detect",
+            "keywords": [
+                "detect mobile devices",
+                "mobile",
+                "mobile detect",
+                "mobile detector",
+                "php mobile detect"
+            ],
+            "time": "2015-01-19 13:13:13"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.3.0"
+    },
+    "platform-dev": []
+}
