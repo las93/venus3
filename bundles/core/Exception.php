@@ -45,13 +45,15 @@ class Exception extends GlobalException {
 	 * get a configuration
 	 *
 	 * @access public
-	 * @param  string sName name of the configuration
+	 * @param  string $sMessage message of the exception
+	 * @param  int $iCode error code
+	 * @param  Exception $oPrevious exception
 	 * @return void
 	 */
 
-	public function __construct($message, $code = 0, Exception $previous = null) {
+	public function __construct(string $sMessage, int $iCode = 0, Exception $oPrevious = null) {
 
-		parent::__construct($message, $code, $previous);
+		parent::__construct($sMessage, $iCode, $oPrevious);
 	}
 
 	/**

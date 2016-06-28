@@ -22,11 +22,11 @@ use \Venus\lib\Debug as Debug;
  * @category  	core
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
- * @license   	https://github.com/las93/venus2/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
- * @version   	Release: 1.0.0
- * @filesource	https://github.com/las93/venus2
+ * @license   	https://github.com/las93/venus3/blob/master/LICENSE.md Tout droit réservé à PAQUET Judicaël
+ * @version   	Release: 3.0.0
+ * @filesource	https://github.com/las93/venus3
  * @link      	https://github.com/las93
- * @since     	1.0
+ * @since     	3.0
  */
 class Config
 {
@@ -47,7 +47,7 @@ class Config
 	 * @param  bool $bNoDoRedirect not allowed the redirect parameter
 	 * @return void
 	 */
-	public static function get($sName, $sPortal = null, $bNoDoRedirect = false) 
+	public static function get(string $sName, string $sPortal = null, bool $bNoDoRedirect = false)
 	{
 	    if ($bNoDoRedirect === true) { $sNameCache = $sName.'_true'; }
 	    else { $sNameCache = $sName; }
@@ -182,7 +182,7 @@ class Config
 	 * @param  string $sName name of the configuration
 	 * @return string
 	 */
-	public static function getBundleLocationName($sName)
+	public static function getBundleLocationName(string $sName): string
 	{
 	    $oConfig = self::get($sName, null, true);
 
@@ -198,7 +198,7 @@ class Config
 	 * @param  array $aBase base
 	 * @return array
 	 */
-	private static function  _mergeAndGetConf($sFileToMerge, $aBase)
+	private static function  _mergeAndGetConf(string $sFileToMerge, array $aBase) : array
 	{
 		$oConfFiles = json_decode(file_get_contents($sFileToMerge));
 
@@ -224,7 +224,7 @@ class Config
 	 * @param  array $aBase
 	 * @return multitype:array multitype:array
 	 */
-	private static function _recursiveGet($oConfFiles, $aBase)
+	private static function _recursiveGet(object $oConfFiles, array $aBase) : array
 	{
 		foreach ($oConfFiles as $sKey => $mOne) {
 

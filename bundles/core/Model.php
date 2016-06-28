@@ -38,8 +38,10 @@ class Model extends AttilaModel
 	 * @access public
 	 * @param  object $oDbConfig
 	 * @return object
+	 *
+	 * @todo Why ask $oDbConfig in the constructor ?
 	 */
-	public function __construct($oDbConfig = null)
+	public function __construct(object $oDbConfig = null)
 	{
 		$oDbConfig = Config::get('Db')->configuration;
 		parent::__construct($oDbConfig);

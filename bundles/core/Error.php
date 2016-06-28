@@ -56,7 +56,7 @@ class Error
 	 * @param  int $iLine number of line
 	 * @return array
 	 */
-	public static function setErrorHandler($iNumber, $sMessage, $sFile, $iLine)
+	public static function setErrorHandler(int $iNumber, string $sMessage, string $sFile, int $iLine)
 	{
 		self::showError(array('code' => $iNumber, 'message' => $sMessage, 'line' => $iLine, 'file' => $sFile));
 		self::showDebugBacktrace(debug_backtrace());
@@ -95,6 +95,7 @@ class Error
 	 * get file content and merge if not exists
 	 *
 	 * @access private
+	 * @param  array $aDebugbacktrace backtrace
 	 * @return array
 	 */
 	public static function showDebugBacktrace(array $aDebugbacktrace)
@@ -109,6 +110,7 @@ class Error
 	 * get file content and merge if not exists
 	 *
 	 * @access private
+	 * @param  mixed $mDebug debug
 	 * @return array
 	 */
 	private static function showDebug($mDebug)
@@ -155,9 +157,10 @@ class Error
 	 * get file content and merge if not exists
 	 *
 	 * @access private
+	 * @param  array $aDebugbacktrace backtrace
 	 * @return array
 	 */
-	private static function showError($aDebug)
+	private static function showError(array $aDebug)
 	{
 		echo '<table style="background-color:red" cellpadding="10" cellspacing="10" width="100%"><tr><td style="background-color:orange;">';
 		echo ' line '.$aDebug["line"].'&nbsp;';

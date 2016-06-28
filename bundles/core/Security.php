@@ -167,10 +167,10 @@ class Security {
 	 * check access
 	 *
 	 * @access private
-	 * @return void
+	 * @return bool
 	 */
 
-	private function _checkAccess() {
+	private function _checkAccess() : bool {
 
 		$oSecurity = Config::get('Security');
 
@@ -193,10 +193,10 @@ class Security {
 	 * check if the ips is not in the blacklist
 	 *
 	 * @access private
-	 * @return void
+	 * @return bool
 	 */
 
-	private function _checkBlackListIps() {
+	private function _checkBlackListIps() : bool {
 
 		$oSecurity = Config::get('Security');
 
@@ -215,10 +215,10 @@ class Security {
 	 * check if the password is good
 	 *
 	 * @access private
-	 * @return void
+	 * @return bool
 	 */
 
-	private function _checkPasswordIsGood() {
+	private function _checkPasswordIsGood() : bool {
 
 		$sLogin = self::$_sLogin;
 		$sPassword = Config::get('Security')->users->$sLogin->password;
@@ -232,10 +232,10 @@ class Security {
 	 * get the user roles
 	 *
 	 * @access public
-	 * @return void
+	 * @return string
 	 */
 
-	public function getUserRole() {
+	public function getUserRole() : string {
 
 		if (self::$_sLogin) {
 
@@ -254,10 +254,10 @@ class Security {
 	 *
 	 * @access public
 	 * @param  string $sRole role to test
-	 * @return void
+	 * @return bool
 	 */
 
-	public function isGranted($sRole) {
+	public function isGranted(string $sRole) : bool {
 
 		if ($sRole == $this->getUserRole() || $this->getUserRole() == '') { return true; }
 		else { return false; }

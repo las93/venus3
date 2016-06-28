@@ -129,47 +129,48 @@ class Mother implements \ArrayAccess
 	 * if offsetExists of \ArrayAccess
 	 *
 	 * @access public
-	 * @param  mixed $mKey
+	 * @param  mixed $mOffset
 	 * @return mixed
 	 */
-	function offsetExists($offset)
+	function offsetExists($mOffset)
 	{
-		return $this->__isset($offset);
+		return $this->__isset($mOffset);
 	}
 
 	/**
 	 * if offsetGet of \ArrayAccess
 	 *
 	 * @access public
-	 * @param  mixed $mKey
+	 * @param  mixed $mOffset
 	 * @return mixed
 	 */
-	public function offsetGet($offset)
+	public function offsetGet($mOffset)
 	{
-		return $this->__get($offset);
+		return $this->__get($mOffset);
 	}
 
 	/**
 	 * if offsetSet of \ArrayAccess
 	 *
 	 * @access public
-	 * @param  mixed $mKey
+	 * @param  mixed $mOffset
+	 * @param  mixed $mValue
 	 * @return void
 	 */
-	public function offsetSet($offset, $mValue)
+	public function offsetSet($mOffset, $mValue)
 	{
-		$this->__set($offset, $mValue);
+		$this->__set($mOffset, $mValue);
 	}
 
 	/**
 	 * if offsetUnset of \ArrayAccess
 	 *
 	 * @access public
-	 * @param  mixed $mKey
+	 * @param  mixed $mOffset
 	 * @return void
 	 */
-	public function offsetUnset($offset)
+	public function offsetUnset($mOffset)
 	{
-		$this->__unset($offset);
+		$this->__unset($mOffset);
 	}
 }

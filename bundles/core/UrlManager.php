@@ -62,7 +62,7 @@ class UrlManager
 	 *				$oUrlManager = new \Venus\core\UrlManager;
 	 *				$sUrl = $oUrlManager->getUrl('menu_edit', array('language' => 'vn', 'id' => 125));
 	 */
-	public function getUrl($sCode, $aParams = array())
+	public function getUrl(string $sCode, array $aParams = array()) : string
 	{
 		if (isset($_SERVER) && isset($_SERVER['HTTP_HOST'])) {
 
@@ -128,7 +128,7 @@ class UrlManager
 	 * @param  string $sStringToEncode text
 	 * @return string
 	 */
-	public function encodeToUrl($sStringToEncode)
+	public function encodeToUrl(string $sStringToEncode) : string
 	{
 		if (!is_string($sStringToEncode)) {
 

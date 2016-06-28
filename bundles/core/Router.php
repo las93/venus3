@@ -303,7 +303,7 @@ class Router implements LoggerAwareInterface
 	 * @param  array $aParams parameters to passe
 	 * @return void
 	 */
-	public function runByFoward($sRoute, $aParams) 
+	public function runByFoward(string $sRoute, array $aParams)
 	{
 		$this->_create_constant();
 
@@ -342,7 +342,7 @@ class Router implements LoggerAwareInterface
 	 * @param  int iError http error
 	 * @return void
 	 */
-	public function runHttpErrorPage($iError) 
+	public function runHttpErrorPage(int $iError)
 	{
 		$this->_create_constant();
 
@@ -375,7 +375,7 @@ class Router implements LoggerAwareInterface
 	 * @param  string $RequestUri URI
 	 * @return void
 	 */
-	private function _route($oRoute, $RequestUri) 
+	private function _route(object $oRoute, string $RequestUri)
 	{
 		$sCharset = 'UTF-8';
 
@@ -623,7 +623,7 @@ class Router implements LoggerAwareInterface
 	 * @param  array $aParams parameters
 	 * @return mixed
 	 */
-	private function _loadController($sControllerName, $sActionName, array $aParams = array()) 
+	private function _loadController(string $sControllerName, string $sActionName, array $aParams = array())
 	{
 		$aPhpDoc = PhpDoc::getPhpDocOfMethod($sControllerName, $sActionName);
 
@@ -736,7 +736,7 @@ class Router implements LoggerAwareInterface
 	 * @param  object $oCache object of cache configuration
 	 * @return void
 	 */
-	private function _checkCache($oCache) 
+	private function _checkCache(object $oCache)
 	{
 		/**
 		 * cache-control http
