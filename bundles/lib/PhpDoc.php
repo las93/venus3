@@ -32,9 +32,11 @@ class PhpDoc
 	 * add the namespace
 	 *
 	 * @access public
+	 * @param string $sClassName class name
+	 * @param string $sMethodName method name
 	 * @return array
 	 */
-	public static function getPhpDocOfMethod($sClassName, $sMethodName)
+	public static function getPhpDocOfMethod(string $sClassName, string $sMethodName) : array
 	{
 		$oReflectionClass  = new \ReflectionClass($sClassName);
 		$oReflectionMethod = $oReflectionClass->getMethod($sMethodName);

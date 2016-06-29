@@ -64,7 +64,7 @@ class Select extends Common
 	 * @param  string $sValue value of input
 	 * @return \Venus\lib\Form\Input
 	 */
-	public function __construct($sName, $aOptions, $sLabel = null, $sValue = null)
+	public function __construct(string $sName, array $aOptions, string $sLabel = null, string $sValue = null)
 	{
 		$this->setName($sName);
 		$this->setOptions($aOptions);
@@ -78,7 +78,7 @@ class Select extends Common
 	 * @access public
 	 * @return array
 	 */
-	public function getOptions()
+	public function getOptions() : array
 	{
 		return $this->_aOptions;
 	}
@@ -88,9 +88,9 @@ class Select extends Common
 	 *
 	 * @access public
 	 * @param  array $aOptions Options of input;
-	 * @return object
+	 * @return Select
 	 */
-	public function setOptions(array $aOptions)
+	public function setOptions(array $aOptions) : Select
 	{
 		$this->_aOptions = $aOptions;
 		return $this;
@@ -102,7 +102,7 @@ class Select extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getValue()
+	public function getValue() : string
 	{
 		return $this->_sValue;
 	}
@@ -112,9 +112,9 @@ class Select extends Common
 	 *
 	 * @access public
 	 * @param  string $sValue Value of input;
-	 * @return \Venus\lib\Form\Input
+	 * @return \Venus\lib\Form\Select
 	 */
-	public function setValue($sValue)
+	public function setValue(string $sValue) : Select
 	{
 		$this->_sValue = $sValue;
 		return $this;
@@ -126,7 +126,7 @@ class Select extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getLabel()
+	public function getLabel() : string
 	{
 		return $this->_sLabel;
 	}
@@ -136,9 +136,9 @@ class Select extends Common
 	 *
 	 * @access public
 	 * @param  string $sLabel Label of input;
-	 * @return \Venus\lib\Form\Input
+	 * @return \Venus\lib\Form\Select
 	 */
-	public function setLabel($sLabel)
+	public function setLabel(string $sLabel) : Select
 	{
 		$this->_sLabel = $sLabel;
 		return $this;
@@ -150,7 +150,7 @@ class Select extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function fetch()
+	public function fetch() : string
 	{
 		$sContent = '';
 		

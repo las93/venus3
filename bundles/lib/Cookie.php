@@ -36,7 +36,7 @@ class Cookie
   	 * @param  mixed $mValue value of this sesion var
   	 * @return \Venus\lib\Cookie
   	 */
-  	public function set($sName, $mValue, $iExpire = 0, $sPath = '', $sDomain = '', $iSecure = false)
+  	public function set(string $sName, $mValue, int $iExpire = 0, string $sPath = '', string $sDomain = '', int $iSecure = false) : Cookie
 	{
   		$iExpire = time() + $iExpire;
     	setcookie($sName, $mValue, $iExpire, $sPath, $sDomain, $iSecure);
@@ -50,7 +50,7 @@ class Cookie
   	 * @param  string $sName name of the Cookie
   	 * @return mixed
   	 */
-  	public function get($sName)
+  	public function get(string $sName)
 	{
     	return $_COOKIE[$sName];
   	}
@@ -62,7 +62,7 @@ class Cookie
   	 * @param  string $sName name of the Cookie
   	 * @return bool
   	 */
-  	public function exists($sName)
+  	public function exists(string $sName) : bool
 	{
     	return isset($_COOKIE[$sName]);
   	}

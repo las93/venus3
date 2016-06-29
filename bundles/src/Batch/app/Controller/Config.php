@@ -42,8 +42,8 @@ class Config extends Controller
 	 * @tutorial launch.php create_project
 	 *
 	 * @access public
-	 * @param  string $sPortal name of the portail that you would create
-	 * @return void
+	 * @param array $aOptions
+	 * @throws \Exception
 	 */
 	public function maintenance(array $aOptions = array())
 	{

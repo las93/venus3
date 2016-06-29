@@ -30,11 +30,10 @@ class Object
 	 * create an array with an object
 	 *
 	 * @access public
-	 * @param  unknown $sServiceName
-	 * @param  unknown $aParams
-	 * @return
+	 * @param $mObject
+	 * @return array
 	 */
-	public static function object_to_array($mObject)
+	public static function object_to_array($mObject) : array
 	{
 		if ( is_object($mObject)) {
 			

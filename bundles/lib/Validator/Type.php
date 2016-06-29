@@ -41,9 +41,9 @@ class Type extends Common
      *
      * @access public
      * @param  string $sType type
-     * @return string
+     * @return Type
      */
-    public function __construct($sType)
+    public function __construct(string $sType)
     {
         $this->_sType = $sType;
     }
@@ -52,9 +52,10 @@ class Type extends Common
      * validate the Type
      *
      * @access public
-     * @return string
+     * @param  string $sValue
+     * @return bool
      */
-    public function validate($sValue = null)
+    public function validate(string $sValue = null) : bool
     {
         if ($this->_sType == 'DateTime') {
             

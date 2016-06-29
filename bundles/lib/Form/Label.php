@@ -44,7 +44,7 @@ class Label extends Common
 	 * @access private
 	 * @var    string
 	 */
-	public function __construct($sLabel)
+	public function __construct(string $sLabel)
 	{
 		$this->setLabel($sLabel);
 	}
@@ -55,7 +55,7 @@ class Label extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getLabel()
+	public function getLabel() : string
 	{
 		return $this->_sLabel;
 	}
@@ -67,7 +67,7 @@ class Label extends Common
 	 * @param  string $sLabel Label of input;
 	 * @return \Venus\lib\Form\Input
 	 */
-	public function setLabel($sLabel)
+	public function setLabel(string $sLabel) : Input
 	{
 		$this->_sLabel = $sLabel;
 		return $this;
@@ -79,7 +79,7 @@ class Label extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function fetch()
+	public function fetch() : string
 	{
 		$sContent = '<label>'.$this->getLabel().'</label> ';
 

@@ -14,6 +14,15 @@
  */
 namespace Venus\lib;
 
+use Venus\core\Exception;
+use \Venus\core\Mother as Mother;
+use \Venus\lib\Request\Cookies as Cookies;
+use \Venus\lib\Request\Files as Files;
+use \Venus\lib\Request\Headers as Headers;
+use \Venus\lib\Request\Query as Query;
+use \Venus\lib\Request\Request as Request;
+use \Venus\lib\Request\Server as Server;
+
 /**
  * This class manage the request
  *
@@ -26,8 +35,21 @@ namespace Venus\lib;
  * @link      	https://github.com/las93
  * @since     	1.0
  */
-class Request
+class Request extends Mother
 {
+	/**
+	 * Query constructor.
+	 */
+	public function __construct()
+	{
+        $this->cookies = function() { return new Cookies(); };
+        $this->files = function() { return new Files(); };
+        $this->headers = function() { return new Headers(); };
+        $this->query = function() { return new Query(); };
+        $this->request = function() { return new Request(); };
+		$this->server = function() { return new Server(); };
+	}
+
 	/**
 	 * if the request is ajax
 	 *
@@ -93,11 +115,13 @@ class Request
 	 *
 	 * @access public
 	 * @return bool
+     * @deprecated  don't use this method because they return a false result
+     *              delete in the version 5
+     * @throws \Exception
 	 */
 	public static function getPreferredLanguage()
 	{
-		if (!self::isCliRequest()) { return substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); }
-		else { return ''; }
+        throw new \Exception("Use getLanguages() method now!");
 	}
 
 	/**
@@ -140,13 +164,14 @@ class Request
 	 * get the POST for $sName
 	 *
 	 * @access public
-	 * @param  string $sName
+	 * @param  string $name
 	 * @return mixed
+     * @deprecated  please use $this->request->get()
+     *              delete in the version 5
 	 */
-	public function getPost($sName)
+	public function getPost(string $name)
 	{
-		if (isset($_POST[$sName])) { return $_POST[$sName]; }
-		else { return false; }
+		return $this->request->get($name);
 	}
 
 	/**
@@ -174,4 +199,39 @@ class Request
 	    
 	    return $aPut;
 	}
+
+	/**
+	 * Set the HTTP status
+	 *
+	 * @access public
+	 * @param  int $iCode
+	 * @return void
+	 */
+	public static function setStatus($iCode)
+	{
+		if ($iCode === 200) { header('HTTP/1.1 200 Ok');  }
+		else if ($iCode === 201) { header('HTTP/1.1 201 Created');  }
+		else if ($iCode === 204) { header("HTTP/1.0 204 No Content");  }
+		else if ($iCode === 403) { header('HTTP/1.1 403 Forbidden'); }
+		else if ($iCode === 404) { header('HTTP/1.1 404 Not Found'); }
+	}
+
+    /**
+     * get http method
+     * @return string
+     */
+    public function getMethod() : string
+    {
+        return $this->server->get('REQUEST_METHOD');
+    }
+
+    /**
+     * return languages accepted by the customer
+     * @return array
+     */
+    public function getLanguages() : array
+    {
+        if (!self::isCliRequest()) { return explode(',', preg_replace('/^([^;]);?.*$/', '$1', $_SERVER['HTTP_ACCEPT_LANGUAGE'])); }
+        else { return array(); }
+    }
 }

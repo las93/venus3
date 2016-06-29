@@ -54,8 +54,7 @@ class Benchmark implements LoggerAwareInterface
 	 * assign a variable for the Benchmark
 	 *
 	 * @access public
-	 * @param  string $sUrl url to get
-	 * @return \Venus\lib\Benchmark
+	 * @return void
 	 */
 	public static function start()
 	{
@@ -66,10 +65,9 @@ class Benchmark implements LoggerAwareInterface
 	 * assign a variable for the Benchmark
 	 *
 	 * @access public
-	 * @param  string $sUrl url to get
-	 * @return \Venus\lib\Benchmark
+	 * @return float
 	 */
-	public static function getPoint()
+	public static function getPoint() : float
 	{
 		return microtime(true) - self::$_fStart;
 	}
@@ -79,9 +77,9 @@ class Benchmark implements LoggerAwareInterface
 	 *
 	 * @access public
 	 * @param  string $sName name of point
-	 * @return \Venus\lib\Benchmark
+	 * @return void
 	 */
-	public static function setPointInLog($sName = 'default')
+	public static function setPointInLog(string $sName = 'default')
 	{
 	    $oLogger = Debug::getInstance();
 		$oLogger->setLogger($oLogger);
@@ -94,8 +92,8 @@ class Benchmark implements LoggerAwareInterface
 	 * Sets a logger instance on the object
 	 *
 	 * @access public
-	 * @param  \Venus\lib\Debug $logger
-	 * @return null
+	 * @param  LoggerInterface $logger
+	 * @return void
 	 */
 	public function setLogger(LoggerInterface $logger)
 	{
@@ -105,8 +103,8 @@ class Benchmark implements LoggerAwareInterface
 	/**
 	 * get the logger instance on the object
 	 *
-	 * @param LoggerInterface $logger
-	 * @return \Venus\lib\Debug
+	 * @access public
+	 * @return LoggerInterface
 	 */
 	public function getLogger()
 	{

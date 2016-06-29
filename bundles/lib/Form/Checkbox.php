@@ -72,7 +72,7 @@ class Checkbox extends Common
 	 * @param  array $aValuesChecked value checked of checkbox
 	 * @return \Venus\lib\Form\Input
 	 */
-	public function __construct($sName, $sLabel, $sValue, $aValuesChecked = null)
+	public function __construct(string $sName, string $sLabel, string $sValue, array $aValuesChecked = null)
 	{
 		$this->setName($sName);
 		$this->setValue($sValue);
@@ -86,7 +86,7 @@ class Checkbox extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getValue()
+	public function getValue() : string
 	{
 		return $this->_sValue;
 	}
@@ -96,9 +96,9 @@ class Checkbox extends Common
 	 *
 	 * @access public
 	 * @param  string $sValue Value of input;
-	 * @return \Venus\lib\Form\Input
+	 * @return Checkbox
 	 */
-	public function setValue($sValue)
+	public function setValue(string $sValue) : Checkbox
 	{
 		$this->_sValue = $sValue;
 		return $this;
@@ -110,7 +110,7 @@ class Checkbox extends Common
 	 * @access public
 	 * @return array
 	 */
-	public function getValuesChecked()
+	public function getValuesChecked() : array
 	{
 		return $this->_aValuesChecked;
 	}
@@ -120,9 +120,9 @@ class Checkbox extends Common
 	 *
 	 * @access public
 	 * @param  array $aValuesChecked Values of input;
-	 * @return \Venus\lib\Form\Input
+	 * @return Checkbox
 	 */
-	public function setValuesChecked($aValuesChecked)
+	public function setValuesChecked(array $aValuesChecked) : Checkbox
 	{
 		$this->_aValuesChecked = $aValuesChecked;
 		return $this;
@@ -134,7 +134,7 @@ class Checkbox extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getLabel()
+	public function getLabel() : string
 	{
 		return $this->_sLabel;
 	}
@@ -144,9 +144,9 @@ class Checkbox extends Common
 	 *
 	 * @access public
 	 * @param  string $sLabel Label of input;
-	 * @return \Venus\lib\Form\Input
+	 * @return Checkbox
 	 */
-	public function setLabel($sLabel)
+	public function setLabel(string $sLabel) : Checkbox
 	{
 		$this->_sLabel = $sLabel;
 		return $this;
@@ -159,7 +159,7 @@ class Checkbox extends Common
 	 * @param  string $sType type of input;
 	 * @return bool
 	 */
-	public function isClicked($sType)
+	public function isClicked(string $sType) : bool
 	{
 		if ($this->getType() === 'submit' || $this->getType() === 'button') {
 
@@ -175,7 +175,7 @@ class Checkbox extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function fetch()
+	public function fetch() : string
 	{
 		$sContent = '<input type="checkbox" name="'.$this->getName().'[]" value="'.$this->getValue().'"';
 

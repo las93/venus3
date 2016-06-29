@@ -40,9 +40,9 @@ class Less
 	 *
 	 * @access public
 	 * @param  mixed $sFile content to translate
-	 * @return mixed
+	 * @return void
 	 */
-	public static function toCss($sFile)
+	public static function toCss(string $sFile)
 	{
 	    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 	        

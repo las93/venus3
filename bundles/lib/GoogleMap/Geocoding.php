@@ -37,7 +37,7 @@ class Geocoding
      * @param unknown $sPrivateKey
      * @return string
      */
-    public static function signUrlForGoogle($sUrlToSign, $sClientId, $sPrivateKey)
+    public static function signUrlForGoogle(string $sUrlToSign, string $sClientId, string $sPrivateKey) : string
     {
         $aUrl = parse_url($sUrlToSign);
         $aUrl['query'] .= '&client=' .$sClientId;

@@ -59,16 +59,15 @@ class I18n extends CoreI18n
             CoreI18n::addCallback($sPlugin, $fCallBack);
         }
     }
-	
+
     /**
      * Hilight to add the plugin I18N
      *
      * @access public
-     * @param  string $sName name of the Cookie
-     * @param  mixed $mValue value of this sesion var
-     * @return \Venus\lib\Cookie
+     * @param string $sValue value of text to traduct
+     * @return string
      */
-    public function _($sValue)
+    public function _(string $sValue) : string
     {
         return $this->getText($sValue);
     }

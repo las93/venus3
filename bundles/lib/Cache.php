@@ -58,13 +58,13 @@ class Cache
 	 * @param  string $sCacheName name of cache
 	 * @return object
 	 */
-	public static function setCacheType($sCacheName)
+	public static function setCacheType(string $sCacheName)
 	{
-		if ($sCacheName === 'file') { $this->_sTypeOfCache = 'file'; }
-		else if ($sCacheName === 'memcache') { $this->_sTypeOfCache = 'memcache'; }
-		else if ($sCacheName === 'apc') { $this->_sTypeOfCache = 'apc'; }
-		else if ($sCacheName === 'redis') { $this->_sTypeOfCache = 'redis'; }
-		else { $this->_sTypeOfCache = 'mock'; }
+		if ($sCacheName === 'file') { self::$_sTypeOfCache = 'file'; }
+		else if ($sCacheName === 'memcache') { self::$_sTypeOfCache = 'memcache'; }
+		else if ($sCacheName === 'apc') { self::$_sTypeOfCache = 'apc'; }
+		else if ($sCacheName === 'redis') { self::$_sTypeOfCache = 'redis'; }
+		else { self::$_sTypeOfCache = 'mock'; }
 	}
 
 	/**
@@ -77,7 +77,7 @@ class Cache
 	 * @param  int $iExpire expiration of cache
 	 * @return void
 	 */
-	public static function set($sName, $mValue, $iFlag = 0, $iExpire = 0)
+	public static function set(string $sName, $mValue, int $iFlag = 0, int $iExpire = 0)
 	{
 		return self::_getCacheObject()->set($sName, $mValue, $iFlag, $iExpire);
 	}
@@ -89,9 +89,9 @@ class Cache
 	 * @param  string $sName name of the session
 	 * @param  int $iFlags flags
 	 * @param  int $iTimeout expiration of cache
-	 * @return void
+	 * @return bool
 	 */
-	public static function get($sName, &$iFlags = null, $iTimeout = 0)
+	public static function get(string $sName, int &$iFlags = null, int $iTimeout = 0) : bool
 	{
 		return self::_getCacheObject()->get($sName, $iFlags, $iTimeout);
 	}
@@ -103,7 +103,7 @@ class Cache
 	 * @param  string $sName name of the session
 	 * @return boolean
 	 */
-	public static function delete($sName)
+	public static function delete(string $sName) : bool
 	{
 		return self::_getCacheObject()->delete($sName);
 	}
@@ -112,10 +112,9 @@ class Cache
 	 * flush the cache
 	 *
 	 * @access public
-	 * @param  string $sName name of the session
 	 * @return boolean
 	 */
-	public static function flush()
+	public static function flush() : bool
 	{
 		return self::_getCacheObject()->flush();
 	}
@@ -126,7 +125,7 @@ class Cache
 	 * @access private
 	 * @return object
 	 */
-	private static function _getCacheObject()
+	private static function _getCacheObject() : object
 	{
 		if (self::$_sTypeOfCache === 'file') {
 

@@ -64,7 +64,7 @@ class Input extends Common
 	 * @param  string $sValue value of input
 	 * @return \Venus\lib\Form\Input
 	 */
-	public function __construct($sName, $sType, $sLabel = null, $sValue = null)
+	public function __construct(string $sName, string $sType, string $sLabel = null, string $sValue = null)
 	{
 		$this->setName($sName);
 		$this->setType($sType);
@@ -80,7 +80,7 @@ class Input extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getType()
+	public function getType() : string
 	{
 		return $this->_sType;
 	}
@@ -92,7 +92,7 @@ class Input extends Common
 	 * @param  string $sType type of input;
 	 * @return \Venus\lib\Form\Input
 	 */
-	public function setType($sType)
+	public function setType(string $sType) : Input
 	{
 		$this->_sType = $sType;
 		return $this;
@@ -104,7 +104,7 @@ class Input extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getValue()
+	public function getValue() : string
 	{
 		return $this->_sValue;
 	}
@@ -116,7 +116,7 @@ class Input extends Common
 	 * @param  string $sValue Value of input;
 	 * @return \Venus\lib\Form\Input
 	 */
-	public function setValue($sValue)
+	public function setValue(string $sValue) : Input
 	{
 		$this->_sValue = $sValue;
 		return $this;
@@ -128,7 +128,7 @@ class Input extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getLabel()
+	public function getLabel() : string
 	{
 		return $this->_sLabel;
 	}
@@ -140,7 +140,7 @@ class Input extends Common
 	 * @param  string $sLabel Label of input;
 	 * @return \Venus\lib\Form\Input
 	 */
-	public function setLabel($sLabel)
+	public function setLabel(string $sLabel) : Input
 	{
 		$this->_sLabel = $sLabel;
 		return $this;
@@ -153,7 +153,7 @@ class Input extends Common
 	 * @param  string $sType type of input;
 	 * @return bool
 	 */
-	public function isClicked($sType)
+	public function isClicked(string $sType) : string
 	{
 		if ($this->getType() === 'submit' || $this->getType() === 'button') {
 
@@ -169,7 +169,7 @@ class Input extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function fetch()
+	public function fetch() : string
 	{
 		$sContent = '';
 

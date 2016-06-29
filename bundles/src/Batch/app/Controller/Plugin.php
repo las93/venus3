@@ -62,11 +62,13 @@ class Plugin extends Controller
 	        $oPlugin->install($aOptions['p']);
 	    }
 	}
+
 	/**
 	 * run the batch to create plugin
 	 * @tutorial launch.php plugin
 	 *
 	 * @access public
+	 * @param array $aOptions
 	 * @return void
 	 */
 	public function create(array $aOptions = array())

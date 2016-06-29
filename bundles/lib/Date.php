@@ -36,9 +36,10 @@ class Date
 	 * @access public
 	 * @param  int $iWeek number of week
 	 * @param  int $iYear year
-	 * @return \Venus\lib\Date
+	 * @param string $sFormat
+	 * @return Date
 	 */
-	public static function getWeek($iWeek, $iYear, $sFormat = "Y-m-d")
+	public static function getWeek(int $iWeek, int $iYear, string $sFormat = "Y-m-d") : Date
 	{
 		$iFirstDayInYear = date("N",mktime(0, 0, 0, 1, 1, $iYear));
 
@@ -58,11 +59,9 @@ class Date
 	 * set name of image
 	 *
 	 * @access public
-	 * @param  int $iWeek number of week
-	 * @param  int $iYear year
 	 * @return \Venus\lib\Date
 	 */
-	public static function getActualWeek()
+	public static function getActualWeek() : Date
 	{
 		return self::getWeek(date('W'), date('Y'));
 	}
@@ -71,26 +70,26 @@ class Date
 	 * set name of image
 	 *
 	 * @access public
-	 * @param  mixed $mMonth number of week
+	 * @param  string $sMonth number of week
 	 * @param  string $sLanguage language
 	 * @return \Venus\lib\Date
 	 */
-	public static function getMonthInWord($mMonth, $sLanguage = 'fr')
+	public static function getMonthInWord(string $sMonth, string $sLanguage = 'fr') : Date
 	{
 		if ($sLanguage == 'fr') {
 
-			if ($mMonth == '01' || $mMonth == 1) { return 'Janvier'; }
-			else if ($mMonth == '02' || $mMonth == 2) { return 'Février'; }
-			else if ($mMonth == '03' || $mMonth == 3) { return 'Mars'; }
-			else if ($mMonth == '04' || $mMonth == 4) { return 'Avril'; }
-			else if ($mMonth == '05' || $mMonth == 5) { return 'Mai'; }
-			else if ($mMonth == '06' || $mMonth == 6) { return 'Juin'; }
-			else if ($mMonth == '07' || $mMonth == 7) { return 'Juillet'; }
-			else if ($mMonth == '08' || $mMonth == 8) { return 'Août'; }
-			else if ($mMonth == '09' || $mMonth == 9) { return 'Septembre'; }
-			else if ($mMonth == 10) { return 'Octobre'; }
-			else if ($mMonth == 11) { return 'Novembre'; }
-			else if ($mMonth == 12) { return 'Décembre'; }
+			if ($sMonth == '01' || $sMonth == 1) { return 'Janvier'; }
+			else if ($sMonth == '02' || $sMonth == 2) { return 'Février'; }
+			else if ($sMonth == '03' || $sMonth == 3) { return 'Mars'; }
+			else if ($sMonth == '04' || $sMonth == 4) { return 'Avril'; }
+			else if ($sMonth == '05' || $sMonth == 5) { return 'Mai'; }
+			else if ($sMonth == '06' || $sMonth == 6) { return 'Juin'; }
+			else if ($sMonth == '07' || $sMonth == 7) { return 'Juillet'; }
+			else if ($sMonth == '08' || $sMonth == 8) { return 'Août'; }
+			else if ($sMonth == '09' || $sMonth == 9) { return 'Septembre'; }
+			else if ($sMonth == 10) { return 'Octobre'; }
+			else if ($sMonth == 11) { return 'Novembre'; }
+			else if ($sMonth == 12) { return 'Décembre'; }
 		}
 	}
 
@@ -102,7 +101,7 @@ class Date
 	 * @param  string $sLanguage language
 	 * @return \Venus\lib\Date
 	 */
-	public static function getDayInWord($sDay, $sLanguage = 'fr')
+	public static function getDayInWord(string $sDay, string $sLanguage = 'fr') : Date
 	{
 		if ($sLanguage == 'fr') {
 
@@ -123,7 +122,7 @@ class Date
 	 * @param unknown $sBirthday
 	 * @return int
 	 */
-	public static function getAgeByDate($sBirthday)
+	public static function getAgeByDate(string $sBirthday) : int
 	{
 		list($iYear, $iMonth, $iDay) = preg_split('/[-.]/', $sBirthday);
 
@@ -157,7 +156,7 @@ class Date
 	 * @param  int $iYear year
 	 * @return \Venus\lib\Date
 	 */
-	public static function getMiddleWeek($iWeek, $iYear, $sFormat = "Y-m-d")
+	public static function getMiddleWeek(int $iWeek, int $iYear, string $sFormat = "Y-m-d") : array
 	{
 		$iFirstDayInYear = date("N",mktime(0, 0, 0, 1, 1, $iYear));
 
@@ -195,9 +194,9 @@ class Date
 	 * @access public
 	 * @param  int $iWeek number of week
 	 * @param  int $iYear year
-	 * @return \Venus\lib\Date
+	 * @return array
 	 */
-	public static function getActualMiddleWeek()
+	public static function getActualMiddleWeek() : array
 	{
 		return self::getMiddleWeek(date('W'), date('Y'));
 	}
@@ -208,9 +207,9 @@ class Date
 	 * @access public
 	 * @param  string $sDateTime datetime to convert
 	 * @param  string $sLanguage language
-	 * @return \Venus\lib\Date
+	 * @return string
 	 */
-	public static function GetTimeAgoInString($sDateTime, $sLanguage = 'fr')
+	public static function GetTimeAgoInString(string $sDateTime, string $sLanguage = 'fr') : string
 	{
 		if ($sLanguage == 'fr') {
 

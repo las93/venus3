@@ -62,7 +62,7 @@ class Redis extends RealRedis implements CacheInterface
 	 * @param  int $iTimeout expiration of cache
 	 * @return mixed
 	 */
-	public function get($sName, &$iFlags = null, $iTimeout = 0)
+	public function get(string $sName, int &$iFlags = null, int $iTimeout = 0)
 	{ 
 	    return parent::get($sName);
 	}
@@ -77,7 +77,7 @@ class Redis extends RealRedis implements CacheInterface
 	 * @param  int $iExpire expiration of cache
 	 * @return \Venus\lib\Cache\Apc
 	 */
-	public function set($sName, $mValue, $iFlag = 0, $iExpire = false)
+	public function set(string $sName, $mValue, int $iFlag = 0, int $iExpire = false)
 	{ 
 		if ($iExpire === false) {
 			
@@ -107,7 +107,7 @@ class Redis extends RealRedis implements CacheInterface
 	 * @param  string $sName name of the session
 	 * @return mixed
 	 */
-	public function delete($sName)
+	public function delete(string $sName)
 	{
 		return $this->del($sName);
 	}
@@ -133,7 +133,7 @@ class Redis extends RealRedis implements CacheInterface
 	 * @param  int $iExpire expiration of cache
 	 * @return mixed
 	 */
-	public function add($sName, $mValue, $iExpire = false)
+	public function add(string $sName, $mValue, int $iExpire = false)
 	{    
 		return $this->set($sName, $mValue, 0, $iExpire);
 	}

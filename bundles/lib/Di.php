@@ -51,7 +51,7 @@ class Di
 	 * @param  string $sNameOfDi name of injection
 	 * @return mixed
 	 */
-	public function get($sNameOfDi)
+	public function get(string $sNameOfDi)
 	{
 		if (isset(self::$_aSharedDependencyInjectorContener[md5($sNameOfDi)])) {
 
@@ -74,7 +74,7 @@ class Di
 	 * @param  bool $bShared indicate if you want shares or not this injection with others instances
 	 * @return \Venus\core\Di
 	 */
-	public function set($sNameOfDi, $cFunction, $bShared = false)
+	public function set(string $sNameOfDi, callable $cFunction, bool $bShared = false) : Di
 	{
 	    if ($bShared === true) { self::$_aSharedDependencyInjectorContener[md5($sNameOfDi)] = $cFunction; }
 	    else { $this->_aDependencyInjectorContener[md5($sNameOfDi)] = $cFunction; }

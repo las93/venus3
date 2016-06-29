@@ -231,9 +231,46 @@ class Form
 	 * @access public
 	 * @return int
 	 */
-	public function getIdEntityCreated()
+	public function getIdEntityCreated() : int
 	{	
 		return $this->_iIdEntityCreated;
+	}
+
+	/**
+	 * set id entity created by the formular
+	 *
+	 * @access public
+	 * @param  int $iIdEntityCreated
+	 * @return Form
+	 */
+	public function setIdEntityCreated(int $iIdEntityCreated) : Form
+	{
+		$this->_iIdEntityCreated = $iIdEntityCreated;
+		return $this;
+	}
+
+	/**
+	 * get form number
+	 *
+	 * @access public
+	 * @return int
+	 */
+	public function getFormNumber() : int
+	{
+		return $this->_iFormNumber;
+	}
+
+	/**
+	 * set id entity created by the formular
+	 *
+	 * @access public
+	 * @param  int $iFormNumber
+	 * @return Form
+	 */
+	public function setFormNumber(int $iFormNumber) : Form
+	{
+		$this->_iFormNumber = $iFormNumber;
+		return $this;
 	}
 
 	/**

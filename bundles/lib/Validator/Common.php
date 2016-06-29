@@ -35,7 +35,7 @@ abstract class Common
 	 *
 	 * @access public
 	 * @param  string $sValue
-	 * @return string
+	 * @return bool
 	 */
-	abstract public function validate($sValue = null);
+	abstract public function validate(string $sValue = null) : bool;
 }

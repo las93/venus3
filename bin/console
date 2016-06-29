@@ -1,7 +1,9 @@
+#!/usr/bin/env php
 <?php
 
 /**
- * bootstrap of the demo
+ * bootstrap of the framework for the script CLI
+ * New version similar to Symfony
  *
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
@@ -15,11 +17,9 @@ declare(strict_types = 1);
 error_reporting(E_ALL);
 ini_set('display_error', 'on');
 
-set_include_path(get_include_path().PATH_SEPARATOR.str_replace('public', 'bundles', __DIR__));
+set_include_path(get_include_path().PATH_SEPARATOR.__DIR__.'\..\bundles\\');
 
 require 'conf/AutoLoad.php';
-
-\Venus\lib\Debug::activateDebug();
 
 $oRouter = new \Venus\core\Router();
 $oRouter->run();

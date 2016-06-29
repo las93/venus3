@@ -42,7 +42,7 @@ class Typescript
 	 * @param  string $sFile
 	 * @return string
 	 */
-	public static function toJs($sFile)
+	public static function toJs(string $sFile) : string
 	{
 	    $aFile = pathinfo($sFile);
 	    $sFolder = uniqid();

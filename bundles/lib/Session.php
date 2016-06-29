@@ -45,9 +45,9 @@ class Session
   	 * @access public
   	 * @param  string $sName name of the session
   	 * @param  mixed $mValue value of this sesion var
-  	 * @return \Venus\lib\Session
+  	 * @return Session
   	 */
-  	public function set($sName, $mValue)
+  	public function set(string $sName, $mValue) : Session
 	{
     	$_SESSION[$sName] = $mValue;
     	return $this;
@@ -60,7 +60,7 @@ class Session
   	 * @param  string $sName name of the session
   	 * @return mixed
   	 */
-  	public function get($sName)
+  	public function get(string $sName)
 	{
   		if (isset($_SESSION[$sName])) { return $_SESSION[$sName]; }
   		else { return false; }

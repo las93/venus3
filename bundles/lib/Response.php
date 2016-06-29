@@ -35,22 +35,21 @@ class Response
 	/**
 	 * the translation language
 	 * @var string
-	 */	
-	private static $_sKinbfOfReturn = 'json';
-	
+	 */
+	private static $_sKindOfReturn = 'json';
+
 	/**
 	 * set the language if you don't want take the default language of the configuration file
 	 *
 	 * @access public
-	 * @param  string $sKinbfOfReturn
-	 * @return \Venus\lib\Response
+	 * @param  string $sKindOfReturn
+	 * @return void
 	 */
-	public static function setKinbfOfReturn($sKinbfOfReturn)
+	public static function setKindOfReturn(string $sKindOfReturn)
 	{
-		self::$_sKinbfOfReturn = $sKinbfOfReturn;
-		return $this;
+		self::$_sKindOfReturn = $sKindOfReturn;
 	}
-	
+
 	/**
 	 * translate the content
 	 *
@@ -60,8 +59,8 @@ class Response
 	 */
 	public function translate($mContent)
 	{
-		if (self::$_sKinbfOfReturn === 'yaml') { return Yaml::translate($mContent); }
-		else if (self::$_sKinbfOfReturn === 'mock') { return Mock::translate($mContent); }
-		else { return Json::translate($mContent); }  
+		if (self::$_sKindOfReturn === 'yaml') { return Yaml::translate($mContent); }
+		else if (self::$_sKindOfReturn === 'mock') { return Mock::translate($mContent); }
+		else { return Json::translate($mContent); }
 	}
 }

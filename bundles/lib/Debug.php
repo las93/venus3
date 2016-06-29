@@ -82,7 +82,7 @@ class Debug extends AbstractLogger
      * @access public
      * @return \Venus\lib\Debug
      */
-    public static function getInstance()
+    public static function getInstance() : Debug
     {    
         if (!(self::$_oInstance instanceof self)) { self::$_oInstance = new self(); }
  
@@ -126,7 +126,7 @@ class Debug extends AbstractLogger
   	 * @access public
   	 * @return boolean
 	 */
-  	public static function isDebug()
+  	public static function isDebug() : bool
   	{
 		return self::$_bActivateDebug;
   	}
@@ -192,7 +192,7 @@ class Debug extends AbstractLogger
   	 * @access public
   	 * @return boolean
   	 */
-  	public static function isError() 
+  	public static function isError() : bool
   	{
     	return self::$_bActivateError;
   	}
@@ -205,7 +205,7 @@ class Debug extends AbstractLogger
   	 * @param  int $iLevel level of error
   	 * @return void
   	 */
-  	public static function activateException($iLevel)
+  	public static function activateException(int $iLevel)
   	{
   		if (self::$_bFirstActivation === true) {
 
@@ -240,7 +240,7 @@ class Debug extends AbstractLogger
   	 * @access public
   	 * @return boolean
   	 */
-  	public static function isException() 
+  	public static function isException() : bool
   	{
   		return self::$_bActivateException;
   	}
@@ -252,7 +252,7 @@ class Debug extends AbstractLogger
   	 * @param  string $sKindOfReportLog
   	 * @return void
   	 */
-  	public static function setKindOfReportLog($sKindOfReportLog) 
+  	public static function setKindOfReportLog(string $sKindOfReportLog)
   	{
   		if ($sKindOfReportLog === 'screen' || $sKindOfReportLog === 'all') { self::$_sKindOfReportLog = $sKindOfReportLog; }
   		else { self::$_sKindOfReportLog = 'error_log'; }
@@ -264,7 +264,7 @@ class Debug extends AbstractLogger
   	 * @access public
   	 * @return string
   	 */
-  	public static function getKindOfReportLog() 
+  	public static function getKindOfReportLog() : string
   	{
   		return self::$_sKindOfReportLog;
   	}
@@ -276,7 +276,7 @@ class Debug extends AbstractLogger
   	 * @param  int $iCode
   	 * @return string
   	 */
-  	public static function getTranslateErrorCode($iCode) 
+  	public static function getTranslateErrorCode(int $iCode) : string
   	{
   		if ($iCode === 1 && $iCode === 16 && $iCode === 256 && $iCode === 4096) { return LogLevel::ERROR; }
   		else if ($iCode === 2 && $iCode === 32 && $iCode === 128 && $iCode === 512) { return LogLevel::WARNING; }

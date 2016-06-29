@@ -68,7 +68,7 @@ class Facebook
 	 * Constructor
 	 *
 	 * @access public
-	 * @return object
+	 * @return Facebook
 	 */
 	public function __construct()
 	{
@@ -85,7 +85,7 @@ class Facebook
 	 * @access public
 	 * @return string
 	 */
-	public function getUser()
+	public function getUser() : string
 	{
 		return $this->_oFacebook->getUser();
 	}
@@ -94,9 +94,10 @@ class Facebook
 	 * get Login/Logout Facebook
 	 *
 	 * @access public
+	 * @param string $sLabelName label of button
 	 * @return string
 	 */
-	public function getButton($sLabelName = 'Inscription par Facebook')
+	public function getButton(string $sLabelName = 'Inscription par Facebook') : string
 	{
 		if ($this->_oFacebook->getUser()) {
 
@@ -120,7 +121,7 @@ class Facebook
 	 * @param  array $aScope
 	 * @return \Venus\lib\Facebook
 	 */
-	public function setScope(array $aScope)
+	public function setScope(array $aScope) : Facebook
 	{
 		$this->_aScope = $aScope;
 		return $this;
@@ -130,10 +131,11 @@ class Facebook
 	 * add one scope
 	 *
 	 * @access public
-	 * @param  string $aScope
+	 * @param  string $sScope
 	 * @return \Venus\lib\Facebook
+	 * @throws Exception
 	 */
-	public function addScope($sScope)
+	public function addScope(string $sScope) : Facebook
 	{
 		if (!is_string($sScope)) {
 
@@ -148,10 +150,9 @@ class Facebook
 	 * add one scope
 	 *
 	 * @access public
-	 * @param  string $aScope
 	 * @return object
 	 */
-	public function getUserInfo()
+	public function getUserInfo() : object
 	{
 		$sUser = $this->_oFacebook->getUser();
 		return $this->_oFacebook->api('/'.$sUser);
@@ -163,8 +164,9 @@ class Facebook
 	 * @access public
 	 * @param  string $sName name to call
 	 * @return object
+	 * @throws Exception
 	 */
-	public function getInfo($sName)
+	public function getInfo(string $sName) : object
 	{
 		$sUser = $this->_oFacebook->getUser();
 
@@ -184,8 +186,9 @@ class Facebook
 	 * @access public
 	 * @param  string $sFql fql query
 	 * @return object
+	 * @throws Exception
 	 */
-	public function getInfoByFql($sFql)
+	public function getInfoByFql(string $sFql) : object
 	{
 		$sUser = $this->_oFacebook->getUser();
 
@@ -209,10 +212,15 @@ class Facebook
 	 * publish Wall Post
 	 *
 	 * @access public
-	 * @param  string $sFql fql query
+	 * @param string $sMessage
+	 * @param string $sLink
+	 * @param string $sImg
+	 * @param string $sName
+	 * @param string $sDescription
 	 * @return object
+	 * @throws Exception
 	 */
-	public function publishWallPost($sMessage, $sLink, $sImg, $sName, $sDescription)
+	public function publishWallPost(string $sMessage, string $sLink, string $sImg, string $sName, string $sDescription) : object
 	{
 		$sUser = $this->_oFacebook->getUser();
 
@@ -237,10 +245,15 @@ class Facebook
 	 * publish Wall Post
 	 *
 	 * @access public
-	 * @param  string $sFql fql query
+	 * @param string $sPageId
+	 * @param string $sMessage
+	 * @param string $sLink
+	 * @param string $sImg
+	 * @param string $sDescription
 	 * @return object
+	 * @throws Exception
 	 */
-	public function publishMyWallPost($sPageId, $sMessage, $sLink, $sImg, $sDescription)
+	public function publishMyWallPost(string $sPageId, string $sMessage, string $sLink, string $sImg, string $sDescription) : object
 	{
 		$user = $this->_oFacebook->getUser();
 
@@ -290,9 +303,9 @@ class Facebook
 	 * @access public
 	 * @param  int $iWidth width
 	 * @param  int $iHeight height
-	 * @return object
+	 * @return string
 	 */
-	public function getPicture($iWidth = 50, $iHeight = 50)
+	public function getPicture(int $iWidth = 50, int $iHeight = 50) : string
 	{
 		$oUser = $this->getUserInfo();
 		$sUserName = $oUser['username'];

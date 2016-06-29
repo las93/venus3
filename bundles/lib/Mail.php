@@ -75,8 +75,9 @@ class Mail
 	 *
 	 * @access public private
 	 * @param  string $sRecipient
+	 * @return Mail
 	 */
-	public function addRecipient($sRecipient)
+	public function addRecipient(string $sRecipient) : Mail
 	{
 		$this->_aRecipient[] = $sRecipient;
 		return $this;
@@ -89,8 +90,9 @@ class Mail
 	 * @param  string $sFileName
 	 * @param  string $sContent
 	 * @param  string $sType
+	 * @return bool
 	 */
-	public function attachFile($sFileName, $sContent, $sType)
+	public function attachFile(string $sFileName, string $sContent, string $sType) : bool
 	{
 		$this->_aAttachments[] = array(
 			"name" => $sFileName,
@@ -106,8 +108,9 @@ class Mail
 	 *
 	 * @access public private
 	 * @param  string $sFrom
+	 * @return Mail
 	 */
-	public function setFrom($sFrom)
+	public function setFrom(string $sFrom) : Mail
 	{
 		$this->_sFrom = $sFrom;
 		return $this;
@@ -118,8 +121,9 @@ class Mail
 	 *
 	 * @access public private
 	 * @param  string $sSubject
+	 * @return Mail
 	 */
-	public function setSubject($sSubject)
+	public function setSubject(string $sSubject) : Mail
 	{
 		$this->_sSubject = $sSubject;
 		return $this;
@@ -130,8 +134,9 @@ class Mail
 	 *
 	 * @access public private
 	 * @param  string $sMessage
+	 * @return Mail
 	 */
-	public function setMessage($sMessage)
+	public function setMessage(string $sMessage) : Mail
 	{
 		$this->_sMessage = $sMessage;
 		return $this;
@@ -141,8 +146,9 @@ class Mail
 	 * set the format HTML of mail
 	 *
 	 * @access public private
+	 * @return Mail
 	 */
-	public function setFormatHtml()
+	public function setFormatHtml() : Mail
 	{
 		$this->_sFormat = "HTML";
 		return $this;
@@ -152,8 +158,9 @@ class Mail
 	 * set the format HTML of mail
 	 *
 	 * @access public private
+	 * @return Mail
 	 */
-	public function setFormatText()
+	public function setFormatText() : Mail
 	{
 		$this->_sFormat = "TXT";
 		return $this;
@@ -165,7 +172,7 @@ class Mail
 	 * @access public private
 	 * @return bool
 	 */
-	public function send()
+	public function send() : bool
 	{
 		$sHeaders = 'From: ' . $this->_sFrom . "\r\n";
 

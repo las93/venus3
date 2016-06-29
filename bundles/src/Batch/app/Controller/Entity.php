@@ -46,7 +46,6 @@ class Entity extends Controller
 	 *
 	 * @access public
 	 * @param  array $aOptions options of script
-	 * @param  string $sRewrite rewrite or not the file (no/yes)
 	 * @return void
 	 */
 	public function runScaffolding(array $aOptions = array())

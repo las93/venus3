@@ -83,7 +83,7 @@ class Upload
 	 * @param  string $sFile
 	 * @return bool|object
 	 */
-	public function upload($sFile)
+	public function upload(string $sFile)
 	{
 		if ($_FILES[$sFile]['error'] > 0) {
 
@@ -147,7 +147,7 @@ class Upload
 	 * @param  int $iMaxFile
 	 * @return \Venus\lib\Upload
 	 */
-	public function setMaxSize($iMaxFile)
+	public function setMaxSize(int $iMaxFile) : Upload
 	{
 		$this->_iMaxFile = $iMaxFile;
 		return $this;
@@ -160,7 +160,7 @@ class Upload
 	 * @param  array $aAllowExtension
 	 * @return \Venus\lib\Upload
 	 */
-	public function setAllowExtension(array $aAllowExtension)
+	public function setAllowExtension(array $aAllowExtension) : Upload
 	{
 		$this->_aAllowExtension = $aAllowExtension;
 		return $this;
@@ -170,10 +170,10 @@ class Upload
 	 * set extension of final file
 	 *
 	 * @access public
-	 * @param  array $sExtension
+	 * @param  string $sExtension
 	 * @return \Venus\lib\Upload
 	 */
-	public function setExtension($sExtension)
+	public function setExtension(string $sExtension) : Upload
 	{
 		$this->_sExtension = $sExtension;
 		return $this;
@@ -186,7 +186,7 @@ class Upload
 	 * @param  int $iHeight
 	 * @return \Venus\lib\Upload
 	 */
-	public function setHeight($iHeight)
+	public function setHeight(int $iHeight) : Upload
 	{
 		$this->_iHeight = $iHeight;
 		return $this;
@@ -199,7 +199,7 @@ class Upload
 	 * @param  int $iWidth
 	 * @return \Venus\lib\Upload
 	 */
-	public function setWidth($iWidth)
+	public function setWidth(int $iWidth) : Upload
 	{
 		$this->_iWidth = $iWidth;
 		return $this;
@@ -209,10 +209,10 @@ class Upload
 	 * set name of image
 	 *
 	 * @access public
-	 * @param  tring $sName
+	 * @param  string $sName
 	 * @return \Venus\lib\Upload
 	 */
-	public function setName($sName)
+	public function setName(string $sName) : Upload
 	{
 		$this->_sName = $sName;
 		return $this;

@@ -37,7 +37,7 @@ class Asset
 	 * @param  array $aParams parameters
 	 * @return string
 	 */
-	public function replaceBy($aParams = array()) 
+	public function replaceBy(array $aParams = array()) : string
 	{
 	    $aParams['template'] = trim(str_replace(["'", '"'], "", $aParams['template']));
 	    

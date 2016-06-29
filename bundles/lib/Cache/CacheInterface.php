@@ -39,7 +39,7 @@ interface CacheInterface
 	 * @param  int $iFlag flags
 	 * @param  int $iExpire expiration of cache
 	 */
-	public function set($sName, $mValue, $iFlag, $iExpire);
+	public function set(string $sName, $mValue, int $iFlag, int $iExpire);
 
 	/**
 	 * get a value
@@ -49,7 +49,7 @@ interface CacheInterface
 	 * @param  int $iFlags flags
 	 * @param  int $iTimeout expiration of cache
 	 */
-	public function get($sName, &$iFlags = null, $iTimeout = 0);
+	public function get(string $sName, int &$iFlags = null, int $iTimeout = 0);
 
 	/**
 	 * delete a value
@@ -57,7 +57,7 @@ interface CacheInterface
 	 * @access public
 	 * @param  string $sName name of the session
 	 */
-	public function delete($sName);
+	public function delete(string $sName);
 
 	/**
 	 * flush the cache

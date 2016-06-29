@@ -55,7 +55,7 @@ class Textarea extends Common
 	 * @param  string $sValue value of textarea
 	 * @return \Venus\lib\Form\Textarea
 	 */
-	public function __construct($sName, $sLabel = null, $sValue = null)
+	public function __construct(string $sName, string $sLabel = null, string $sValue = null)
 	{
 		$this->setName($sName);
 		$this->setValue($sValue);
@@ -70,7 +70,7 @@ class Textarea extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getValue()
+	public function getValue() : string
 	{
 		return $this->_sValue;
 	}
@@ -82,7 +82,7 @@ class Textarea extends Common
 	 * @param  string $sValue Value of input;
 	 * @return \Venus\lib\Form\Textarea
 	 */
-	public function setValue($sValue)
+	public function setValue(string $sValue) : Textarea
 	{
 		$this->_sValue = $sValue;
 		return $this;
@@ -94,7 +94,7 @@ class Textarea extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getLabel()
+	public function getLabel() : string
 	{
 		return $this->_sLabel;
 	}
@@ -106,7 +106,7 @@ class Textarea extends Common
 	 * @param  string $sLabel Label of input;
 	 * @return \Venus\lib\Form\Textarea
 	 */
-	public function setLabel($sLabel)
+	public function setLabel(string $sLabel) : Textarea
 	{
 		$this->_sLabel = $sLabel;
 		return $this;
@@ -119,7 +119,7 @@ class Textarea extends Common
 	 * @param  string $sType type of input;
 	 * @return bool
 	 */
-	public function isClicked($sType)
+	public function isClicked(string $sType) : bool
 	{
 		if ($this->getType() === 'submit' || $this->getType() === 'button') {
 
@@ -135,7 +135,7 @@ class Textarea extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function fetch()
+	public function fetch() : string
 	{
 		$sContent = '';
 

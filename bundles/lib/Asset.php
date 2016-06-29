@@ -30,18 +30,18 @@ namespace Venus\lib;
  * 				$oAsset->stylesheets(array('css/style.css'));
  */
 class Asset
-{	
+{
 	/**
 	 * get URL of your javascripts
-	 * 
+	 *
 	 * @access public
-	 * @param  array $aJavascript [many can be passed]
 	 * @return array
+	 * @internal param array $aJavascript [many can be passed]
 	 */
-	public function javascripts() {
+	public function javascripts() : array {
 	    
 	    $sDefaultPath = 'http://'.$_SERVER['HTTP_HOST'].'/getJs?';
-	    $aJavascript= func_get_args();
+	    $aJavascript = func_get_args();
 	    $aReturns = array();
 	    
 	    foreach($aJavascript as $aJsCombination) {
@@ -68,15 +68,15 @@ class Asset
 	 * get URL of your javascripts
 	 * 
 	 * @access public
-	 * @param  array $aJavascript [many can be passed]
 	 * @return array
+	 * @internal param array $aCss [many can be passed]
 	 * 
 	 * @tutoriel 
 	 */
-	public function stylesheets() {
+	public function stylesheets() : array {
 	    
 	    $sDefaultPath = 'http://'.$_SERVER['HTTP_HOST'].'/getCss?';
-	    $aCss= func_get_args();
+	    $aCss = func_get_args();
 	    $aReturns = array();
 	    
 	    foreach($aCss as $aCssCombination) {

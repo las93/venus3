@@ -102,7 +102,7 @@ class Container
 	 * @param  string $sView Display of form;
 	 * @return \Venus\lib\Form\Container
 	 */
-	public function setView($sView)
+	public function setView(string $sView) : Container
 	{
 		$this->_sView = $sView;
 		return $this;
@@ -115,7 +115,7 @@ class Container
 	 * @param  array $aRequest request like $_POST
 	 * @return bool
 	 */
-	public function handleRequest($aRequest)
+	public function handleRequest(array $aRequest) : bool
 	{
 	    if (!count($_POST)) { return true; }
 	    
@@ -158,7 +158,7 @@ class Container
 		        call_user_func_array(array(&$oEntity, $sMethodName), array($aRequest[$sValue->getName()]));
 		    }
 		
-		    $this->_oForm->_iIdEntityCreated = $oEntity->save();
+		    $this->_oForm->setIdEntityCreated($oEntity->save());
 		}
 		
 		$this->_bHandleRequestActivate = true;
@@ -173,7 +173,7 @@ class Container
 	 * @param  Form $oForm request like $_POST
 	 * @return \Venus\lib\Form\Container
 	 */
-	public function setForm(Form $oForm)
+	public function setForm(Form $oForm) : Container
 	{
 		$this->_oForm = $oForm;
 		return $this;
@@ -185,7 +185,7 @@ class Container
 	 * @access public
 	 * @return boolean
 	 */
-	public function isValid()
+	public function isValid() : bool
 	{
 		if ($this->_bHandleRequestActivate === true) { return true; }
 		else { return false; }
@@ -197,9 +197,9 @@ class Container
 	 * @access public
 	 * @return boolean
 	 */
-	public function isSubmitted()
+	public function isSubmitted() : bool
 	{
-	    if (isset($_POST['validform'.$this->_oForm->_iFormNumber]) && $_POST['validform'.$this->_oForm->_iFormNumber] == 1) { 
+	    if (isset($_POST['validform'.$this->_oForm->getFormNumber()]) && $_POST['validform'.$this->_oForm->getFormNumber()] == 1) {
 	        
 	        return true;
 	    }
@@ -216,7 +216,7 @@ class Container
 	 * @param  string $sElementName element name what we want test the click
 	 * @return boolean
 	 */
-	public function isClicked($sElementName)
+	public function isClicked(string $sElementName) : bool
 	{
 	    if (isset($_POST[$sElementName]) && $_POST[$sElementName]) { return true; }
 		else { return false; }
@@ -229,7 +229,7 @@ class Container
 	 * @param  object $oElement element of formular
 	 * @return boolean
 	 */
-	private function _validate($oElement)
+	private function _validate($oElement) : bool
 	{
 	    foreach ($oElement->getConstraint() as $oConstraint) {
 	        

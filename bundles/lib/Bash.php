@@ -103,7 +103,7 @@ class Bash
 	 * @param  string $sStyleName the name of the style
 	 * @return string
 	 */
-	public static function setDecoration($sContent, $sStyleName)
+	public static function setDecoration(string $sContent, string $sStyleName) : string
 	{
 		return self::_applyCode($sContent, self::$_aBackgroundCodes[$sStyleName]);
 	}
@@ -116,7 +116,7 @@ class Bash
 	 * @param  string $sColorName the name of the color
 	 * @return string
 	 */
-	public static function setBackground($sContent, $sColorName)
+	public static function setBackground(string $sContent, string $sColorName) : string
 	{
 		if (!isset(self::$_aBackgroundCodes[$sColorName])) { $sColorName = 'black'; }
 
@@ -131,7 +131,7 @@ class Bash
 	 * @param  string $sColorName the name of the color
 	 * @return string
 	 */
-	public static function setColor($sContent, $sColorName)
+	public static function setColor(string $sContent, string $sColorName) : string
 	{
 		if (!isset(self::$_aBackgroundCodes[$sColorName])) { $sColorName = 'white'; }
 
@@ -146,8 +146,8 @@ class Bash
 	 * @param  string $sCode the name of the code (color or decoration)
 	 * @var    string
 	 */
-	private static function _applyCode($sContent, $sCode)
+	private static function _applyCode(string $sContent, string $sCode) : string
 	{
-		return "\033[" . $sCode . "m" . $sContent . "\033[0m";
+		return "\033[" . $sCode . "m" . $sContent . "\033[0m\n";
 	}
 }

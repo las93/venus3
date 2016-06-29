@@ -75,9 +75,9 @@ class Ldap
 	 * Get groups
 	 *
 	 * @access public
-	 * @return \Venus\lib\Ldap
+	 * @return array
 	 */
-    public function getGroups()
+    public function getGroups() : array
     {
         $rSearch = ldap_search( $this->_rConnect , $this->_sBase , "objectclass=group" , array("cn") );
         $aEntries = ldap_get_entries($this->_rConnect, $rSearch);
@@ -99,7 +99,7 @@ class Ldap
      * @param  string $sPassword
      * @return \Venus\lib\Ldap
      */
-	public function bind($sUser, $sPassword)
+	public function bind($sUser, $sPassword) : Ldap
 	{
 		return $this->_bConnected = ldap_bind($this->_rConnect, $sUser, $sPassword);
 		return $this;
@@ -109,9 +109,9 @@ class Ldap
 	 * Close authentification in Ldap
 	 *
 	 * @access public
-	 * @return \Venus\lib\Ldap
+	 * @return bool
 	 */
-	public function unbind()
+	public function unbind() : bool
 	{
 	    if ($this->_bConnected) { return $this->_bConnected = ldap_unbind($this->_rConnect); }
 	    else { return true; }
@@ -137,7 +137,7 @@ class Ldap
 	 * @param  array $aArgv
 	 * @return void
 	 */
-	public function __call($sFunctionName, $aArgv)
+	public function __call(string $sFunctionName, array $aArgv)
 	{
 		array_unshift($argv, $this->_rConnect);
 		return call_user_func_array('ldap_'.$sFunctionName, $aArgv);
@@ -151,7 +151,7 @@ class Ldap
 	 * @param  array $aAttributes
 	 * @return array
 	 */
-	public function get($sFilter, $aAttributes)
+	public function get(string $sFilter, array $aAttributes)
 	{
 		$res = $this->search($sFilter, $aAttributes);
 
@@ -166,7 +166,7 @@ class Ldap
 	 * @param  array $aAttributes
 	 * @return resource
 	 */
-	public function search($sFilter, $aAttributes)
+	public function search(string $sFilter, array $aAttributes)
 	{
 		return ldap_search($this->_rConnect, $this->_sBase, $sFilter, $aAttributes);
 	}
@@ -179,7 +179,7 @@ class Ldap
 	 * @param  array $aAttributes
 	 * @return array
 	 */
-	public function get_entries($rResultIdentifier, $aAttributes)
+	public function get_entries(resource $rResultIdentifier, array $aAttributes) : array
 	{
 		$aEntries = ldap_get_entries($this->_rConnect, $rResultIdentifier);
 

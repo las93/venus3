@@ -60,7 +60,7 @@ class Entity
     
 	/**
 	 * run the batch to create entity
-	 * @tutorial launch.php scaffolding
+	 * @tutorial bin/console scaffolding
 	 *
 	 * @access public
 	 * @param  array $aOptions options of script

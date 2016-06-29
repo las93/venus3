@@ -72,7 +72,7 @@ class Radio extends Common
 	 * @param  string $sValueChecked value checked of radio
 	 * @return \Venus\lib\Form\Input
 	 */
-	public function __construct($sName, $sLabel, $sValue, $sValueChecked = null)
+	public function __construct(string $sName, string $sLabel, string $sValue, string $sValueChecked = null)
 	{
 		$this->setName($sName);
 		$this->setValue($sValue);
@@ -86,7 +86,7 @@ class Radio extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getValue()
+	public function getValue() : string
 	{
 		return $this->_sValue;
 	}
@@ -98,7 +98,7 @@ class Radio extends Common
 	 * @param  string $sValue Value of input;
 	 * @return \Venus\lib\Form\Input
 	 */
-	public function setValue($sValue)
+	public function setValue(string $sValue) : Input
 	{
 		$this->_sValue = $sValue;
 		return $this;
@@ -110,7 +110,7 @@ class Radio extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getValueChecked()
+	public function getValueChecked() : string
 	{
 		return $this->_sValueChecked;
 	}
@@ -122,7 +122,7 @@ class Radio extends Common
 	 * @param  string $sValueChecked Value of input;
 	 * @return \Venus\lib\Form\Input
 	 */
-	public function setValueChecked($sValueChecked)
+	public function setValueChecked(string $sValueChecked) : Input
 	{
 		$this->_sValueChecked = $sValueChecked;
 		return $this;
@@ -134,7 +134,7 @@ class Radio extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function getLabel()
+	public function getLabel() : string
 	{
 		return $this->_sLabel;
 	}
@@ -146,7 +146,7 @@ class Radio extends Common
 	 * @param  string $sLabel Label of input;
 	 * @return \Venus\lib\Form\Input
 	 */
-	public function setLabel($sLabel)
+	public function setLabel(string $sLabel) : Input
 	{
 		$this->_sLabel = $sLabel;
 		return $this;
@@ -159,7 +159,7 @@ class Radio extends Common
 	 * @param  string $sType type of input;
 	 * @return bool
 	 */
-	public function isClicked($sType)
+	public function isClicked(string $sType) : bool
 	{
 		if ($this->getType() === 'submit' || $this->getType() === 'button') {
 
@@ -175,7 +175,7 @@ class Radio extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function fetch()
+	public function fetch() : strings
 	{
 		$sContent = '<input type="radio" name="'.$this->getName().'" value="'.$this->getValue().'"';
 		

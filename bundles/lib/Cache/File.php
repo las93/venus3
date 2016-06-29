@@ -59,7 +59,7 @@ class File implements CacheInterface
 	 * @param  int $iExpire expiration of cache
 	 * @return \Venus\lib\Cache\File
 	 */
-	public function set($sName, $mValue, $iFlag, $iExpire)
+	public function set(string $sName, $mValue, int $iFlag, int $iExpire)
 	{
 		file_put_contents($this->_sFolder.$this->_getSubDirectory($sName).md5($sName).'.fil.cac', serialize($mValue));
 		return $this;
@@ -74,7 +74,7 @@ class File implements CacheInterface
 	 * @param  int $iTimeout expiration of cache
 	 * @return mixed
 	 */
-	public function get($sName, &$iFlags = null, $iTimeout = 0)
+	public function get(string $sName, int &$iFlags = null, int $iTimeout = 0)
 	{
 		if ($iTimeout > 0 && file_exists($this->_sFolder.$this->_getSubDirectory($sName).md5($sName).'.fil.cac')
 			&& time() - filemtime($this->_sFolder.$this->_getSubDirectory($sName).md5($sName).'.fil.cac') > $iTimeout) {
@@ -99,7 +99,7 @@ class File implements CacheInterface
 	 * @param  string $sName name of the session
 	 * @return mixed
 	 */
-	public function delete($sName)
+	public function delete(string $sName)
 	{
 		return unlink($this->_sFolder.$this->_getSubDirectory($sName).md5($sName).'.fil.cac');
 	}

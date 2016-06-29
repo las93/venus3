@@ -52,7 +52,7 @@ class Vendor
 	 * @return bool|object
 	 */
 
-	public static function getVendor($sVendorName, $mParam = null, $mParam2 = null)
+	public static function getVendor(string $sVendorName, $mParam = null, $mParam2 = null)
 	{
 	    if ($sVendorName === 'Apollina\Template') { 
 

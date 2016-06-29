@@ -33,17 +33,18 @@ class Image
 	 * @var string
 	 */	
 	private $_sLanguage = LANGUAGE;
-	
-	/**
-	 * set the language if you don't want take the default language of the configuration file
-	 * 
-	 * @access public
-	 * @param  int $iIdProductImg
-	 * @param  int $iWidth
-	 * @param  int $iHeight
-	 * @return void
-	 */
-	public static function showImageInSize($iImageUri, $iWidth, $iHeight, $bKeepDimension = false)
+
+    /**
+     * set the language if you don't want take the default language of the configuration file
+     *
+     * @access public
+     * @param int $iImageUri
+     * @param  int $iWidth
+     * @param  int $iHeight
+     * @param bool $bKeepDimension
+     * @return void
+     */
+	public static function showImageInSize(int $iImageUri, int $iWidth, int $iHeight, bool $bKeepDimension = false)
 	{	
 	    $aSize = getimagesize($iImageUri);
 	    $rActualImage = imagecreatefromjpeg($iImageUri);
