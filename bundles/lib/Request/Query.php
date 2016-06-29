@@ -7,7 +7,7 @@
  */
 namespace \Venus\lib\Request;
 
-class Query
+class Query implements RequestInterface
 {
     /**
      * get parameter

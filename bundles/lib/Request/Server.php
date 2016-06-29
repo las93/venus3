@@ -7,7 +7,7 @@
  */
 namespace \Venus\lib\Request;
 
-class Server
+class Server implements RequestInterface
 {
     /**
      * get parameter

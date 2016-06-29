@@ -7,7 +7,7 @@
  */
 namespace \Venus\lib\Request;
 
-class Headers
+class Headers implements RequestInterface
 {
     /**
      * get parameter

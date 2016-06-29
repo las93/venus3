@@ -7,7 +7,7 @@
  */
 namespace \Venus\lib\Request;
 
-class Cookies
+class Cookies implements RequestInterface
 {
     /**
      * get parameter

@@ -7,7 +7,7 @@
  */
 namespace \Venus\lib\Request;
 
-class Files
+class Files implements RequestInterface
 {
     /**
      * get parameter
