@@ -1,0 +1,22 @@
+{
+  "name": "las93/venus3",
+  "license": "MIT",
+  "version": "1.0.0-alpha2",
+  "type": "Framework",
+  "description": "Framework in PHP",
+  "keywords": ["orm"],
+  "homepage": "https://github.com/las93/venus3",
+  "authors": [
+    {
+      "name": "Paquet Judicaël",
+      "email": "judicael.paquet@gmail.com",
+      "role": "CIO"
+    }
+  ],
+  "autoload": {
+    "psr-4": { "Attila\\": "Attila/" }
+  },
+  "require": {
+    "php": ">=5.3.0"
+  }
+}
