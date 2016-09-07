@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1af71921-1439-4d46-b9b4-968c032a7f32" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/test" afterPath="$PROJECT_DIR$/bin/test" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
     </list>
     <ignored path="venus3.iws" />
@@ -119,6 +120,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="test" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/test">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -174,7 +185,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/bundles/lib/Debug.php" />
         <option value="$PROJECT_DIR$/phpunit.xml.dist" />
-        <option value="$PROJECT_DIR$/bin/test" />
         <option value="$PROJECT_DIR$/bundles/conf/Const.conf" />
         <option value="$PROJECT_DIR$/bundles/lib/Vendor.php" />
         <option value="$PROJECT_DIR$/bundles/conf/Route.conf" />
@@ -183,6 +193,7 @@
         <option value="$PROJECT_DIR$/bundles/src/Demo/app/Controller/Exemple1.php" />
         <option value="$PROJECT_DIR$/bundles/tests/Demo/app/Controller/Exemple1.php" />
         <option value="$PROJECT_DIR$/bundles/src/Batch/app/Controller/Phpunit.php" />
+        <option value="$PROJECT_DIR$/bin/test" />
         <option value="$PROJECT_DIR$/composer.json" />
       </list>
     </option>
@@ -244,6 +255,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="venus3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="venus3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="venus3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -366,7 +391,7 @@
       <workItem from="1467982754982" duration="262000" />
       <workItem from="1467989327621" duration="6000" />
       <workItem from="1473244260921" duration="13832000" />
-      <workItem from="1473269251125" duration="7090000" />
+      <workItem from="1473269251125" duration="7701000" />
     </task>
     <task id="LOCAL-00001" summary="Adapt framework to PHP 7 (part 0.1)">
       <created>1467115390079</created>
@@ -431,11 +456,25 @@
       <option name="project" value="LOCAL" />
       <updated>1473282458218</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="change composer">
+      <created>1473282524561</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1473282524561</updated>
+    </task>
+    <task id="LOCAL-00011" summary="change composer - bug fixed">
+      <created>1473282826412</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1473282826412</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74651000" />
+    <option name="totallyTimeSpent" value="75262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="696" extended-state="6" />
@@ -499,7 +538,9 @@
     <MESSAGE value="Add the composer.json for the packagist" />
     <MESSAGE value="Redo the vendor part to automatise it" />
     <MESSAGE value="Add unit test =&gt; launch with &quot;php unit&quot;&#10;-&gt; for travis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add unit test =&gt; launch with &quot;php unit&quot;&#10;-&gt; for travis" />
+    <MESSAGE value="change composer" />
+    <MESSAGE value="change composer - bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="change composer - bug fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -708,14 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/test">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bundles/conf/Const.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -822,14 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/conf/AutoLoad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="39" column="94" selection-start-line="39" selection-start-column="94" selection-end-line="39" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bundles/src/Demo/app/Controller/Exemple1.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -853,6 +878,22 @@
           <folding>
             <element signature="e#46#74#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/conf/AutoLoad.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="39" column="94" selection-start-line="39" selection-start-column="94" selection-end-line="39" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
