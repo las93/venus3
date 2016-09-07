@@ -55,7 +55,7 @@ class Exemple1 extends Controller {
 
 	public function show() {
 
-		$aExemple = $this->model->get();
+		//$aExemple = $this->model->get();
 
 		$this->view
 			 ->assign('Exemple', $aExemple)

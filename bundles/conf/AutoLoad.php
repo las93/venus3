@@ -16,6 +16,7 @@
  */
 spl_autoload_register(function (string $sClassName)
 {
+
     $sClassName = ltrim($sClassName, '\\');
     $sFileName  = '';
     $sNamespace = '';
@@ -35,7 +36,10 @@ spl_autoload_register(function (string $sClassName)
     if (defined('PORTAL')) {
 
         $sFileClassName = str_replace(PORTAL, PORTAL.DIRECTORY_SEPARATOR.'app', str_replace(['\\', '/'], DIRECTORY_SEPARATOR, str_replace('conf', DIRECTORY_SEPARATOR, __DIR__).str_replace('Venus\\', '', $sFileName)));
-        $sFileClassName = str_replace('app/bundles//', 'bundles/', $sFileClassName);
+        $sFileClassName = preg_replace('/(tests\\\\[^\\\\]+\\\\)/', '$1app\\', $sFileClassName);
+        $sFileClassName = preg_replace('/(src\\\\[^\\\\]+\\\\)/', '$1app\\', $sFileClassName);
+        $sFileClassName = str_replace('\\\\', '\\', $sFileClassName);
+        $sFileClassName = str_replace('app\\app', 'app', $sFileClassName);
 
         if (strstr($sFileName, 'Venus\\') && file_exists($sFileClassName)) {
 
@@ -43,11 +47,11 @@ spl_autoload_register(function (string $sClassName)
         }
     }
     else {
-        
+
         if (strstr($sFileName, 'Venus\\') && file_exists(preg_replace('#^(src/[a-zA-Z0-9_]+/)#', '$1app/', str_replace(['\\', '/'], '/', str_replace('conf', '', __DIR__).str_replace('Venus\\', '', $sFileName))))) {
         
             require preg_replace('#^(src/[a-zA-Z0-9_]+/)#', '$1app/', str_replace(['\\', '/'], '/', str_replace('conf', '', __DIR__).str_replace('Venus\\', '', $sFileName)));
-        } 
+        }
     }
 });
 
@@ -55,9 +59,9 @@ spl_autoload_register(function (string $sClassName)
  * Load the composer autoload
  */
 
-if (file_exists(str_replace('bundle/conf', '', __DIR__).'vendor/autoload.php')) {
-    
-    include str_replace('bundle/conf', '', __DIR__).'vendor/autoload.php';
+if (file_exists(preg_replace('#bundles[/\\\\]conf#', '', __DIR__).'vendor/autoload.php')) {
+
+    include preg_replace('#bundles[/\\\\]conf#', '', __DIR__).'vendor/autoload.php';
 }
 
 /**

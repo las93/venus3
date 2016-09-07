@@ -227,14 +227,23 @@ class Router implements LoggerAwareInterface
 //				}
 			}
 		}
-		else if (Request::isCliRequest()) {
+        else if (Request::isCliRequest()) {
 
 			if (isset($_SERVER['argv'])) { $aArguments = $_SERVER['argv']; }
 			else { $aArguments = $argv; }
 
 			define('PORTAL', 'Batch');
 			set_include_path(get_include_path().PATH_SEPARATOR.'src'.PATH_SEPARATOR.PORTAL.PATH_SEPARATOR.'public');
-			$sBatchName = $aArguments[1];
+
+            if (!isset($aArguments[1]) && strstr($aArguments[0], '/phpunit')) {
+
+                $sBatchName = "phpunit";
+                $aArguments[0] = "bin/console";
+                $aArguments[1] = "phpunit";
+            }
+            else {
+                $sBatchName = $aArguments[1];
+            }
 
 			if (isset(Config::get('Route')->batch->script->{$sBatchName})) {
 

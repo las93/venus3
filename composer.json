@@ -1,7 +1,7 @@
 {
   "name": "las93/venus3",
   "license": "MIT",
-  "version": "0.0.2-alpha",
+  "version": "3.0.2-alpha",
   "type": "Framework",
   "description": "Framework in PHP",
   "keywords": ["Framework", "php"],
@@ -14,11 +14,11 @@
     }
   ],
   "autoload": {
-    "psr-4": { "Attila\\": "Attila/" }
+    "psr-4": { "Venus\\": "Venus/" }
   },
   "require": {
     "php": ">=7.0.0",
-    "las93/apollina": "*",
+    "las93/apollina": "3.0.2-alpha",
     "las93/attila": "*",
     "mobiledetect/mobiledetectlib": "*"
   },

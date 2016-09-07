@@ -46,16 +46,22 @@ class Exemple1 extends \PHPUnit_Framework_TestCase
     {
 	    try {
             ob_start();
-            $objectToTest = new BaseExemple1;
+            $exemple1 = new BaseExemple1;
+            $exemple1->show();
             $content = ob_get_clean();
 
             if ($content) {
 
                 $this->assertTrue(true);
             }
+            else {
+                $this->assertTrue(false);
+            }
         }
-        catch(\Exception $e) {;}
+        catch(\Exception $e) {
+            $this->assertTrue(false);
+        }
 
-        $this->assertTrue(false);
+
 	}
 }

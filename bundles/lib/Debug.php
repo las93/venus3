@@ -411,7 +411,9 @@ class Debug extends AbstractLogger
     	}
     	else {
 
-      		error_log(Bash::setColor('############### '.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].' ###############', 'cyan'));
+    	    if (isset($_SERVER['HTTP_HOST']) && isset($_SERVER['REQUEST_URI'])) {
+                error_log(Bash::setColor('############### ' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . ' ###############', 'cyan'));
+            }
     	}
   	}
 
