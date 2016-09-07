@@ -76,6 +76,6 @@ if (isset($oConfig) && isset($oConfig->autoload)) {
     
     foreach ($oAutoloadConf as $sFile) {
     
-        require $sFile;
+        require __DIR__.'/../../'.$sFile;
     }
 }
