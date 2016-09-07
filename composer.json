@@ -1,10 +1,10 @@
 {
   "name": "las93/venus3",
   "license": "MIT",
-  "version": "1.0.0-alpha2",
+  "version": "v0.0.1-alpha",
   "type": "Framework",
   "description": "Framework in PHP",
-  "keywords": ["orm"],
+  "keywords": ["Framework", "php"],
   "homepage": "https://github.com/las93/venus3",
   "authors": [
     {
@@ -17,6 +17,6 @@
     "psr-4": { "Attila\\": "Attila/" }
   },
   "require": {
-    "php": ">=5.3.0"
+    "php": ">=7.0.0"
   }
 }
