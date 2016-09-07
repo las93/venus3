@@ -55,9 +55,9 @@ spl_autoload_register(function (string $sClassName)
  * Load the composer autoload
  */
 
-if (file_exists(str_replace('conf', '', __DIR__).'ext/vendor/autoload.php')) {
+if (file_exists(str_replace('bundle/conf', '', __DIR__).'vendor/autoload.php')) {
     
-    include str_replace('conf', '', __DIR__).'ext/vendor/autoload.php';
+    include str_replace('bundle/conf', '', __DIR__).'vendor/autoload.php';
 }
 
 /**

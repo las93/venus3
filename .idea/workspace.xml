@@ -4,9 +4,141 @@
     <bookmark url="file://$PROJECT_DIR$/bin/console" description="#!/usr/bin/env php&#10;&lt;?php" line="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1af71921-1439-4d46-b9b4-968c032a7f32" name="Default" comment="test travis and packagist">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.json" />
+    <list default="true" id="1af71921-1439-4d46-b9b4-968c032a7f32" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/tests/Demo/app/Controller/Exemple1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit.xml.dist" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/composer.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/autoload.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/composer/ClassLoader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/composer/autoload_classmap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/composer/autoload_namespaces.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/composer/autoload_psr4.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/composer/autoload_real.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/composer/installed.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/facebook/base_facebook.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/facebook/facebook.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/facebook/fb_ca_chain_bundle.crt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/AutoLoad.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/I18n.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/I18n/Gettext.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/I18n/I18nInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/I18n/Mock.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/I18n/Translator.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/Append.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/Assign.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/ConfigLoad.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/Cycle.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/Gettext.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/HtmlOptions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/HtmlSelectDate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/Mailto.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/Section.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/ToForeach.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/ToInclude.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Functions/Url.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Capitalize.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Cat.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/CountCharacters.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/CountParagraphs.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/CountSentences.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/CountWords.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/DateFormat.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Escape.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/FromCharset.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Hour.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Indent.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Lower.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Nl2br.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/RegexReplace.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Replace.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Spacify.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/StringDefault.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/StringFormat.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Strip.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/StripTag.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/ToCharset.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Truncate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Unescape.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Upper.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina/Template/Modifiers/Wordwrap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/Apollina_tutoriel.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/LICENSE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/apollina/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/AutoLoad.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/Batch/Entity.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/Const.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/Db.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/Entity/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/Model/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/Orm.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/Orm/Where.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/core/Entity.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/core/Model.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/core/Mother.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/lib/Db.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/lib/Db/Container.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila/lib/Entity.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/Attila_tutoriel.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/LICENSE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/RELEASE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/las93/attila/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/.php_cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/Mobile_Detect.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/Mobile_Detect.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/examples/demo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/examples/session_example.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/export/exportToJSON.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/BasicsTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/UA_List.inc.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/UA_List.pending.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/UserAgentTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/VendorsTest_tmp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/bootstrap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/phpunit.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Acer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Alcatel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Allview.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Amazon.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Apple.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Archos.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Asus.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Blackberry.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Dell.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Google.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/HP.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/HTC.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Huawei.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/LG.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Lava.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Lenovo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Mi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Microsoft.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Motorola.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Nokia.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Others.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Samsung.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Sony.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/SpecialCases.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/providers/vendors/Vodafone.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/tests/ualist.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/venus" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/conf/AutoLoad.php" afterPath="$PROJECT_DIR$/bundles/conf/AutoLoad.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
     </list>
     <ignored path="venus3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,16 +159,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Router.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/core/Router.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5882">
-              <caret line="368" column="19" selection-start-line="368" selection-start-column="19" selection-end-line="368" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Response.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bundles/lib/Response.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -52,50 +174,61 @@
       <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="06_withdrawal_example.php" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_Marketplace Started Kit PHP sample.zip/06_withdrawal_example.php">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="27" column="2" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
+              <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="01_createfulluseraccount_example.php" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_Marketplace Started Kit PHP sample.zip/01_createfulluseraccount_example.php">
+      <file leaf-file-name="AutoLoad.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bundles/conf/AutoLoad.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+            <state relative-caret-position="379">
+              <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/console">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="153">
+              <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Exemple1.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bundles/src/Demo/app/Controller/Exemple1.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Exemple1.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bundles/tests/Demo/app/Controller/Exemple1.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
               <folding>
-                <element signature="e#26#511#0#PHP" expanded="false" />
+                <element signature="e#7#489#0#PHP" expanded="true" />
+                <element signature="e#531#586#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/src/Batch/app/Controller/Server.php">
+      <file leaf-file-name="phpunit.xml.dist" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+            <state relative-caret-position="136">
+              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -114,18 +247,8 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Request.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/lib/Request.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3553">
-              <caret line="226" column="7" selection-start-line="226" selection-start-column="7" selection-end-line="226" selection-end-column="7" />
+            <state relative-caret-position="34">
+              <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -145,11 +268,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bundles/lib/Date.php" />
-        <option value="$PROJECT_DIR$/bundles/lib/Debug.php" />
-        <option value="$PROJECT_DIR$/bundles/lib/Di.php" />
-        <option value="$PROJECT_DIR$/bundles/lib/Facebook.php" />
-        <option value="$PROJECT_DIR$/bundles/lib/Http.php" />
         <option value="$PROJECT_DIR$/bundles/lib/I18n.php" />
         <option value="$PROJECT_DIR$/bundles/lib/Image.php" />
         <option value="$PROJECT_DIR$/bundles/lib/Ldap.php" />
@@ -193,8 +311,13 @@
         <option value="$PROJECT_DIR$/bundles/lib/Response.php" />
         <option value="$PROJECT_DIR$/venus" />
         <option value="$USER_HOME$/AppData/Local/Temp/Temp1_Marketplace Started Kit PHP sample.zip/01_createfulluseraccount_example.php" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/phpunit.xml.dist" />
+        <option value="$PROJECT_DIR$/bundles/tests/Batch/app/Controller/Exemple1.php" />
+        <option value="$PROJECT_DIR$/bundles/tests/Demo/app/Controller/Exemple1.php" />
+        <option value="$PROJECT_DIR$/bundles/conf/AutoLoad.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/composer.json" />
       </list>
     </option>
@@ -270,120 +393,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="venus3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="venus3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Batch" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="venus3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="venus3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Batch" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="venus3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="venus3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="venus3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="venus3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ext" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="venus3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="venus3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ext" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -398,7 +407,21 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="venus3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="venus3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -431,6 +454,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\las\PhpstormProjects\venus3" />
+      <recent name="C:\Users\las\PhpstormProjects\venus3\bundles\tests\Batch\app\Controller" />
       <recent name="C:\Users\las\PhpstormProjects\venus3\bundles\lib\Request" />
     </key>
   </component>
@@ -515,7 +540,7 @@
       <workItem from="1467904598721" duration="2082000" />
       <workItem from="1467982754982" duration="262000" />
       <workItem from="1467989327621" duration="6000" />
-      <workItem from="1473244260921" duration="1962000" />
+      <workItem from="1473244260921" duration="9297000" />
     </task>
     <task id="LOCAL-00001" summary="Adapt framework to PHP 7 (part 0.1)">
       <created>1467115390079</created>
@@ -552,22 +577,36 @@
       <option name="project" value="LOCAL" />
       <updated>1473244766425</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add the composer.json for the packagist">
+      <created>1473251503126</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1473251503126</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add the composer.json for the packagist">
+      <created>1473251976825</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1473251976825</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55691000" />
+    <option name="totallyTimeSpent" value="63026000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25104168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15104167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22760417" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08802083" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -598,62 +637,14 @@
     <MESSAGE value="New Request library" />
     <MESSAGE value="test travis" />
     <MESSAGE value="test travis and packagist" />
-    <option name="LAST_COMMIT_MESSAGE" value="test travis and packagist" />
+    <MESSAGE value="Add the composer.json for the packagist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add the composer.json for the packagist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bundles/src/Batch/app/common/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-239">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/src/Demo/app/Controller/Exemple1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-614">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/src/Batch/app/common/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/lib/Upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1900">
-          <caret line="87" column="12" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/lib/Cookie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="64" column="34" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/core/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-295">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/lib/Response/Json.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bundles/launch.php" />
     <entry file="file://$PROJECT_DIR$/bundles/src/Batch/app/Controller/Config.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -697,21 +688,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/src/Demo/app/common/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-483">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/wamp64/bin/apache/apache2.4.17/conf/httpd.conf" />
-    <entry file="file://$PROJECT_DIR$/bundles/conf/AutoLoad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/wamp64/bin/apache/apache2.4.17/conf/extra/httpd-vhosts.conf" />
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -895,7 +872,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="e#46#74#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -903,22 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="452">
           <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -944,10 +907,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/src/Batch/app/common/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/src/Demo/app/common/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/src/Demo/app/Controller/Exemple1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/tests/Demo/app/Controller/Exemple1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="e#7#489#0#PHP" expanded="true" />
+            <element signature="e#531#586#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venus">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/conf/AutoLoad.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/ext/vendor/mobiledetect/mobiledetectlib/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="459">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
           <folding />
         </state>
       </provider>

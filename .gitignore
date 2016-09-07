@@ -1,3 +1,10 @@
 /.buildpath
 /.project
 /.settings
+/build/
+/phpunit.xml
+.idea
+/vendor/
+/data/cache/*
+/data/log/*
+/data/upload/*
