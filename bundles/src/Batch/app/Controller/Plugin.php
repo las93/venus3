@@ -14,7 +14,7 @@
  * @since     	2.0.0
  *
  * @tutorial    You could launch this Batch in /bundles/
- * 				php launch.php scaffolding -p [portal]
+ * 				php bin/console scaffolding -p [portal]
  * 				-p [portal] => it's the name where you want add your entities and models
  * 				-r [rewrite] => if we force rewrite file
  * 					by default, it's Batch
@@ -40,7 +40,7 @@ class Plugin extends Controller
 {
 	/**
 	 * run the batch to install plugin
-	 * @tutorial launch.php plugin
+	 * @tutorial bin/console plugin
 	 *
 	 * @access public
 	 * @return void
@@ -65,7 +65,7 @@ class Plugin extends Controller
 
 	/**
 	 * run the batch to create plugin
-	 * @tutorial launch.php plugin
+	 * @tutorial bin/console plugin
 	 *
 	 * @access public
 	 * @param array $aOptions

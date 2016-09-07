@@ -371,7 +371,13 @@ class Template
 
 		ob_start();
 
-        $iFileModificationTime = filemtime(self::$_sBasePath.$this->_sTemplateName);
+		if (file_exists(self::$_sBasePath . $this->_sTemplateName)) {
+
+			$iFileModificationTime = filemtime(self::$_sBasePath . $this->_sTemplateName);
+		}
+		else {
+			//faire une erreur
+		}
 
 		if (file_exists(self::$_sCachePath.$this->_getEncodeTemplateName($this->_sTemplateName).'.cac.php')) {
 

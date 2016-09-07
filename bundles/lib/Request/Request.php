@@ -5,7 +5,7 @@
  * Date: 28/06/2016
  * Time: 22:22
  */
-namespace \Venus\lib\Request;
+namespace Venus\lib\Request;
 
 class Request implements RequestInterface
 {

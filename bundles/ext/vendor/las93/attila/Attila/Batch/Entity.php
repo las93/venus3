@@ -14,7 +14,7 @@
  * @since     	1.0.0
  *
  * @tutorial    You could launch this Batch in /private/
- * 				php launch.php scaffolding -p [portal]
+ * 				php bin/console scaffolding -p [portal]
  * 				-p [portal] => it's the name where you want add your entities and models
  * 				-r [rewrite] => if we force rewrite file
  * 					by default, it's Batch

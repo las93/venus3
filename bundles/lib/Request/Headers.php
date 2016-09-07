@@ -5,7 +5,7 @@
  * Date: 28/06/2016
  * Time: 22:22
  */
-namespace \Venus\lib\Request;
+namespace Venus\lib\Request;
 
 class Headers implements RequestInterface
 {
@@ -23,5 +23,23 @@ class Headers implements RequestInterface
         else if ($default != null) {
             return $default;
         }
+    }
+
+    /**
+     * set a new header
+     * @param string $name
+     * @param string $value
+     * @return string|Headers
+     */
+    public function set(string $name, string $value = null) : Headers
+    {
+        if ($value !== null) {
+            header($name . ': ' . $value);
+        }
+        else {
+            header($name);
+        }
+        
+        return $this;
     }
 }

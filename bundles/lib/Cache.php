@@ -125,7 +125,7 @@ class Cache
 	 * @access private
 	 * @return object
 	 */
-	private static function _getCacheObject() : object
+	private static function _getCacheObject()
 	{
 		if (self::$_sTypeOfCache === 'file') {
 

@@ -15,7 +15,6 @@
  */
 namespace Venus\lib\Cache;
 
-use \Venus\core\Exception as Exception;
 use \Redis as RealRedis;
 
 /**

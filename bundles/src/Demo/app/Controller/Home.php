@@ -55,11 +55,13 @@ class Home extends Controller {
 
 	public function show() {
 
-	    $this->view
-	         ->assign('test', 1)
-	         ->display();
-	    
-		echo "Hello World";
+		$response = new \Venus\lib\Response();
+
+		$response->setContent('<html><body><h1>Hello world!</h1></body></html>');
+		$response->setStatusCode(\Venus\lib\Response::HTTP_OK);
+		$response->headers->set('Content-Type', 'text/html');
+
+		$response->send();
 
 	    exit;
 	}

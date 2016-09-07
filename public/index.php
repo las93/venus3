@@ -13,7 +13,7 @@
  */
 declare(strict_types = 1);
 error_reporting(E_ALL);
-ini_set('display_error', 'on');
+ini_set('display_error', '1');
 
 set_include_path(get_include_path().PATH_SEPARATOR.str_replace('public', 'bundles', __DIR__));
 

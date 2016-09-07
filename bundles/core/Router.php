@@ -150,15 +150,15 @@ class Router implements LoggerAwareInterface
 			foreach (Config::get('Route') as $sMultiHost => $oHost) {
 
 			    foreach (explode(',', $sMultiHost) as $sHost) {
-			     
+
     				if ((!strstr($sHost, '/') && $sHost == $_SERVER['HTTP_HOST']) || (strstr($sHost, '/')
     					&& strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost))) {
     
     					$this->_oRoutes = $oHost;
-    
+
     					if (strstr($sHost, '/')
     						&& strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost)) {
-    
+
     						$this->_sBaseUri = preg_replace('#^[^/]+#', '', $sHost);
     					}
     
@@ -195,14 +195,14 @@ class Router implements LoggerAwareInterface
     					else if (isset($oHost->routes)) {
     
     						foreach($oHost->routes as $sKey => $oRoute) {
-    
+
     							$mReturn = $this->_route($oRoute, $_SERVER['REQUEST_URI']);
-    
+
     							if ($mReturn === 403) {
     
     								$this->_getPage403();
     							}
-    							else if ($mReturn === true) {
+    							else if ($mReturn == true) {
     
     								if (isset($oRoute->cache)) { $this->_checkCache($oRoute->cache); }
     
@@ -213,20 +213,18 @@ class Router implements LoggerAwareInterface
     						$this->_getPage404();
     					}
     				}
-    				else {
-    				    
-    					if ($sHost !== $_SERVER['HTTP_HOST']) {
-    						
-    						trigger_error("Votre host est mal définit : ".$sHost." = ".$_SERVER['HTTP_HOST']
-    							, E_USER_NOTICE);
-    					}
-    					else {
-    						
-    						trigger_error("Votre route n'existe pas : ".$_SERVER['REQUEST_URI'], E_USER_NOTICE);
-    					}
-    					
-    				}
 			    }
+
+				//@todo fait l'erreur à chaque passage
+//				if ($sHost !== $_SERVER['HTTP_HOST']) {
+//
+//					trigger_error("Votre host est mal définit : ".$sHost." = ".$_SERVER['HTTP_HOST']
+//						, E_USER_NOTICE);
+//				}
+//				else {
+//
+//					trigger_error("Votre route n'existe pas : ".$_SERVER['REQUEST_URI'], E_USER_NOTICE);
+//				}
 			}
 		}
 		else if (Request::isCliRequest()) {
@@ -375,14 +373,14 @@ class Router implements LoggerAwareInterface
 	 * @param  string $RequestUri URI
 	 * @return void
 	 */
-	private function _route(object $oRoute, string $RequestUri)
+	private function _route(\stdClass $oRoute, string $RequestUri)
 	{
 		$sCharset = 'UTF-8';
 
 		if (isset($oRoute->route)) {
 
 		    $sRoute = str_replace("*", ".*", $oRoute->route);
-		    
+
 			$sFinalRoute = preg_replace_callback(
 				'|\[/{0,1}:([a-zA-Z_]+)\]|',
 				function ($aMatches) use ($oRoute) {
@@ -618,14 +616,14 @@ class Router implements LoggerAwareInterface
 	 * load the controller
 	 *
 	 * @access private
-	 * @param  string $sControllerName controller name
+	 * @param  object $oControllerName controller name
 	 * @param  string $sActionName method name
 	 * @param  array $aParams parameters
 	 * @return mixed
 	 */
-	private function _loadController(string $sControllerName, string $sActionName, array $aParams = array())
+	private function _loadController($oControllerName, string $sActionName, array $aParams = array())
 	{
-		$aPhpDoc = PhpDoc::getPhpDocOfMethod($sControllerName, $sActionName);
+		$aPhpDoc = PhpDoc::getPhpDocOfMethod($oControllerName, $sActionName);
 
 		if (isset($aPhpDoc['Cache'])) {
 
@@ -649,7 +647,7 @@ class Router implements LoggerAwareInterface
 			}
 		}
 
-		$oController = new $sControllerName;
+		$oController = new $oControllerName;
 
 		ob_start();
 
@@ -733,10 +731,10 @@ class Router implements LoggerAwareInterface
 	 * check the cache - just if it's not yet defined
 	 *
 	 * @access private
-	 * @param  object $oCache object of cache configuration
+	 * @param  \stdClass $oCache object of cache configuration
 	 * @return void
 	 */
-	private function _checkCache(object $oCache)
+	private function _checkCache(\stdClass $oCache)
 	{
 		/**
 		 * cache-control http

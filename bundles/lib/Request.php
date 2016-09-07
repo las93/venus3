@@ -14,18 +14,23 @@
  */
 namespace Venus\lib;
 
-use Venus\core\Exception;
 use \Venus\core\Mother as Mother;
 use \Venus\lib\Request\Cookies as Cookies;
 use \Venus\lib\Request\Files as Files;
 use \Venus\lib\Request\Headers as Headers;
 use \Venus\lib\Request\Query as Query;
-use \Venus\lib\Request\Request as Request;
+use \Venus\lib\Request\Request as RequestPost;
 use \Venus\lib\Request\Server as Server;
 
 /**
  * This class manage the request
  *
+ * @property 	\Venus\lib\Request\Cookies cookies
+ * @property 	\Venus\lib\Request\Files files
+ * @property 	\Venus\lib\Request\Headers headers
+ * @property 	\Venus\lib\Request\Query query
+ * @property 	\Venus\lib\Request\Request request
+ * @property 	\Venus\lib\Request\Server server
  * @category  	lib
  * @author    	Judicaël Paquet <judicael.paquet@gmail.com>
  * @copyright 	Copyright (c) 2013-2014 PAQUET Judicaël FR Inc. (https://github.com/las93)
@@ -46,7 +51,7 @@ class Request extends Mother
         $this->files = function() { return new Files(); };
         $this->headers = function() { return new Headers(); };
         $this->query = function() { return new Query(); };
-        $this->request = function() { return new Request(); };
+        $this->request = function() { return new RequestPost(); };
 		$this->server = function() { return new Server(); };
 	}
 
@@ -234,4 +239,13 @@ class Request extends Mother
         if (!self::isCliRequest()) { return explode(',', preg_replace('/^([^;]);?.*$/', '$1', $_SERVER['HTTP_ACCEPT_LANGUAGE'])); }
         else { return array(); }
     }
+
+	/**
+	 * get path info
+	 * @return string
+     */
+	public function getPathInfo() : string
+	{
+		return $this->server->get('REQUEST_URI');
+	}
 }

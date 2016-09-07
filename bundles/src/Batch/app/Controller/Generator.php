@@ -14,7 +14,7 @@
  * @since     	2.0.0
  *
  * @tutorial    You could launch this Batch in /private/
- * 				php launch.php create_project -p [portal]
+ * 				php bin/console create_project -p [portal]
  * 				-p [portal] => it's the name where you want add your entities and models
  * 					by default, it's Batch
  */
@@ -39,7 +39,7 @@ class Generator extends Controller
 {
 	/**
 	 * run the batch to create a project in this framework
-	 * @tutorial launch.php create_project
+	 * @tutorial bin/console create_project
 	 *
 	 * @access public
 	 * @param array $aOptions
