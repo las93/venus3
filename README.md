@@ -4,6 +4,8 @@ VENUS 3 FRAMEWORK PHP
 [![Build Status](https://travis-ci.org/las93/venus3.svg?branch=master)](https://travis-ci.org/las93/venus3)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/las93/venus3/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/las93/venus3/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/las93/venus3/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/las93/venus3/?branch=master)
+[![Total Downloads](https://poser.pugx.org/las93/venus3/downloads.svg)](https://packagist.org/packages/las93/venus3)
+[![Latest Stable Version](https://poser.pugx.org/las93/venus3/v/stable.svg)](https://packagist.org/packages/las93/venus3)
 
 Venus 3 Framework
 
