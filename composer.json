@@ -1,7 +1,7 @@
 {
   "name": "las93/venus3",
   "license": "MIT",
-  "version": "3.0.23-alpha",
+  "version": "3.0.24-alpha",
   "type": "Framework",
   "description": "Framework in PHP",
   "keywords": ["Framework", "php"],

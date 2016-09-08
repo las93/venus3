@@ -40,6 +40,7 @@ spl_autoload_register(function (string $sClassName)
         $sFileClassName = preg_replace('/(src\\\\[^\\\\]+\\\\)/', '$1app\\', $sFileClassName);
         $sFileClassName = str_replace('\\\\', '\\', $sFileClassName);
         $sFileClassName = preg_replace('#bundles//tests/([^/]+)#', 'bundles/tests/$1/app', $sFileClassName);
+        $sFileClassName = preg_replace('#bundles//tests/([^/]+)#', 'bundles/tests/$1/app', $sFileClassName);
         $sFileClassName = str_replace('app\\app', 'app', $sFileClassName);
 
         var_dump('deb',$sFileClassName, file_exists($sFileClassName));
