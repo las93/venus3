@@ -1,4 +1,6 @@
 language: php
 php:
   - '7.0'
-before_script: phpenv config-add myconfig.ini
+before_script:
+  - phpenv config-add myconfig.ini
+  - cd /home/travis/build/las93/venus3

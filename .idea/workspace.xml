@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1af71921-1439-4d46-b9b4-968c032a7f32" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myconfig.ini" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/test" afterPath="$PROJECT_DIR$/bin/test" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myconfig.ini" afterPath="$PROJECT_DIR$/myconfig.ini" />
     </list>
     <ignored path="venus3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -105,8 +104,8 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+            <state relative-caret-position="85">
+              <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -126,7 +125,7 @@
         <entry file="file://$PROJECT_DIR$/myconfig.ini">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="67" selection-start-line="0" selection-start-column="67" selection-end-line="0" selection-end-column="67" />
+              <caret line="0" column="263" selection-start-line="0" selection-start-column="263" selection-end-line="0" selection-end-column="294" />
               <folding />
             </state>
           </provider>
@@ -194,8 +193,8 @@
         <option value="$PROJECT_DIR$/bundles/src/Batch/app/Controller/Phpunit.php" />
         <option value="$PROJECT_DIR$/bundles/conf/AutoLoad.php" />
         <option value="$PROJECT_DIR$/bin/test" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/myconfig.ini" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/composer.json" />
       </list>
     </option>
@@ -461,7 +460,7 @@
       <workItem from="1467982754982" duration="262000" />
       <workItem from="1467989327621" duration="6000" />
       <workItem from="1473244260921" duration="13832000" />
-      <workItem from="1473269251125" duration="12655000" />
+      <workItem from="1473269251125" duration="12928000" />
     </task>
     <task id="LOCAL-00001" summary="Adapt framework to PHP 7 (part 0.1)">
       <created>1467115390079</created>
@@ -624,11 +623,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473287636597</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="change composer - bug fixed">
+      <created>1473318152389</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1473318152389</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80216000" />
+    <option name="totallyTimeSpent" value="80489000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1044,18 +1050,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
+    <entry file="file://$PROJECT_DIR$/myconfig.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+        <state relative-caret-position="0">
+          <caret line="0" column="263" selection-start-line="0" selection-start-column="263" selection-end-line="0" selection-end-column="294" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myconfig.ini">
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="67" selection-start-line="0" selection-start-column="67" selection-end-line="0" selection-end-column="67" />
+        <state relative-caret-position="85">
+          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
           <folding />
         </state>
       </provider>
