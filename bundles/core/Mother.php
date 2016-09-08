@@ -129,7 +129,7 @@ class Mother implements \ArrayAccess
 	 * @param  mixed $mOffset
 	 * @return boolean
 	 */
-	function offsetExists($mOffset)
+    public function offsetExists($mOffset)
 	{
 		return $this->__isset($mOffset);
 	}
