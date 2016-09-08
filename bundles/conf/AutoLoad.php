@@ -41,6 +41,7 @@ spl_autoload_register(function (string $sClassName)
         $sFileClassName = str_replace('\\\\', '\\', $sFileClassName);
         $sFileClassName = str_replace('app\\app', 'app', $sFileClassName);
 
+        var_dump('deb',$sFileClassName, file_exists($sFileClassName));
         if (strstr($sFileName, 'Venus\\') && file_exists($sFileClassName)) {
 
             var_dump($sFileClassName);
@@ -51,6 +52,7 @@ spl_autoload_register(function (string $sClassName)
 
         if (strstr($sFileName, 'Venus\\') && file_exists(preg_replace('#^(src/[a-zA-Z0-9_]+/)#', '$1app/', str_replace(['\\', '/'], '/', str_replace('conf', '', __DIR__).str_replace('Venus\\', '', $sFileName))))) {
 
+            var_dump(preg_replace('#^(src/[a-zA-Z0-9_]+/)#', '$1app/', str_replace(['\\', '/'], '/', str_replace('conf', '', __DIR__).str_replace('Venus\\', '', $sFileName))));
             require preg_replace('#^(src/[a-zA-Z0-9_]+/)#', '$1app/', str_replace(['\\', '/'], '/', str_replace('conf', '', __DIR__).str_replace('Venus\\', '', $sFileName)));
         }
     }
