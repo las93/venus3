@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1af71921-1439-4d46-b9b4-968c032a7f32" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/conf/AutoLoad.php" afterPath="$PROJECT_DIR$/bundles/conf/AutoLoad.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
     </list>
     <ignored path="venus3.iws" />
@@ -42,8 +43,8 @@
       <file leaf-file-name="Exemple1.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bundles/tests/Demo/app/Controller/Exemple1.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+            <state relative-caret-position="212">
+              <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -52,7 +53,7 @@
       <file leaf-file-name="Exemple1.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bundles/src/Demo/app/Controller/Exemple1.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
+            <state relative-caret-position="688">
               <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
               <folding />
             </state>
@@ -79,7 +80,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
@@ -109,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AutoLoad.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AutoLoad.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bundles/conf/AutoLoad.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="41" column="69" selection-start-line="41" selection-start-column="69" selection-end-line="41" selection-end-column="69" />
+            <state relative-caret-position="382">
+              <caret line="42" column="77" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -187,11 +188,11 @@
         <option value="$PROJECT_DIR$/bundles/conf/Route.conf" />
         <option value="$PROJECT_DIR$/bundles/core/Router.php" />
         <option value="$PROJECT_DIR$/bundles/src/Demo/app/Controller/Exemple1.php" />
-        <option value="$PROJECT_DIR$/bundles/tests/Demo/app/Controller/Exemple1.php" />
         <option value="$PROJECT_DIR$/bundles/src/Batch/app/Controller/Phpunit.php" />
         <option value="$PROJECT_DIR$/myconfig.ini" />
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/bin/test" />
+        <option value="$PROJECT_DIR$/bundles/tests/Demo/app/Controller/Exemple1.php" />
         <option value="$PROJECT_DIR$/bundles/conf/AutoLoad.php" />
         <option value="$PROJECT_DIR$/composer.json" />
       </list>
@@ -470,7 +471,7 @@
       <workItem from="1467982754982" duration="262000" />
       <workItem from="1467989327621" duration="6000" />
       <workItem from="1473244260921" duration="13832000" />
-      <workItem from="1473269251125" duration="16393000" />
+      <workItem from="1473269251125" duration="17096000" />
     </task>
     <task id="LOCAL-00001" summary="Adapt framework to PHP 7 (part 0.1)">
       <created>1467115390079</created>
@@ -689,17 +690,31 @@
       <option name="project" value="LOCAL" />
       <updated>1473323184354</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="change composer - bug fixed">
+      <created>1473323517601</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1473323517601</updated>
+    </task>
+    <task id="LOCAL-00033" summary="change composer - bug fixed">
+      <created>1473323808990</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1473323808990</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83954000" />
+    <option name="totallyTimeSpent" value="84657000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.100520834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.100520834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1051,14 +1066,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/src/Demo/app/Controller/Exemple1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_venus3-0.0.1-alpha.zip/venus3-0.0.1-alpha/bundles/ext/vendor/las93/apollina/Apollina/Template.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1060">
@@ -1099,14 +1106,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/tests/Demo/app/Controller/Exemple1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bundles/src/Batch/app/Controller/Phpunit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="654">
@@ -1117,18 +1116,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/bundles/src/Demo/app/Controller/Exemple1.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="26" />
+        <state relative-caret-position="688">
+          <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/tests/Demo/app/Controller/Exemple1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bundles/conf/AutoLoad.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="41" column="69" selection-start-line="41" selection-start-column="69" selection-end-line="41" selection-end-column="69" />
+        <state relative-caret-position="382">
+          <caret line="42" column="77" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="26" />
           <folding />
         </state>
       </provider>
