@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1af71921-1439-4d46-b9b4-968c032a7f32" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="venus3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,12 +71,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="102">
-                <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
+              <first_editor relative-caret-position="136">
+                <caret line="8" column="186" selection-start-line="8" selection-start-column="186" selection-end-line="8" selection-end-column="186" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -113,7 +114,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".scrutinizer.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".scrutinizer.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.scrutinizer.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
@@ -194,10 +195,10 @@
         <option value="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Util/Fileloader.php" />
         <option value="$PROJECT_DIR$/bundles/src/Batch/app/Controller/Phpunit.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.scrutinizer.yml" />
         <option value="$PROJECT_DIR$/bundles/tests/Demo/app/Controller/Exemple1Test.php" />
         <option value="$PROJECT_DIR$/bundles/src/Demo/app/Controller/Exemple1.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -683,7 +684,7 @@
       <workItem from="1467989327621" duration="6000" />
       <workItem from="1473244260921" duration="13832000" />
       <workItem from="1473269251125" duration="24787000" />
-      <workItem from="1473337032430" duration="3524000" />
+      <workItem from="1473337032430" duration="4180000" />
     </task>
     <task id="LOCAL-00001" summary="Adapt framework to PHP 7 (part 0.1)">
       <created>1467115390079</created>
@@ -1007,11 +1008,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473340340441</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="test scrutinizer">
+      <created>1473340853804</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1473340853804</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95872000" />
+    <option name="totallyTimeSpent" value="96528000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1396,17 +1404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="102">
-            <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/phpunit/phpunit/src/Framework/TestCase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
@@ -1462,6 +1459,17 @@
         <state relative-caret-position="170">
           <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="136">
+            <caret line="8" column="186" selection-start-line="8" selection-start-column="186" selection-end-line="8" selection-end-column="186" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

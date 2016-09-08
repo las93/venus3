@@ -6,6 +6,7 @@ VENUS 3 FRAMEWORK PHP
 [![Code Coverage](https://scrutinizer-ci.com/g/las93/venus3/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/las93/venus3/?branch=master)
 [![Total Downloads](https://poser.pugx.org/las93/venus3/downloads.svg)](https://packagist.org/packages/las93/venus3)
 [![Latest Stable Version](https://poser.pugx.org/las93/venus3/v/stable.svg)](https://packagist.org/packages/las93/venus3)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/eb4d1677-8e57-421b-afda-00d46c11d424/mini.png)](https://insight.sensiolabs.com/projects/eb4d1677-8e57-421b-afda-00d46c11d424)
 
 Venus 3 Framework
 
