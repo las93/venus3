@@ -43,9 +43,8 @@ spl_autoload_register(function (string $sClassName)
 
         if (strstr($sFileName, 'Venus\\') && file_exists($sFileClassName)) {
 
-        	if (defined('UNIT_TEST') && UNIT_TEST && strstr($sFileClassName, '/home/travis/build/')) { require $sFileClassName; }
-            else if (defined('UNIT_TEST') && UNIT_TEST) { require __DIR__.'/../'.$sFileClassName; }
-        	else { require $sFileClassName; }
+            var_dump($sFileClassName);
+        	require $sFileClassName;
         }
     }
     else {
