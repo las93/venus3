@@ -4,9 +4,19 @@ namespace Venus\src\Batch\Controller;
 
 use \Venus\lib\Bash as Bash;
 use \Venus\src\Batch\common\Controller as Controller;
+use PHPUnit_Util_Fileloader;
 
 class Phpunit extends Controller
 {
+    /**
+     * Constructs a test case with the given name.
+     *
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /**
      * new method to launch a web server
      * @param array $options
@@ -29,18 +39,8 @@ class Phpunit extends Controller
 
                     if (is_file(__DIR__.'/../../../../tests/'.$one.'/app/Controller/' . $oneController) && $oneController != '..' && $oneController != '.') {
 
-                        $reflection = new \ReflectionClass('\Venus\tests\\'.$one.'\Controller\\' . str_replace('.php', '', $oneController));
-                        $methods = $reflection->getMethods();
-
-                        foreach ($methods as $oneMethod) {
-
-                            if (preg_match('/^test[A-Z][a-z]/', $oneMethod->name)) {
-
-                                $objectName= '\Venus\tests\\'.$one.'\Controller\\' . str_replace('.php', '', $oneController);
-                                $object = new $objectName;
-                                call_user_func_array([$object, $oneMethod->name], []);
-                            }
-                        }
+                        $unitTest = new \PHPUnit_TextUI_Command;
+                        $unitTest->run([__DIR__.'/../../../../tests/'.$one.'/app/Controller/' . $oneController]);
                     }
                 }
             }

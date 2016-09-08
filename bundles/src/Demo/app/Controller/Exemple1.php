@@ -35,18 +35,6 @@ use \Venus\src\Demo\common\Controller as Controller;
 class Exemple1 extends Controller {
 
 	/**
-	 * Constructor
-	 *
-	 * @access public
-	 * @return object
-	 */
-
-	public function __construct() {
-
-		parent::__construct();
-	}
-
-	/**
 	 * the main page
 	 *
 	 * @access public

@@ -16,7 +16,7 @@
 
 namespace Venus\tests\Demo\Controller;
 
-use Venus\src\Demo\Controller\Exemple1 as BaseExemple1;
+use Venus\src\Demo\Controller\Exemple1;
 
 /**
  * Controller to test
@@ -32,22 +32,26 @@ use Venus\src\Demo\Controller\Exemple1 as BaseExemple1;
  * @since     	1.0
  */
 
-class Exemple1 extends \PHPUnit_Framework_TestCase
+class Exemple1Test extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * the main page
 	 *
 	 * @access public
 	 * @return void
+     * @test
 	 */
 
 	public function testShow()
     {
 	    try {
+
             ob_start();
-            $exemple1 = new BaseExemple1;
+            $exemple1 = new Exemple1;
             $exemple1->show();
             $content = ob_get_clean();
+
+            //var_dump(debug_backtrace());
 
             if ($content) {
 
@@ -60,5 +64,6 @@ class Exemple1 extends \PHPUnit_Framework_TestCase
         catch(\Exception $e) {
             $this->assertTrue(false);
         }
+
 	}
 }
