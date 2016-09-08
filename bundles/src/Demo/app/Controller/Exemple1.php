@@ -46,9 +46,4 @@ class Exemple1 extends Controller {
 		$this->view
 			 ->display();
 	}
-
-    public function a() {
-
-        return false;
-    }
 }
