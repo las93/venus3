@@ -42,6 +42,7 @@ spl_autoload_register(function (string $sClassName)
         $sFileClassName = preg_replace('#bundles//tests/([^/]+)#', 'bundles/tests/$1/app', $sFileClassName);
         $sFileClassName = preg_replace('#bundles//src/([^/]+)#', 'bundles/src/$1/app', $sFileClassName);
         $sFileClassName = str_replace('app\\app', 'app', $sFileClassName);
+        $sFileClassName = str_replace('app/app', 'app', $sFileClassName);
 
         var_dump('deb',$sFileClassName, file_exists($sFileClassName));
         if (strstr($sFileName, 'Venus\\') && file_exists($sFileClassName)) {
