@@ -66,4 +66,12 @@ class Exemple1Test extends \PHPUnit_Framework_TestCase
         }
 
 	}
+
+    public function testA() {
+        $exemple1 = new Exemple1;
+        $return = $exemple1->a();
+
+        $this->assertTrue($return);
+    }
+
 }
