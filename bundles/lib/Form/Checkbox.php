@@ -70,7 +70,6 @@ class Checkbox extends Common
 	 * @param  string $sLabel label of checkbox
 	 * @param  string $sValue value of checkbox
 	 * @param  array $aValuesChecked value checked of checkbox
-	 * @return \Venus\lib\Form\Input
 	 */
 	public function __construct(string $sName, string $sLabel, string $sValue, array $aValuesChecked = null)
 	{

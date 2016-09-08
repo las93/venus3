@@ -80,7 +80,6 @@ class Debug extends AbstractLogger
      * Send back the isntance or create it
      * 
      * @access public
-     * @return \Venus\lib\Debug
      */
     public static function getInstance() : Debug
     {    

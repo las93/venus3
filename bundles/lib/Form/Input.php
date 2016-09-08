@@ -30,164 +30,162 @@ namespace Venus\lib\Form;
  */
 class Input extends Common
 {
-	/**
-	 * the name of element
-	 *
-	 * @access private
-	 * @var    string
-	 */
-	private $_sType = null;
-	
-	/**
-	 * the label of element
-	 *
-	 * @access private
-	 * @var    string
-	 */
-	private $_sLabel = null;
-	
-	/**
-	 * the value of element
-	 *
-	 * @access private
-	 * @var    string
-	 */
-	private $_sValue = null;
+    /**
+     * the name of element
+     *
+     * @access private
+     * @var    string
+     */
+    private $_sType = null;
 
-	/**
-	 * constructor that it increment (static) for all use
-	 *
-	 * @access public
-	 * @param  string $sName name
-	 * @param  string $sType type of input
-	 * @param  string $sLabel label of input
-	 * @param  string $sValue value of input
-	 * @return \Venus\lib\Form\Input
-	 */
-	public function __construct(string $sName, string $sType, string $sLabel = null, string $sValue = null)
-	{
-		$this->setName($sName);
-		$this->setType($sType);
-		$this->setValue($sValue);
+    /**
+     * the label of element
+     *
+     * @access private
+     * @var    string
+     */
+    private $_sLabel = null;
 
-		if ($sLabel !== null) { $this->setLabel($sLabel); }
-		else { $this->setLabel($sName); }
-	}
+    /**
+     * the value of element
+     *
+     * @access private
+     * @var    string
+     */
+    private $_sValue = null;
 
-	/**
-	 * get the type
-	 *
-	 * @access public
-	 * @return string
-	 */
-	public function getType() : string
-	{
-		return $this->_sType;
-	}
+    /**
+     * constructor that it increment (static) for all use
+     *
+     * @access public
+     * @param  string $sName name
+     * @param  string $sType type of input
+     * @param  string $sLabel label of input
+     * @param  string $sValue value of input
+     */
+    public function __construct(string $sName, string $sType, string $sLabel = null, string $sValue = null)
+    {
+        $this->setName($sName);
+        $this->setType($sType);
+        $this->setValue($sValue);
 
-	/**
-	 * set the type
-	 *
-	 * @access public
-	 * @param  string $sType type of input;
-	 * @return \Venus\lib\Form\Input
-	 */
-	public function setType(string $sType) : Input
-	{
-		$this->_sType = $sType;
-		return $this;
-	}
+        if ($sLabel !== null) { $this->setLabel($sLabel); } else { $this->setLabel($sName); }
+    }
 
-	/**
-	 * get the Value
-	 *
-	 * @access public
-	 * @return string
-	 */
-	public function getValue() : string
-	{
-		return $this->_sValue;
-	}
+    /**
+     * get the type
+     *
+     * @access public
+     * @return string
+     */
+    public function getType() : string
+    {
+        return $this->_sType;
+    }
 
-	/**
-	 * set the Value
-	 *
-	 * @access public
-	 * @param  string $sValue Value of input;
-	 * @return \Venus\lib\Form\Input
-	 */
-	public function setValue(string $sValue) : Input
-	{
-		$this->_sValue = $sValue;
-		return $this;
-	}
+    /**
+     * set the type
+     *
+     * @access public
+     * @param  string $sType type of input;
+     * @return \Venus\lib\Form\Input
+     */
+    public function setType(string $sType) : Input
+    {
+        $this->_sType = $sType;
+        return $this;
+    }
 
-	/**
-	 * get the Label
-	 *
-	 * @access public
-	 * @return string
-	 */
-	public function getLabel() : string
-	{
-		return $this->_sLabel;
-	}
+    /**
+     * get the Value
+     *
+     * @access public
+     * @return string
+     */
+    public function getValue() : string
+    {
+        return $this->_sValue;
+    }
 
-	/**
-	 * set the Label
-	 *
-	 * @access public
-	 * @param  string $sLabel Label of input;
-	 * @return \Venus\lib\Form\Input
-	 */
-	public function setLabel(string $sLabel) : Input
-	{
-		$this->_sLabel = $sLabel;
-		return $this;
-	}
+    /**
+     * set the Value
+     *
+     * @access public
+     * @param  string $sValue Value of input;
+     * @return \Venus\lib\Form\Input
+     */
+    public function setValue(string $sValue) : Input
+    {
+        $this->_sValue = $sValue;
+        return $this;
+    }
 
-	/**
-	 * if the button is clicked
-	 *
-	 * @access public
-	 * @param  string $sType type of input;
-	 * @return bool
-	 */
-	public function isClicked(string $sType) : string
-	{
-		if ($this->getType() === 'submit' || $this->getType() === 'button') {
+    /**
+     * get the Label
+     *
+     * @access public
+     * @return string
+     */
+    public function getLabel() : string
+    {
+        return $this->_sLabel;
+    }
 
-			if (isset($_POST[$this->getName()])) { return true; }
-		}
+    /**
+     * set the Label
+     *
+     * @access public
+     * @param  string $sLabel Label of input;
+     * @return \Venus\lib\Form\Input
+     */
+    public function setLabel(string $sLabel) : Input
+    {
+        $this->_sLabel = $sLabel;
+        return $this;
+    }
 
-		return false;
-	}
+    /**
+     * if the button is clicked
+     *
+     * @access public
+     * @param  string $sType type of input;
+     * @return boolean
+     */
+    public function isClicked(string $sType) : bool
+    {
+        if ($this->getType() === 'submit' || $this->getType() === 'button') {
 
-	/**
-	 * get the <html>
-	 *
-	 * @access public
-	 * @return string
-	 */
-	public function fetch() : string
-	{
-		$sContent = '';
+            if (isset($_POST[$this->getName()])) { return true; }
+        }
 
-		if ($this->getType() === 'text' || $this->getType() === 'password' || $this->getType() === 'file'
+        return false;
+    }
+
+    /**
+     * get the <html>
+     *
+     * @access public
+     * @return string
+     */
+    public function fetch() : string
+    {
+        $sContent = '';
+
+        if ($this->getType() === 'text' || $this->getType() === 'password' || $this->getType() === 'file'
             || $this->getType() === 'tel' || $this->getType() === 'url' || $this->getType() === 'email'
             || $this->getType() === 'search' || $this->getType() === 'date' || $this->getType() === 'time'
             || $this->getType() === 'datetime' || $this->getType() === 'month' || $this->getType() === 'week'
             || $this->getType() === 'number' || $this->getType() === 'range' || $this->getType() === 'color') {
 
-			$sContent .= '<label>'.$this->getLabel().'</label> ';
-		}
+            $sContent .= '<label>'.$this->getLabel().'</label> ';
+        }
 
-		$sContent .= '<input type="'.$this->getType().'" name="'.$this->getName().'"';
-		
-		if ($this->getValue() !== null) { $sContent .= ' value="'.$this->getValue().'"'; }
-		
-		$sContent .= '/>';
+        $sContent .= '<input type="'.$this->getType().'" name="'.$this->getName().'"';
 
-		return $sContent;
-	}
+        if ($this->getValue() !== null) { $sContent .= ' value="'.$this->getValue().'"'; }
+
+        $sContent .= '/>';
+
+        return $sContent;
+    }
 }

@@ -60,417 +60,406 @@ use \Venus\lib\Form\Textarea    as Textarea;
  */
 class Form
 {
-	/**
-	 * Elements of the form
-	 *
-	 *  @access private
-	 *  @var    array
-	 */
-	private $_aElement = array();
+    /**
+     * Elements of the form
+     *
+     *  @access private
+     *  @var    array
+     */
+    private $_aElement = array();
 
-	/**
-	 * Increment for form
-	 *
-	 *  @access private
-	 *  @var    int
-	 */
-	private static $_iFormIncrement = 0;
+    /**
+     * Increment for form
+     *
+     *  @access private
+     *  @var    int
+     */
+    private static $_iFormIncrement = 0;
 
-	/**
-	 * number of form
-	 *
-	 *  @access private
-	 *  @var    int
-	 */
-	private $_iFormNumber = 0;
+    /**
+     * number of form
+     *
+     *  @access private
+     *  @var    int
+     */
+    private $_iFormNumber = 0;
 
-	/**
-	 * Separator between fields of form
-	 *
-	 *  @access private
-	 *  @var    string
-	 */
-	private $_sSeparator = '<br/>';
+    /**
+     * Separator between fields of form
+     *
+     *  @access private
+     *  @var    string
+     */
+    private $_sSeparator = '<br/>';
 
-	/**
-	 * The entity to save with the formular
-	 *
-	 *  @access private
-	 *  @var    string
-	 */
-	private $_sSynchronizeEntity = null;
+    /**
+     * The entity to save with the formular
+     *
+     *  @access private
+     *  @var    string
+     */
+    private $_sSynchronizeEntity = null;
 
-	/**
-	 * The id of entity
-	 *
-	 *  @access private
-	 *  @var    int
-	 */
-	private $_iIdEntity = null;
+    /**
+     * The id of entity
+     *
+     *  @access private
+     *  @var    int
+     */
+    private $_iIdEntity = null;
 
-	/**
-	 * The entity to save with the formular
-	 *
-	 *  @access private
-	 *  @var    int
-	 */
-	private $_iIdEntityCreated = null;
+    /**
+     * The entity to save with the formular
+     *
+     *  @access private
+     *  @var    int
+     */
+    private $_iIdEntityCreated = null;
 
-	/**
-	 * constructor that it increment (static) for all use
-	 *
-	 * @access public
-	 * @return \Venus\lib\Form
-	 */
-	public function __construct()
-	{
-		self::$_iFormIncrement++;
-		$this->_iFormNumber = self::$_iFormIncrement;
-	}
+    /**
+     * constructor that it increment (static) for all use
+     *
+     * @access public
+     */
+    public function __construct()
+    {
+        self::$_iFormIncrement++;
+        $this->_iFormNumber = self::$_iFormIncrement;
+    }
 
-	/**
-	 * add an element in the form
-	 *
-	 * @access public
-	 * @param  string $sName name
-	 * @param  string|\Venus\lib\Form $mType type of field
-	 * @param  string $sLabel label of field
-	 * @param  mixed $mValue value of field
-	 * @parma  mixed $mOptions options (for select)
-	 * @return \Venus\lib\Form
-	 */
-	public function add($sName, $mType, $sLabel = null, $mValue = null, $mOptions = null)
-	{
-	    if ($mType instanceof Container) {
-	        
-	        $this->_aElement[$sName] = $mType;
-	    }
-		else if ($mType === 'text' || $mType === 'submit' || $mType === 'password' || $mType === 'file' || $mType === 'tel'
-	        || $mType === 'url' || $mType === 'email' || $mType === 'search' || $mType === 'date' || $mType === 'time'
-	        || $mType === 'datetime' || $mType === 'month' || $mType === 'week' || $mType === 'number' || $mType === 'range'
-	        || $mType === 'color') {
+    /**
+     * add an element in the form
+     *
+     * @access public
+     * @param  string $sName name
+     * @param  string|\Venus\lib\Form $mType type of field
+     * @param  string $sLabel label of field
+     * @param  mixed $mValue value of field
+     * @parma  mixed $mOptions options (for select)
+     * @return \Venus\lib\Form
+     */
+    public function add($sName, $mType, $sLabel = null, $mValue = null, $mOptions = null)
+    {
+        if ($mType instanceof Container) {
 
-			$this->_aElement[$sName] = new Input($sName, $mType, $sLabel, $mValue);
-		}
-		elseif ($mType === 'textarea') {
+            $this->_aElement[$sName] = $mType;
+        } else if ($mType === 'text' || $mType === 'submit' || $mType === 'password' || $mType === 'file' || $mType === 'tel'
+            || $mType === 'url' || $mType === 'email' || $mType === 'search' || $mType === 'date' || $mType === 'time'
+            || $mType === 'datetime' || $mType === 'month' || $mType === 'week' || $mType === 'number' || $mType === 'range'
+            || $mType === 'color') {
 
-			$this->_aElement[$sName] = new Textarea($sName, $sLabel, $mValue);
-		}
-		else  if ($mType === 'select') {
+            $this->_aElement[$sName] = new Input($sName, $mType, $sLabel, $mValue);
+        } elseif ($mType === 'textarea') {
 
-			$this->_aElement[$sName] = new Select($sName, $mOptions, $sLabel, $mValue);
-		}
-		else  if ($mType === 'label') {
+            $this->_aElement[$sName] = new Textarea($sName, $sLabel, $mValue);
+        } else  if ($mType === 'select') {
 
-			$this->_aElement[$sName] = new Label($sName);
-		}
-		else  if ($mType === 'list_checkbox') {
+            $this->_aElement[$sName] = new Select($sName, $mOptions, $sLabel, $mValue);
+        } else  if ($mType === 'label') {
 
-			$i = 0;
-			
-			$this->_aElement[$sName.'_'.$i++] = new Label($sLabel);
-			
-			foreach ($mValue as $mKey => $sValue) {
-			
-				$this->_aElement[$sName.'_'.$i++] = new Checkbox($sName, $sValue, $mKey, $mOptions);
-			}
-		}
-		else  if ($mType === 'checkbox') {
+            $this->_aElement[$sName] = new Label($sName);
+        } else  if ($mType === 'list_checkbox') {
 
-			$this->_aElement[$sName] = new Checkbox($sName, $sLabel, $mValue, $mOptions);
-		}
-		else  if ($mType === 'radio') {
+            $i = 0;
 
-			$this->_aElement[$sName.rand(100000,999999)] = new Radio($sName, $sLabel, $mValue, $mOptions);
-		}
-		else  if ($mType === 'date') {
+            $this->_aElement[$sName.'_'.$i++] = new Label($sLabel);
 
-			$aDay = array();
+            foreach ($mValue as $mKey => $sValue) {
 
-			for ($i = 1 ; $i <= 31 ; $i++) {
+                $this->_aElement[$sName.'_'.$i++] = new Checkbox($sName, $sValue, $mKey, $mOptions);
+            }
+        } else  if ($mType === 'checkbox') {
 
-				if ($i < 10) { $aDay['0'.$i] = '0'.$i; }
-				else { $aDay[$i] = $i; }
-			}
+            $this->_aElement[$sName] = new Checkbox($sName, $sLabel, $mValue, $mOptions);
+        } else  if ($mType === 'radio') {
 
-			$this->_aElement[$sName.'_day'] = new Select($sName, $aDay);
+            $this->_aElement[$sName.rand(100000, 999999)] = new Radio($sName, $sLabel, $mValue, $mOptions);
+        } else  if ($mType === 'date') {
 
-			$aMonth = array(
-				'01' => 'Jan',
-				'02' => 'Feb',
-				'03' => 'Mar',
-				'04' => 'Apr',
-				'05' => 'May',
-				'06' => 'Jun',
-				'07' => 'Jui',
-				'08' => 'Aug',
-				'09' => 'Sep',
-				'10' => 'Oct',
-				'11' => 'Nov',
-				'12' => 'Dec',
-			);
+            $aDay = array();
 
-			$this->_aElement[$sName.'_month'] = new Select($sName, $aMonth);
+            for ($i = 1; $i <= 31; $i++) {
 
-			$aYear = array();
+                if ($i < 10) { $aDay['0'.$i] = '0'.$i; }
+                else { $aDay[$i] = $i; }
+            }
 
-			for ($i = 1900 ; $i <= 2013 ; $i++) {
+            $this->_aElement[$sName.'_day'] = new Select($sName, $aDay);
 
-				$aYear[$i] = $i;
-			}
+            $aMonth = array(
+                '01' => 'Jan',
+                '02' => 'Feb',
+                '03' => 'Mar',
+                '04' => 'Apr',
+                '05' => 'May',
+                '06' => 'Jun',
+                '07' => 'Jui',
+                '08' => 'Aug',
+                '09' => 'Sep',
+                '10' => 'Oct',
+                '11' => 'Nov',
+                '12' => 'Dec',
+            );
 
-			$this->_aElement[$sName.'_year'] = new Select($sName, $aMonth);
-		}
+            $this->_aElement[$sName.'_month'] = new Select($sName, $aMonth);
 
-		return $this;
-	}
+            $aYear = array();
 
-	/**
-	 * get id entity created by the formular
-	 *
-	 * @access public
-	 * @return int
-	 */
-	public function getIdEntityCreated() : int
-	{	
-		return $this->_iIdEntityCreated;
-	}
+            for ($i = 1900; $i <= 2013; $i++) {
 
-	/**
-	 * set id entity created by the formular
-	 *
-	 * @access public
-	 * @param  int $iIdEntityCreated
-	 * @return Form
-	 */
-	public function setIdEntityCreated(int $iIdEntityCreated) : Form
-	{
-		$this->_iIdEntityCreated = $iIdEntityCreated;
-		return $this;
-	}
+                $aYear[$i] = $i;
+            }
 
-	/**
-	 * get form number
-	 *
-	 * @access public
-	 * @return int
-	 */
-	public function getFormNumber() : int
-	{
-		return $this->_iFormNumber;
-	}
+            $this->_aElement[$sName.'_year'] = new Select($sName, $aMonth);
+        }
 
-	/**
-	 * set id entity created by the formular
-	 *
-	 * @access public
-	 * @param  int $iFormNumber
-	 * @return Form
-	 */
-	public function setFormNumber(int $iFormNumber) : Form
-	{
-		$this->_iFormNumber = $iFormNumber;
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * get global form
-	 *
-	 * @access public
-	 * @return \Venus\lib\Form\Container
-	 */
-	public function getForm()
-	{
-		$oForm = $this->getFormInObject();
-		
-		$sFormContent = $oForm->start;
+    /**
+     * get id entity created by the formular
+     *
+     * @access public
+     * @return int
+     */
+    public function getIdEntityCreated() : int
+    {
+        return $this->_iIdEntityCreated;
+    }
 
-		foreach ($oForm->form as $sValue) {
+    /**
+     * set id entity created by the formular
+     *
+     * @access public
+     * @param  int $iIdEntityCreated
+     * @return Form
+     */
+    public function setIdEntityCreated(int $iIdEntityCreated) : Form
+    {
+        $this->_iIdEntityCreated = $iIdEntityCreated;
+        return $this;
+    }
 
-			$sFormContent .= $sValue.$this->_sSeparator;
-		}
+    /**
+     * get form number
+     *
+     * @access public
+     * @return int
+     */
+    public function getFormNumber() : int
+    {
+        return $this->_iFormNumber;
+    }
 
-		$sFormContent .= $oForm->end;
+    /**
+     * set id entity created by the formular
+     *
+     * @access public
+     * @param  int $iFormNumber
+     * @return Form
+     */
+    public function setFormNumber(int $iFormNumber) : Form
+    {
+        $this->_iFormNumber = $iFormNumber;
+        return $this;
+    }
 
-		$oContainer = new Container;
-		$oContainer->setView($sFormContent)
-		           ->setForm($this);
-		
-		return $oContainer;
-	}
-	
+    /**
+     * get global form
+     *
+     * @access public
+     * @return \Venus\lib\Form\Container
+     */
+    public function getForm()
+    {
+        $oForm = $this->getFormInObject();
 
-	/**
-	 * get global object form
-	 *
-	 * @access public
-	 * @return object
-	 */
-	public function getFormInObject()
-	{
-	    if ($this->_iIdEntity > 0 && $this->_sSynchronizeEntity !== null && count($_POST) < 1) {
-	
-	        $sModelName = str_replace('Entity', 'Model', $this->_sSynchronizeEntity);
-	        $oModel = new $sModelName;
-	        	
-	        $oEntity = new $this->_sSynchronizeEntity;
-	        $sPrimaryKey = LibEntity::getPrimaryKeyNameWithoutMapping($oEntity);
-	        $sMethodName = 'findOneBy'.$sPrimaryKey;
-	        $oCompleteEntity = call_user_func_array(array(&$oModel, $sMethodName), array($this->_iIdEntity));
-	
-	        if (is_object($oCompleteEntity)) {
-	
-	            foreach ($this->_aElement as $sKey => $sValue) {
-	
-	                if ($sValue instanceof \Venus\lib\Form\Radio) {
-	
-	                    $sExKey = $sKey;
-	                    $sKey = substr($sKey, 0, -6);
-	                }
-	                	
-	                if ($sValue instanceof Form) {
-	                    
-	                    ;
-	                }
-	                else {
-	                 
-    	                $sMethodNameInEntity = 'get_'.$sKey;
-    	                $mValue = $oCompleteEntity->$sMethodNameInEntity();
-    	
-    	                if ($sValue instanceof \Venus\lib\Form\Radio && method_exists($this->_aElement[$sExKey], 'setValueChecked')) {
-    	
-    	                    $this->_aElement[$sExKey]->setValueChecked($mValue);
-    	                }
-    	                else if (isset($mValue) && method_exists($this->_aElement[$sKey], 'setValue')) {
-    	
-    	                    $this->_aElement[$sKey]->setValue($mValue);
-    	                }
-	                }
-	            }
-	        }
-	    }
-	
-	    $oForm = new \StdClass();
-	    $oForm->start = '<form name="form'.$this->_iFormNumber.'" method="post"><input type="hidden" value="1" name="validform'.$this->_iFormNumber.'">';
-	    $oForm->form = array();
-	
-	    foreach ($this->_aElement as $sKey => $sValue) {
+        $sFormContent = $oForm->start;
 
-	        if ($sValue instanceof Container) {
-	        
-	            $oForm->form[$sKey] = $sValue;
-	        }
-	        else {
-	            
-	            $oForm->form[$sKey] = $sValue->fetch();
-	        }
-	    }
-	
-	    $oForm->end = '</form>';
-	
-	    return $oForm;
-	}
+        foreach ($oForm->form as $sValue) {
 
-	/**
-	 * get an element of formular
-	 *
-	 * @access public
-	 * @param  string $sName name
-	 * @return object
-	 */
-	public function get($sName)
-	{
-		return $this->_aElement[$sName];
-	}
+            $sFormContent .= $sValue.$this->_sSeparator;
+        }
 
-	/**
-	 * get the form separator
-	 *
-	 * @access public
-	 * @return string
-	 */
-	public function getSeparator()
-	{
-		return $this->_sSeparator;
-	}
+        $sFormContent .= $oForm->end;
 
-	/**
-	 * set the form separator
-	 *
-	 * @access public
-	 * @param  string $sSeparator separator between the fields
-	 * @return \Venus\lib\Form
-	 */
-	public function setSeparator($sSeparator)
-	{
-		$this->_sSeparator = $sSeparator;
-		return $this;
-	}
+        $oContainer = new Container;
+        $oContainer->setView($sFormContent)
+                   ->setForm($this);
 
-	/**
-	 * set the entity to synchronize with the formular
-	 *
-	 * @access public
-	 * @param  string $sSeparator separator between the fields
-	 * @param  int $iId id of the primary key
-	 * @return \Venus\lib\Form
-	 */
-	public function synchronizeEntity($sSynchronizeEntity, $iId = null)
-	{
-		if ($iId !== null) { $this->_iIdEntity = $iId; }
-			
-		$this->_sSynchronizeEntity = $sSynchronizeEntity;
-		return $this;
-	}
+        return $oContainer;
+    }
 
-	/**
-	 * add constraint
-	 *
-	 * @access public
-	 * @param  string $sName field name
-	 * @param  object $oConstraint constraint on the field
-	 * @return \Venus\lib\Form
-	 */
-	public function addConstraint($sName, $oConstraint)
-	{
-		if ($this->_aElement[$sName] instanceof Input || $this->_aElement[$sName] instanceof Textarea) {
-		   
-			$this->_aElement[$sName]->setConstraint($oConstraint);
-		}
 
-		return $this;
-	}
-	
-	/**
-	 * get all elements
-	 * 
-	 * @access public
-	 * @return  array 
-	 */
-	public function getElement() {
-	    
-	    return $this->_aElement;
-	}
-	
-	/**
-	 * get all elements
-	 * 
-	 * @access public
-	 * @return int 
-	 */
-	public function getIdEntity() {
-	    
-	    return $this->_iIdEntity;
-	}
-	
-	/**
-	 * get all elements
-	 * 
-	 * @access public
-	 * @return string 
-	 */
-	public function getSynchronizeEntity() {
-	    
-	    return $this->_sSynchronizeEntity;
-	}
+    /**
+     * get global object form
+     *
+     * @access public
+     * @return \stdClass
+     */
+    public function getFormInObject()
+    {
+        if ($this->_iIdEntity > 0 && $this->_sSynchronizeEntity !== null && count($_POST) < 1) {
+
+            $sModelName = str_replace('Entity', 'Model', $this->_sSynchronizeEntity);
+            $oModel = new $sModelName;
+
+            $oEntity = new $this->_sSynchronizeEntity;
+            $sPrimaryKey = LibEntity::getPrimaryKeyNameWithoutMapping($oEntity);
+            $sMethodName = 'findOneBy'.$sPrimaryKey;
+            $oCompleteEntity = call_user_func_array(array(&$oModel, $sMethodName), array($this->_iIdEntity));
+
+            if (is_object($oCompleteEntity)) {
+
+                foreach ($this->_aElement as $sKey => $sValue) {
+
+                    if ($sValue instanceof \Venus\lib\Form\Radio) {
+
+                        $sExKey = $sKey;
+                        $sKey = substr($sKey, 0, -6);
+                    }
+
+                    if ($sValue instanceof Form) {
+
+                        ;
+                    } else {
+
+                        $sMethodNameInEntity = 'get_'.$sKey;
+                        $mValue = $oCompleteEntity->$sMethodNameInEntity();
+
+                        if ($sValue instanceof \Venus\lib\Form\Radio && method_exists($this->_aElement[$sExKey], 'setValueChecked')) {
+
+                            $this->_aElement[$sExKey]->setValueChecked($mValue);
+                        } else if (isset($mValue) && method_exists($this->_aElement[$sKey], 'setValue')) {
+
+                            $this->_aElement[$sKey]->setValue($mValue);
+                        }
+                    }
+                }
+            }
+        }
+
+        $oForm = new \StdClass();
+        $oForm->start = '<form name="form'.$this->_iFormNumber.'" method="post"><input type="hidden" value="1" name="validform'.$this->_iFormNumber.'">';
+        $oForm->form = array();
+
+        foreach ($this->_aElement as $sKey => $sValue) {
+
+            if ($sValue instanceof Container) {
+
+                $oForm->form[$sKey] = $sValue;
+            } else {
+
+                $oForm->form[$sKey] = $sValue->fetch();
+            }
+        }
+
+        $oForm->end = '</form>';
+
+        return $oForm;
+    }
+
+    /**
+     * get an element of formular
+     *
+     * @access public
+     * @param  string $sName name
+     * @return object
+     */
+    public function get($sName)
+    {
+        return $this->_aElement[$sName];
+    }
+
+    /**
+     * get the form separator
+     *
+     * @access public
+     * @return string
+     */
+    public function getSeparator()
+    {
+        return $this->_sSeparator;
+    }
+
+    /**
+     * set the form separator
+     *
+     * @access public
+     * @param  string $sSeparator separator between the fields
+     * @return \Venus\lib\Form
+     */
+    public function setSeparator($sSeparator)
+    {
+        $this->_sSeparator = $sSeparator;
+        return $this;
+    }
+
+    /**
+     * set the entity to synchronize with the formular
+     *
+     * @access public
+     * @param $sSynchronizeEntity
+     * @param  int $iId id of the primary key
+     * @return Form
+     * @internal param string $sSeparator separator between the fields
+     */
+    public function synchronizeEntity($sSynchronizeEntity, $iId = null)
+    {
+        if ($iId !== null) { $this->_iIdEntity = $iId; }
+
+        $this->_sSynchronizeEntity = $sSynchronizeEntity;
+        return $this;
+    }
+
+    /**
+     * add constraint
+     *
+     * @access public
+     * @param  string $sName field name
+     * @param  object $oConstraint constraint on the field
+     * @return \Venus\lib\Form
+     */
+    public function addConstraint($sName, $oConstraint)
+    {
+        if ($this->_aElement[$sName] instanceof Input || $this->_aElement[$sName] instanceof Textarea) {
+
+            $this->_aElement[$sName]->setConstraint($oConstraint);
+        }
+
+        return $this;
+    }
+
+    /**
+     * get all elements
+     *
+     * @access public
+     * @return  array
+     */
+    public function getElement() {
+
+        return $this->_aElement;
+    }
+
+    /**
+     * get all elements
+     *
+     * @access public
+     * @return int
+     */
+    public function getIdEntity() {
+
+        return $this->_iIdEntity;
+    }
+
+    /**
+     * get all elements
+     *
+     * @access public
+     * @return string
+     */
+    public function getSynchronizeEntity() {
+
+        return $this->_sSynchronizeEntity;
+    }
 }

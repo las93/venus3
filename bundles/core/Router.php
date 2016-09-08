@@ -78,7 +78,6 @@ class Router implements LoggerAwareInterface
      * constructor
      *
      * @access public
-     * @return void
      */
     public function __construct()
     {
@@ -409,7 +408,7 @@ class Router implements LoggerAwareInterface
 
             $this->_oSecurity = new Security;
 
-            if (!$this->_oSecurity->checkSecurity()) { return 403; }
+            if (!$this->_oSecurity->checkSecurity() !== null) { return 403; }
 
             // create the $_GET by the URL
 

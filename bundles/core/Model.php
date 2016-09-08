@@ -37,7 +37,6 @@ class Model extends AttilaModel
 	 *
 	 * @access public
 	 * @param  Config $oDbConfig
-	 * @return Model
 	 */
 	public function __construct(Config $oDbConfig = null)
 	{

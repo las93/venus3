@@ -55,7 +55,6 @@ abstract class Controller extends Mother
      * Constructor
      *
      * @access public
-     * @return object
      */
     public function __construct()
     {

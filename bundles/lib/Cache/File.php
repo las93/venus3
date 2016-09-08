@@ -42,7 +42,6 @@ class File implements CacheInterface
      * constructor
      *
      * @access public
-     * @return \Venus\lib\Cache\File
      */
     public function __construct()
     {
