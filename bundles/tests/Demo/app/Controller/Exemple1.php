@@ -60,7 +60,5 @@ class Exemple1 extends \PHPUnit_Framework_TestCase
         catch(\Exception $e) {
             $this->assertTrue(false);
         }
-
-        $this->assertTrue(true);
 	}
 }
