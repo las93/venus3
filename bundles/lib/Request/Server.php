@@ -20,7 +20,7 @@ class Server implements RequestInterface
         if (isset($_SERVER[$name]) && $_SERVER[$name] != '') {
             return $_SERVER[$name];
         }
-        else if ($default != null) {
+        else if ($default !== null) {
             return $default;
         }
     }

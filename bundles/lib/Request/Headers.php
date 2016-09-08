@@ -20,7 +20,7 @@ class Headers implements RequestInterface
         if (isset(apache_request_headers()[$name]) && apache_request_headers()[$name] != '') {
             return apache_request_headers()[$name];
         }
-        else if ($default != null) {
+        else if ($default !== null) {
             return $default;
         }
     }

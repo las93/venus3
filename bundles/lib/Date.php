@@ -209,7 +209,7 @@ class Date
 	 * @param  string $sLanguage language
 	 * @return string
 	 */
-	public static function GetTimeAgoInString(string $sDateTime, string $sLanguage = 'fr') : string
+	public static function getTimeAgoInString(string $sDateTime, string $sLanguage = 'fr') : string
 	{
 		if ($sLanguage == 'fr') {
 

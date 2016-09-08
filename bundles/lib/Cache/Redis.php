@@ -40,16 +40,17 @@ class Redis extends RealRedis implements CacheInterface
      * @param  int $iFlags flags
      * @param  int $iTimeout expiration of cache
      * @return mixed
+     * @throws \Exception
      */
     public function __construct($oConf)
     {
     	if (!$this->connect($oConf->host, $oConf->port)) {
     	    
-    		throw new Exception('Redis server unavailable');
+    		throw new \Exception('Redis server unavailable');
     	}
     
     	// Select the REDIS db index
-    	$this->select($conf->index);
+    	$this->select($oConf->index);
     }
 
 	/**

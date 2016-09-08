@@ -154,8 +154,6 @@ class Config
 
 			if ($base === '') {
 				
-				//@todo : Error à formater => Json mal formaté
-				
 				trigger_error("Error in your Json format in this file : ".$sJsonFile, E_USER_NOTICE);
 			}
 
@@ -213,7 +211,7 @@ class Config
 			echo "The Json ".$sFileToMerge." has an error! Please verify!\n";
 			$oDebug = Debug::getInstance();
 			$oDebug->error("The Json ".$sFileToMerge." has an error! Please verify!\n");
-			exit;
+            new \Exception("The Json ".$sFileToMerge." has an error! Please verify!\n");
 		}
 	}
 

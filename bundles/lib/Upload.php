@@ -113,7 +113,7 @@ class Upload
 		if ($this->_sName) { $sName = $sPath.$this->_sName.'.'.$this->_sExtension; }
 		else { $sName = $sPath.md5(uniqid(rand(), true)).'.'.$this->_sExtension;}
 
-		if ($this->_bProportion == true && ($this->_iWidth || $this->_iHeight)) {
+		if ($this->_bProportion === true && ($this->_iWidth || $this->_iHeight)) {
 
 			$aImageSizes = getimagesize($_FILES[$sFile]['tmp_name']);
 

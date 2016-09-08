@@ -144,7 +144,7 @@ abstract class Controller extends Mother
 	 * @access public
 	 * @return void
 	 */
-	public function NotFound()
+	public function notFound()
 	{
 		$$this->router->runHttpErrorPage(404);
 	}
@@ -155,7 +155,7 @@ abstract class Controller extends Mother
 	 * @access public
 	 * @return void
 	 */
-	public function Forbidden()
+	public function forbidden()
 	{
 		$$this->router->runHttpErrorPage(403);
 	}
@@ -173,7 +173,7 @@ abstract class Controller extends Mother
 
     	    $mDi = $this->di->get($mKey);
 
-    		if (isset($mDi) && $mDi != false) { return $mDi; }
+    		if (isset($mDi) && $mDi !== false) { return $mDi; }
 	    }
 		
 		return parent::__get($mKey);

@@ -202,7 +202,7 @@ class Router implements LoggerAwareInterface
     
     								$this->_getPage403();
     							}
-    							else if ($mReturn == true) {
+    							else if ($mReturn === true) {
     
     								if (isset($oRoute->cache)) { $this->_checkCache($oRoute->cache); }
     
@@ -214,17 +214,6 @@ class Router implements LoggerAwareInterface
     					}
     				}
 			    }
-
-				//@todo fait l'erreur à chaque passage
-//				if ($sHost !== $_SERVER['HTTP_HOST']) {
-//
-//					trigger_error("Votre host est mal définit : ".$sHost." = ".$_SERVER['HTTP_HOST']
-//						, E_USER_NOTICE);
-//				}
-//				else {
-//
-//					trigger_error("Votre route n'existe pas : ".$_SERVER['REQUEST_URI'], E_USER_NOTICE);
-//				}
 			}
 		}
         else if (Request::isCliRequest()) {
@@ -764,7 +753,7 @@ class Router implements LoggerAwareInterface
 			$sHeader .= " maxage=".$oCache->max_age.",";
 		}
 
-		if (isset($oCache->must_revalidate) && $oCache->must_revalidate == true) {
+		if (isset($oCache->must_revalidate) && $oCache->must_revalidate === true) {
 
 			$sHearderValidity = true;
 			$sHeader .= " must-revalidate,";

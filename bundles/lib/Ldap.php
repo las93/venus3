@@ -155,7 +155,7 @@ class Ldap
 	{
 		$res = $this->search($sFilter, $aAttributes);
 
-		return $this->get_entries($res, $aAttributes);
+		return $this->getEntries($res, $aAttributes);
 	}
 
 	/**
@@ -179,7 +179,7 @@ class Ldap
 	 * @param  array $aAttributes
 	 * @return array
 	 */
-	public function get_entries(resource $rResultIdentifier, array $aAttributes) : array
+	public function getEntries($rResultIdentifier, array $aAttributes) : array
 	{
 		$aEntries = ldap_get_entries($this->_rConnect, $rResultIdentifier);
 

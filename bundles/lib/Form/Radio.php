@@ -175,7 +175,7 @@ class Radio extends Common
 	 * @access public
 	 * @return string
 	 */
-	public function fetch() : strings
+	public function fetch() : string
 	{
 		$sContent = '<input type="radio" name="'.$this->getName().'" value="'.$this->getValue().'"';
 		

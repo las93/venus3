@@ -146,8 +146,8 @@ class File implements CacheInterface
 
 			while (($sFile = readdir($rDirectory)) !== false) {
 
-				if ($sFile > '0' and filetype($sName.$sFile) == "file") { unlink($sName.$sFile); }
-				elseif ($sFile > '0' and filetype($sName.$sFile) == "dir") { remove_dir($sName.$sFile."\\"); }
+				if ($sFile > '0' && filetype($sName.$sFile) == "file") { unlink($sName.$sFile); }
+				elseif ($sFile > '0' && filetype($sName.$sFile) == "dir") { remove_dir($sName.$sFile."\\"); }
 			}
 
 			closedir($rDirectory);

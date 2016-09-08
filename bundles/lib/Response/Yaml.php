@@ -42,7 +42,6 @@ class Yaml implements ResponseInterface
 	 */
     public static function translate($mContent)
     {
-        // TODO Auto-generated method stub
         return yaml_emit($mContent);
     }
 

@@ -60,9 +60,6 @@ class Home extends Controller {
 		$response->setContent('<html><body><h1>Hello world!</h1></body></html>');
 		$response->setStatusCode(\Venus\lib\Response::HTTP_OK);
 		$response->headers->set('Content-Type', 'text/html');
-
 		$response->send();
-
-	    exit;
 	}
 }

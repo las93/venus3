@@ -216,7 +216,7 @@ class Debug extends AbstractLogger
   		self::_initLogFile();
   		self::$_bActivateException = true;
 
-  		set_exception_handler(function ($oException)
+  		set_exception_handler(function (\Exception $oException)
   		{
 			$aContext = array('file' => $oException->getFile(), 'line' => $oException->getLine());
 			self::getInstance()->critical($oException->getMessage(), $aContext);

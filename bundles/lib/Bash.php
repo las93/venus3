@@ -144,7 +144,7 @@ class Bash
 	 * @access private
 	 * @param  string $sContent content to around by the style
 	 * @param  string $sCode the name of the code (color or decoration)
-	 * @var    string
+	 * @return string
 	 */
 	private static function _applyCode(string $sContent, string $sCode) : string
 	{

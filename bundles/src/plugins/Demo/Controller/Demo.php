@@ -36,7 +36,7 @@ class Demo extends Controller
      * Constructor
      *
      * @access public
-     * @return object
+     * @return Demo
      */
     public function __construct()
     {

@@ -24,7 +24,7 @@ namespace Venus\lib;
  * @filesource	https://github.com/las93/venus2
  * @link      	https://github.com/las93
  */
-class Object
+class ObjectOperation
 {
 	/**
 	 * create an array with an object
@@ -33,7 +33,7 @@ class Object
 	 * @param $mObject
 	 * @return array
 	 */
-	public static function object_to_array($mObject) : array
+	public static function objectToArray($mObject) : array
 	{
 		if ( is_object($mObject)) {
 			
@@ -48,7 +48,7 @@ class Object
 			foreach($mObject as $sKey => $mValues) {
 
 				$sKey = preg_replace("/^\\0(.*)\\0/", "", $sKey);
-				$aNew[$sKey] = self::object_to_array($mValues);
+				$aNew[$sKey] = self::objectToArray($mValues);
 			}
 		}
 		else {

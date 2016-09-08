@@ -20,7 +20,7 @@ class Files implements RequestInterface
         if (isset($_FILES[$name]) && $_FILES[$name] != '') {
             return $_FILES[$name];
         }
-        else if ($default != null) {
+        else if ($default !== null) {
             return $default;
         }
     }

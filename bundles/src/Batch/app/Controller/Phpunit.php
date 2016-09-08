@@ -2,9 +2,7 @@
 
 namespace Venus\src\Batch\Controller;
 
-use \Venus\lib\Bash as Bash;
 use \Venus\src\Batch\common\Controller as Controller;
-use PHPUnit_Util_Fileloader;
 
 class Phpunit extends Controller
 {

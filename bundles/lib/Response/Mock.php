@@ -42,7 +42,6 @@ class Mock implements ResponseInterface
 	 */
     public static function translate($mContent)
     {
-        // TODO Auto-generated method stub
         return $mContent;
     }
 

@@ -43,7 +43,7 @@ class Json implements ResponseInterface
 	 */
     public static function translate($mContent)
     {
-        return json_encode(Object::object_to_array($mContent));
+        return json_encode(ObjectOperation::objectToArray($mContent));
     }
 
 }
