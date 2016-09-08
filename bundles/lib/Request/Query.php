@@ -19,8 +19,7 @@ class Query implements RequestInterface
     {
         if (isset($_GET[$name]) && $_GET[$name] != '') {
             return $_GET[$name];
-        }
-        else if ($default !== null) {
+        } else if ($default !== null) {
             return $default;
         }
     }

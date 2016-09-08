@@ -62,15 +62,13 @@ class Mother implements \ArrayAccess
 			if (!is_callable($data = $this->_aDataType[$mKey][$mKey]) || (is_string($data) && function_exists($data))) {
 
 				return $data;
-			}
-			else {
+			} else {
 
 				$dataStore = &$this->_aDataType[$mKey];
 				$dataStore[$mKey] = call_user_func($data, null);
 				return $dataStore[$mKey];
 			}
-		}
-		else {
+		} else {
 
 			return null;
 		}
@@ -89,8 +87,7 @@ class Mother implements \ArrayAccess
 
 			$this->_aClosures[$mKey] = $mValue;
 			$this->_aDataType[$mKey] = &$this->_aClosures;
-		}
-		else {
+		} else {
 
 			$this->_aData[$mKey] = $mValue;
 			$this->_aDataType[$mKey] = &$this->_aData;
@@ -118,7 +115,7 @@ class Mother implements \ArrayAccess
 	 *
 	 * @access public
 	 * @param  mixed $mKey
-	 * @return void
+	 * @return boolean
 	 */
 	public function __isset($mKey)
 	{
@@ -130,7 +127,7 @@ class Mother implements \ArrayAccess
 	 *
 	 * @access public
 	 * @param  mixed $mOffset
-	 * @return mixed
+	 * @return boolean
 	 */
 	function offsetExists($mOffset)
 	{

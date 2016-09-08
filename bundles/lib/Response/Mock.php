@@ -32,14 +32,14 @@ use \Venus\lib\Response\ResponseInterface as ResponseInterface;
  */
 class Mock implements ResponseInterface
 {
-	/**
-	 * translate the content
-	 * @see \Venus\lib\Response\ResponseInterface::translate()
-	 *
-	 * @access public
-	 * @param  mixed $mContent content to translate
-	 * @return mixed
-	 */
+    /**
+     * translate the content
+     * @see \Venus\lib\Response\ResponseInterface::translate()
+     *
+     * @access public
+     * @param  mixed $mContent content to translate
+     * @return mixed
+     */
     public static function translate($mContent)
     {
         return $mContent;

@@ -14,7 +14,6 @@
  */
 namespace Venus\core;
 
-use stdClass;
 use \Venus\lib\Debug as Debug;
 
 /**
@@ -50,8 +49,7 @@ class Config
 	 */
 	public static function get(string $sName, string $sPortal = null, bool $bNoDoRedirect = false)
 	{
-	    if ($bNoDoRedirect === true) { $sNameCache = $sName.'_true'; }
-	    else { $sNameCache = $sName; }
+	    if ($bNoDoRedirect === true) { $sNameCache = $sName.'_true'; } else { $sNameCache = $sName; }
 	    
 		if ($sPortal === null || !is_string($sPortal)) {
 		    
@@ -59,8 +57,7 @@ class Config
 
 				$sPortal = PORTAL;
 				$aDirectories = array($sPortal);
-			}
-		    else {
+			} else {
 
 				$sPortal = '';
 				$aDirectories = scandir(str_replace('core', 'src', __DIR__));
@@ -152,14 +149,14 @@ class Config
 			    }
 		    }
 
-			if ($base === '') {
+            if ($base === '') {
 				
 				trigger_error("Error in your Json format in this file : ".$sJsonFile, E_USER_NOTICE);
 			}
 
 			if (isset($base->redirect) && $bNoDoRedirect === false) {
 			
-				$base = self::get($sName, $base->redirect);
+                $base = self::get($sName, $base->redirect);
 			}
 			
 			self::$_aConfCache[$sNameCache] = $base;
@@ -185,8 +182,7 @@ class Config
 	{
 	    $oConfig = self::get($sName, null, true);
 
-	    if (isset($oConfig->redirect)) { return $oConfig->redirect; }
-	    else { return PORTAL; }
+	    if (isset($oConfig->redirect)) { return $oConfig->redirect; } else { return PORTAL; }
 	}
 
 	/**
@@ -194,10 +190,10 @@ class Config
 	 *
 	 * @access private
 	 * @param  string $sFileToMerge file to get
-	 * @param  object $base base
-	 * @return object
+	 * @param  \stdClass $base base
+	 * @return \stdClass
 	 */
-	private static function  _mergeAndGetConf(string $sFileToMerge, \StdClass $base) : \StdClass
+	private static function  _mergeAndGetConf(string $sFileToMerge, \stdClass $base) : \stdClass
 	{
 		$oConfFiles = json_decode(file_get_contents($sFileToMerge));
 
@@ -205,8 +201,7 @@ class Config
 
 			list($oConfFiles, $base) = self::_recursiveGet($oConfFiles, $base);
 			return $base;
-		}
-		else {
+		} else {
 
 			echo "The Json ".$sFileToMerge." has an error! Please verify!\n";
 			$oDebug = Debug::getInstance();
@@ -220,22 +215,20 @@ class Config
 	 *
 	 * @access private
 	 * @param  $oConfFiles
-	 * @param  StdClass $base
+	 * @param  \stdClass $base
 	 * @return multitype:array multitype:array
 	 */
-	private static function _recursiveGet($oConfFiles, StdClass $base) : array
+	private static function _recursiveGet($oConfFiles, \stdClass $base) : array
 	{
 		foreach ($oConfFiles as $sKey => $mOne) {
 
 			if (is_object($oConfFiles) && is_object($base) && !isset($base->$sKey)) {
 
 				$base->$sKey = $oConfFiles->$sKey;
-			}
-			else if (is_array($oConfFiles) && is_array($base) && !isset($base[$sKey])) {
+			} else if (is_array($oConfFiles) && is_array($base) && !isset($base[$sKey])) {
 
 				$base[$sKey] = $oConfFiles[$sKey];
-			}
-			else if (!isset($base->$sKey) && is_array($mOne)) {
+            } else if (!isset($base->$sKey) && is_array($mOne)) {
 
 				$base->$sKey = new \StdClass;
 				list($oConfFiles, $base) = self::_recursiveGet($mOne, $base->$sKey);

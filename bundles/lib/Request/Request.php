@@ -19,8 +19,7 @@ class Request implements RequestInterface
     {
         if (isset($_POST[$name]) && $_POST[$name] != '') {
             return $_POST[$name];
-        }
-        else if ($default !== null) {
+        } else if ($default !== null) {
             return $default;
         }
     }

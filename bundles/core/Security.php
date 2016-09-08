@@ -62,7 +62,7 @@ class Security {
 	 * check security of access
 	 *
 	 * @access public
-	 * @return void
+	 * @return null|boolean
 	 */
 
 	public function checkSecurity() {
@@ -94,8 +94,7 @@ class Security {
 					header('HTTP/1.0 401 Unauthorized');
 					echo $oSecurity->cancelled;
 					exit;
-				}
-				else {
+				} else {
 
 					self::$_sLogin = $_SERVER['PHP_AUTH_USER'];
 					self::$_sPassword = $_SERVER['PHP_AUTH_PW'];
@@ -116,8 +115,7 @@ class Security {
 					header('HTTP/1.0 401 Unauthorized');
 					echo $oSecurity->cancelled;
 					exit;
-				}
-				else {
+				} else {
 
 					self::$_sLogin = $_SERVER['PHP_AUTH_USER'];
 					self::$_sPassword = $_SERVER['PHP_AUTH_PW'];
@@ -131,8 +129,7 @@ class Security {
 					if (!$this->_checkAccess()) { return false; }
 					if (!$this->_checkBlackListIps()) { return false; }
 				}
-			}
-			else if (isset($oSecurity->authentification) && $oSecurity->authentification === 'controller') {
+			} else if (isset($oSecurity->authentification) && $oSecurity->authentification === 'controller') {
 
 				// it's an action of one controller that it return true or false for the authentification
 
@@ -151,8 +148,7 @@ class Security {
 			if (isset($oSecurity->requires_channel) && $oSecurity->requires_channel == 'https' && !Request::isHttpsRequest()) {
 
 				return false;
-			}
-			else if (isset($oSecurity->requires_channel) && $oSecurity->requires_channel == 'http' && ((Request::isHttpRequest()
+			} else if (isset($oSecurity->requires_channel) && $oSecurity->requires_channel == 'http' && ((Request::isHttpRequest()
 				&& Request::isHttpsRequest()) || !Request::isHttpRequest())) {
 
 				return false;
@@ -179,8 +175,7 @@ class Security {
 
 				if (preg_match('#'.$sPathAccess.'#', str_replace($this->_sBaseUri, '', $_SERVER['REQUEST_URI']))) {
 
-					if (in_array($this->getUserRole(), $aParams->roles)) { return true; }
-					else { return false; }
+					if (in_array($this->getUserRole(), $aParams->roles)) { return true; } else { return false; }
 				}
 			}
 		}
@@ -240,8 +235,7 @@ class Security {
 
 			$sLogin = self::$_sLogin;
 			return Config::get('Security')->users->$sLogin->roles;
-		}
-		else {
+		} else {
 
 			return '';
 		}
@@ -258,8 +252,7 @@ class Security {
 
 	public function isGranted(string $sRole) : bool {
 
-		if ($sRole == $this->getUserRole() || $this->getUserRole() == '') { return true; }
-		else { return false; }
+		if ($sRole == $this->getUserRole() || $this->getUserRole() == '') { return true; } else { return false; }
 	}
 
 	/**

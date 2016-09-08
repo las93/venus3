@@ -19,8 +19,7 @@ class Headers implements RequestInterface
     {
         if (isset(apache_request_headers()[$name]) && apache_request_headers()[$name] != '') {
             return apache_request_headers()[$name];
-        }
-        else if ($default !== null) {
+        } else if ($default !== null) {
             return $default;
         }
     }
@@ -35,8 +34,7 @@ class Headers implements RequestInterface
     {
         if ($value !== null) {
             header($name . ': ' . $value);
-        }
-        else {
+        } else {
             header($name);
         }
         

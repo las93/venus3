@@ -19,8 +19,7 @@ class Cookies implements RequestInterface
     {
         if (isset($_COOKIE[$name]) && $_COOKIE[$name] != '') {
             return $_COOKIE[$name];
-        }
-        else if ($default !== null) {
+        } else if ($default !== null) {
             return $default;
         }
     }

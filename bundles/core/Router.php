@@ -42,764 +42,750 @@ use \Venus\lib\Log\LoggerInterface      as LoggerInterface;
  */
 class Router implements LoggerAwareInterface
 {
-	/**
-	 * The base Uri to construct the route
-	 *
-	 * @access private
-	 * @var    string
-	 */
-	private $_sBaseUri = '';
+    /**
+     * The base Uri to construct the route
+     *
+     * @access private
+     * @var    string
+     */
+    private $_sBaseUri = '';
 
-	/**
-	 * get the security of page
-	 *
-	 * @access private
-	 * @var    \Venus\core\Security
-	 */
-	private $_oSecurity = null;
+    /**
+     * get the security of page
+     *
+     * @access private
+     * @var    \Venus\core\Security
+     */
+    private $_oSecurity = null;
 
-	/**
-	 * The Routes of the actual host
-	 *
-	 * @access private
-	 * @var    object
-	 */
-	private $_oRoutes = null;
+    /**
+     * The Routes of the actual host
+     *
+     * @access private
+     * @var    object
+     */
+    private $_oRoutes = null;
 
-	/**
-	 * Logger
-	 *
-	 * @access private
-	 * @var    object
-	 */
-	private $_oLogger = null;
+    /**
+     * Logger
+     *
+     * @access private
+     * @var    object
+     */
+    private $_oLogger = null;
 
-	/**
-	 * constructor
-	 *
-	 * @access public
-	 * @return void
-	 */
-	public function __construct() 
-	{
-	    $oLogger = Debug::getInstance();
-	    $this->setLogger($oLogger);
-	}
+    /**
+     * constructor
+     *
+     * @access public
+     * @return void
+     */
+    public function __construct()
+    {
+        $oLogger = Debug::getInstance();
+        $this->setLogger($oLogger);
+    }
 
-	/**
-	 * run the routeur
-	 *
-	 * @access public
-	 * @return void
-	 */
-	public function run() 
-	{
-		date_default_timezone_set(Config::get('Const')->timezone);
+    /**
+     * run the routeur
+     *
+     * @access public
+     * @return null|boolean
+     */
+    public function run()
+    {
+        date_default_timezone_set(Config::get('Const')->timezone);
 
-		$this->_create_constant();
+        $this->_create_constant();
 
-		if (Request::isHttpRequest()) {
+        if (Request::isHttpRequest()) {
         
-		    // Search if a Less file exists
-		    if (defined('LESS_ACTIVE') && LESS_ACTIVE === true) {
-		        
-		        if (strstr($_SERVER['REQUEST_URI'], '.css')
+            // Search if a Less file exists
+            if (defined('LESS_ACTIVE') && LESS_ACTIVE === true) {
+
+                if (strstr($_SERVER['REQUEST_URI'], '.css')
                     && file_exists(preg_replace('/\.css/', '.less', $_SERVER['REQUEST_URI']))) {
-		        
-		            Less::toCss($_SERVER['REQUEST_URI']);
-		            exit;
-		        }
-		    }
-		    
-		    // Search if a typescript file exists
-		    if (defined('TYPESCRIPT_ACTIVE') && TYPESCRIPT_ACTIVE === true) {
-		    
-		        if (strstr($_SERVER['REQUEST_URI'], '.js')
-		        && file_exists(preg_replace('/\.js/', '.ts', $_SERVER['REQUEST_URI']))) {
-		    
-		            Typescript::toJs($_SERVER['REQUEST_URI']);
-		            exit;
-		        }
-		    }
-		    
-		    // Search public files in all plugins
-		    if ($_SERVER['REQUEST_URI'] !== '/') {
-	
-    		    foreach (Config::get('Plugins')->list as $iKey => $sPlugin) {
-    		        
-    		        if (file_exists(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.$_SERVER['REQUEST_URI'])) {
-    		            
-    		            echo file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.$_SERVER['REQUEST_URI']);
+
+                    Less::toCss($_SERVER['REQUEST_URI']);
+                    exit;
+                }
+            }
+
+            // Search if a typescript file exists
+            if (defined('TYPESCRIPT_ACTIVE') && TYPESCRIPT_ACTIVE === true) {
+
+                if (strstr($_SERVER['REQUEST_URI'], '.js')
+                && file_exists(preg_replace('/\.js/', '.ts', $_SERVER['REQUEST_URI']))) {
+
+                    Typescript::toJs($_SERVER['REQUEST_URI']);
+                    exit;
+                }
+            }
+
+            // Search public files in all plugins
+            if ($_SERVER['REQUEST_URI'] !== '/') {
+
+                foreach (Config::get('Plugins')->list as $iKey => $sPlugin) {
+
+                    if (file_exists(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.$_SERVER['REQUEST_URI'])) {
+
+                        echo file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.$_SERVER['REQUEST_URI']);
                         exit;
-    		        }
-                    else if (strstr($_SERVER['REQUEST_URI'], '.css')
-		                && file_exists(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.preg_replace('/\.css/', '.less', $_SERVER['REQUEST_URI']))) {
+                    } else if (strstr($_SERVER['REQUEST_URI'], '.css')
+                        && file_exists(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.preg_replace('/\.css/', '.less', $_SERVER['REQUEST_URI']))) {
 
-		                Less::toCss(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.preg_replace('/\.css/', '.less', $_SERVER['REQUEST_URI']));
-		                exit;
+                        Less::toCss(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.preg_replace('/\.css/', '.less', $_SERVER['REQUEST_URI']));
+                        exit;
+                    } else if (strstr($_SERVER['REQUEST_URI'], '.js')
+                        && file_exists(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.preg_replace('/\.js/', '.ts', $_SERVER['REQUEST_URI']))) {
+
+                        Typescript::toJs(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.preg_replace('/\.js/', '.ts', $_SERVER['REQUEST_URI']));
+                        exit;
                     }
-		            else if (strstr($_SERVER['REQUEST_URI'], '.js')
-		                && file_exists(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.preg_replace('/\.js/', '.ts', $_SERVER['REQUEST_URI']))) {
+                }
+            }
 
-		                Typescript::toJs(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'plugins'.DIRECTORY_SEPARATOR.$sPlugin.DIRECTORY_SEPARATOR.'public'.preg_replace('/\.js/', '.ts', $_SERVER['REQUEST_URI']));
-		                exit;
-		            }
-		        }
-	        }
-		    
-			foreach (Config::get('Route') as $sMultiHost => $oHost) {
+            foreach (Config::get('Route') as $sMultiHost => $oHost) {
 
-			    foreach (explode(',', $sMultiHost) as $sHost) {
+                foreach (explode(',', $sMultiHost) as $sHost) {
 
-    				if ((!strstr($sHost, '/') && $sHost == $_SERVER['HTTP_HOST']) || (strstr($sHost, '/')
-    					&& strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost))) {
+                    if ((!strstr($sHost, '/') && $sHost == $_SERVER['HTTP_HOST']) || (strstr($sHost, '/')
+                        && strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost))) {
     
-    					$this->_oRoutes = $oHost;
+                        $this->_oRoutes = $oHost;
 
-    					if (strstr($sHost, '/')
-    						&& strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost)) {
+                        if (strstr($sHost, '/')
+                            && strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost)) {
 
-    						$this->_sBaseUri = preg_replace('#^[^/]+#', '', $sHost);
-    					}
+                            $this->_sBaseUri = preg_replace('#^[^/]+#', '', $sHost);
+                        }
     
-    					if (isset($oHost->location)) {
+                        if (isset($oHost->location)) {
     
-    						header('Status: 301 Moved Permanently', false, 301);
-    	  					header('Location: '.$oHost->location);
-    	  					exit;
-    					}
-    					else if (preg_match('#getCss\?#', $_SERVER['REQUEST_URI'])) {
-    					    
-    					    foreach ($_GET as $sKey => $sValue) {
+                            header('Status: 301 Moved Permanently', false, 301);
+                            header('Location: '.$oHost->location);
+                            exit;
+                        } else if (preg_match('#getCss\?#', $_SERVER['REQUEST_URI'])) {
 
-    					        if (file_exists(str_replace(DIRECTORY_SEPARATOR.'core', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR, __DIR__).$sKey.'.css')) {
-    					            
-    					            echo file_get_contents(str_replace(DIRECTORY_SEPARATOR.'core', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR, __DIR__).$sKey.'.css')."\n";
-    					        }
-    					    }
-    					    
-    					    exit;
-    					}
-    					else if (preg_match('#getJs\?#', $_SERVER['REQUEST_URI'])) {
-    					    
-    					    foreach ($_GET as $sKey => $sValue) {
+                            foreach ($_GET as $sKey => $sValue) {
 
-    					        if (file_exists(str_replace(DIRECTORY_SEPARATOR.'core', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR, __DIR__).$sKey.'.js')) {
-    					            
-    					            echo file_get_contents(str_replace(DIRECTORY_SEPARATOR.'core', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR, __DIR__).$sKey.'.js')."\n";
-    					        }
-    					    }
-    					    
-    					    exit;
-    					}
-    					else if (isset($oHost->routes)) {
+                                if (file_exists(str_replace(DIRECTORY_SEPARATOR.'core', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR, __DIR__).$sKey.'.css')) {
+
+                                    echo file_get_contents(str_replace(DIRECTORY_SEPARATOR.'core', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR, __DIR__).$sKey.'.css')."\n";
+                                }
+                            }
+
+                            exit;
+                        } else if (preg_match('#getJs\?#', $_SERVER['REQUEST_URI'])) {
+
+                            foreach ($_GET as $sKey => $sValue) {
+
+                                if (file_exists(str_replace(DIRECTORY_SEPARATOR.'core', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR, __DIR__).$sKey.'.js')) {
+
+                                    echo file_get_contents(str_replace(DIRECTORY_SEPARATOR.'core', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR, __DIR__).$sKey.'.js')."\n";
+                                }
+                            }
+
+                            exit;
+                        } else if (isset($oHost->routes)) {
     
-    						foreach($oHost->routes as $sKey => $oRoute) {
+                            foreach ($oHost->routes as $sKey => $oRoute) {
 
-    							$mReturn = $this->_route($oRoute, $_SERVER['REQUEST_URI']);
+                                $mReturn = $this->_route($oRoute, $_SERVER['REQUEST_URI']);
 
-    							if ($mReturn === 403) {
+                                if ($mReturn === 403) {
     
-    								$this->_getPage403();
-    							}
-    							else if ($mReturn === true) {
+                                    $this->_getPage403();
+                                }
+                                else if ($mReturn === true) {
     
-    								if (isset($oRoute->cache)) { $this->_checkCache($oRoute->cache); }
+                                    if (isset($oRoute->cache)) { $this->_checkCache($oRoute->cache); }
     
-    								return true;
-    							}							
-    						}
+                                    return true;
+                                }
+                            }
     
-    						$this->_getPage404();
-    					}
-    				}
-			    }
-			}
-		}
-        else if (Request::isCliRequest()) {
+                            $this->_getPage404();
+                        }
+                    }
+                }
+            }
+        } else if (Request::isCliRequest()) {
 
-			if (isset($_SERVER['argv'])) { $aArguments = $_SERVER['argv']; }
-			else { $aArguments = $argv; }
+            if (isset($_SERVER['argv'])) { $aArguments = $_SERVER['argv']; }
+            else { $aArguments = $argv; }
 
-			define('PORTAL', 'Batch');
-			set_include_path(get_include_path().PATH_SEPARATOR.'src'.PATH_SEPARATOR.PORTAL.PATH_SEPARATOR.'public');
+            define('PORTAL', 'Batch');
+            set_include_path(get_include_path().PATH_SEPARATOR.'src'.PATH_SEPARATOR.PORTAL.PATH_SEPARATOR.'public');
 
             if (!isset($aArguments[1]) && strstr($aArguments[0], '/phpunit')) {
 
                 $sBatchName = "phpunit";
                 $aArguments[0] = "bin/console";
                 $aArguments[1] = "phpunit";
-            }
-            else {
+            } else {
                 $sBatchName = $aArguments[1];
             }
 
-			if (isset(Config::get('Route')->batch->script->{$sBatchName})) {
+            if (isset(Config::get('Route')->batch->script->{$sBatchName})) {
 
-				$oBatch = Config::get('Route')->batch->script->{$sBatchName};
-				array_shift($aArguments);
-				array_shift($aArguments);
+                $oBatch = Config::get('Route')->batch->script->{$sBatchName};
+                array_shift($aArguments);
+                array_shift($aArguments);
 
-				$aOptions = array();
+                $aOptions = array();
 
-				while (count($aArguments) > 0) {
+                while (count($aArguments) > 0) {
 
-					if (preg_match('/^-[a-z]/', $aArguments[0])) {
+                    if (preg_match('/^-[a-z]/', $aArguments[0])) {
 
-						$sOptionName = str_replace('-', '', $aArguments[0]);
+                        $sOptionName = str_replace('-', '', $aArguments[0]);
 
-						if (isset($aArguments[1])) {
-							$sOptionValue = $aArguments[1];
-						} else {
-							$sOptionValue = '';
-						}
+                        if (isset($aArguments[1])) {
+                            $sOptionValue = $aArguments[1];
+                        } else {
+                            $sOptionValue = '';
+                        }
 
-						if (isset($oBatch->options->$sOptionName) && $oBatch->options->$sOptionName === false) {
+                        if (isset($oBatch->options->$sOptionName) && $oBatch->options->$sOptionName === false) {
 
-							$aOptions[$sOptionName] = true;
-							array_shift($aArguments);
-						} else if (isset($oBatch->options->$sOptionName) && ($oBatch->options->$sOptionName === 'string'
-								|| $oBatch->options->$sOptionName === 'int')
-						) {
+                            $aOptions[$sOptionName] = true;
+                            array_shift($aArguments);
+                        } else if (isset($oBatch->options->$sOptionName) && ($oBatch->options->$sOptionName === 'string'
+                                || $oBatch->options->$sOptionName === 'int')
+                        ) {
 
-							$aOptions[$sOptionName] = $sOptionValue;
-							array_shift($aArguments);
-							array_shift($aArguments);
-						} else {
+                            $aOptions[$sOptionName] = $sOptionValue;
+                            array_shift($aArguments);
+                            array_shift($aArguments);
+                        } else {
 
-							array_shift($aArguments);
-						}
-					} else {
+                            array_shift($aArguments);
+                        }
+                    } else {
 
-						array_shift($aArguments);
-					}
-				}
-      		}
+                        array_shift($aArguments);
+                    }
+                }
+            }
 
-			if (isset($oBatch->controller) && isset($oBatch->action)) {
+            if (isset($oBatch->controller) && isset($oBatch->action)) {
 
-				echo $this->_loadController($oBatch->controller, $oBatch->action, array($aOptions));
-			}
-			else {
+                echo $this->_loadController($oBatch->controller, $oBatch->action, array($aOptions));
+            } else {
 
-				if (Request::isCliRequest()) {
+                if (Request::isCliRequest()) {
 
-					echo "Error : The batch not exists - please verify your Route or the name passed in your command name.\n";
-				}
-			}
-
-		}
-	}
+                    echo "Error : The batch not exists - please verify your Route or the name passed in your command name.\n";
+                }
+            }
 
-	/**
-	 * run the routeur by the forwarsd metho (in the controller)
-	 *
-	 * @access public
-	 * @param  string $sRoute route we wantload
-	 * @param  array $aParams parameters to passe
-	 * @return void
-	 */
-	public function runByFoward(string $sRoute, array $aParams)
-	{
-		$this->_create_constant();
+        }
+    }
 
-		if (isset($_SERVER) && isset($_SERVER['HTTP_HOST'])) {
+    /**
+     * run the routeur by the forwarsd metho (in the controller)
+     *
+     * @access public
+     * @param  string $sRoute route we wantload
+     * @param  array $aParams parameters to passe
+     * @return void
+     */
+    public function runByFoward(string $sRoute, array $aParams)
+    {
+        $this->_create_constant();
 
-			foreach (Config::get('Route') as $sHost => $oHost) {
+        if (isset($_SERVER) && isset($_SERVER['HTTP_HOST'])) {
 
-				if ((!strstr($sHost, '/') && $sHost == $_SERVER['HTTP_HOST'])
-					|| (strstr($sHost, '/') && strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost))) {
+            foreach (Config::get('Route') as $sHost => $oHost) {
 
-					$this->_oRoutes = $oHost;
+                if ((!strstr($sHost, '/') && $sHost == $_SERVER['HTTP_HOST'])
+                    || (strstr($sHost, '/') && strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost))) {
 
-					if (strstr($sHost, '/') && strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost)) {
+                    $this->_oRoutes = $oHost;
 
-						$this->_sBaseUri = preg_replace('#^[^/]+#', '', $sHost);
-					}
+                    if (strstr($sHost, '/') && strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost)) {
 
-					foreach($oHost->routes as $sKey => $oRoute) {
+                        $this->_sBaseUri = preg_replace('#^[^/]+#', '', $sHost);
+                    }
 
-						$this->_route($oRoute, $sRoute);
-					}
-				}
-			}
-		}
-		else if (defined('STDIN')) {
+                    foreach ($oHost->routes as $sKey => $oRoute) {
 
-			$oBatch = Config::get('Route')->batch->script->{$sRoute};
-			echo $this->_loadController($oBatch->controller, $oBatch->action, $aParams);
-		}
-	}
+                        $this->_route($oRoute, $sRoute);
+                    }
+                }
+            }
+        }
+        else if (defined('STDIN')) {
 
-	/**
-	 * run the error http page
-	 *
-	 * @access public
-	 * @param  int iError http error
-	 * @return void
-	 */
-	public function runHttpErrorPage(int $iError)
-	{
-		$this->_create_constant();
+            $oBatch = Config::get('Route')->batch->script->{$sRoute};
+            echo $this->_loadController($oBatch->controller, $oBatch->action, $aParams);
+        }
+    }
 
-		if (isset($_SERVER) && isset($_SERVER['HTTP_HOST'])) {
+    /**
+     * run the error http page
+     *
+     * @access public
+     * @param  int iError http error
+     * @return void
+     */
+    public function runHttpErrorPage(int $iError)
+    {
+        $this->_create_constant();
 
-			foreach (Config::get('Route') as $sHost => $oHost) {
+        if (isset($_SERVER) && isset($_SERVER['HTTP_HOST'])) {
 
-				if ((!strstr($sHost, '/') && $sHost == $_SERVER['HTTP_HOST'])
-				    || (strstr($sHost, '/') && strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost))) {
+            foreach (Config::get('Route') as $sHost => $oHost) {
 
-					$this->_oRoutes = $oHost->routes;
+                if ((!strstr($sHost, '/') && $sHost == $_SERVER['HTTP_HOST'])
+                    || (strstr($sHost, '/') && strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost))) {
 
-					if (strstr($sHost, '/') && strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost)) {
+                    $this->_oRoutes = $oHost->routes;
 
-						$this->_sBaseUri = preg_replace('#^[^/]+#', '', $sHost);
-					}
+                    if (strstr($sHost, '/') && strstr($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], $sHost)) {
 
-					$sHttpErrorPageName = '_getPage'.iError;
-					$this->$sHttpErrorPageName();
-				}
-			}
-		}
-	}
+                        $this->_sBaseUri = preg_replace('#^[^/]+#', '', $sHost);
+                    }
 
-	/**
-	 * load a route
-	 *
-	 * @access private
-	 * @param  stdClass $oRoute one route
-	 * @param  string $RequestUri URI
-	 * @return void
-	 */
-	private function _route(\stdClass $oRoute, string $RequestUri)
-	{
-		$sCharset = 'UTF-8';
+                    $sHttpErrorPageName = '_getPage'.iError;
+                    $this->$sHttpErrorPageName();
+                }
+            }
+        }
+    }
 
-		if (isset($oRoute->route)) {
+    /**
+     * load a route
+     *
+     * @access private
+     * @param  \stdClass $oRoute one route
+     * @param  string $RequestUri URI
+     * @return void
+     */
+    private function _route(\stdClass $oRoute, string $RequestUri)
+    {
+        $sCharset = 'UTF-8';
 
-		    $sRoute = str_replace("*", ".*", $oRoute->route);
+        if (isset($oRoute->route)) {
 
-			$sFinalRoute = preg_replace_callback(
-				'|\[/{0,1}:([a-zA-Z_]+)\]|',
-				function ($aMatches) use ($oRoute) {
-					return "/{0,1}(?P<".$aMatches[1].">".$oRoute->constraints->{$aMatches[1]}.")";
-				},
-				$sRoute
-			);
-		}
-		else {
+            $sRoute = str_replace("*", ".*", $oRoute->route);
 
-			$sFinalRoute = '.*';
-		}
+            $sFinalRoute = preg_replace_callback(
+                '|\[/{0,1}:([a-zA-Z_]+)\]|',
+                function($aMatches) use ($oRoute) {
+                    return "/{0,1}(?P<".$aMatches[1].">".$oRoute->constraints->{$aMatches[1]}.")";
+                },
+                $sRoute
+            );
+        }
+        else {
 
-		$RequestUri = preg_replace('/^([^?]+)\?.*$/', '$1', $RequestUri);
-		$RequestUri = preg_replace('#^'.$this->_sBaseUri.'#', '', $RequestUri);
+            $sFinalRoute = '.*';
+        }
 
-		if (preg_match('#^'.$sFinalRoute.'$#', $RequestUri, $aMatch)) {
+        $RequestUri = preg_replace('/^([^?]+)\?.*$/', '$1', $RequestUri);
+        $RequestUri = preg_replace('#^'.$this->_sBaseUri.'#', '', $RequestUri);
 
-			if (isset($oRoute->location)) {
+        if (preg_match('#^'.$sFinalRoute.'$#', $RequestUri, $aMatch)) {
 
-				$aParamEntries = array();
+            if (isset($oRoute->location)) {
 
-				foreach ($oRoute->constraints as $sName => $sType) {
+                $aParamEntries = array();
 
-					if (isset($aMatch[$sName])) {
+                foreach ($oRoute->constraints as $sName => $sType) {
 
-						$aParamEntries[$sName] = $aMatch[$sName];
-					}
-				}
+                    if (isset($aMatch[$sName])) {
 
-				$oUrlManager = new UrlManager;
-				header('Status: 301 Moved Permanently', false, 301);
-				header('Location: '.$oUrlManager->getUrl($oRoute->location, $aParamEntries));
-				exit;
-			}
+                        $aParamEntries[$sName] = $aMatch[$sName];
+                    }
+                }
 
-			$this->_oSecurity = new Security;
+                $oUrlManager = new UrlManager;
+                header('Status: 301 Moved Permanently', false, 301);
+                header('Location: '.$oUrlManager->getUrl($oRoute->location, $aParamEntries));
+                exit;
+            }
 
-			if (!$this->_oSecurity->checkSecurity()) { return 403; }
+            $this->_oSecurity = new Security;
 
-			// create the $_GET by the URL
+            if (!$this->_oSecurity->checkSecurity()) { return 403; }
 
-			foreach($aMatch as $mKey => $sResults) {
+            // create the $_GET by the URL
 
-				if (is_string($mKey)) {
+            foreach ($aMatch as $mKey => $sResults) {
 
-					$_GET[$mKey] = $sResults;
-				}
-			}
+                if (is_string($mKey)) {
 
-			if (isset($oRoute->methods) && $oRoute->methods != $_SERVER['REQUEST_METHOD']) { return false; }
+                    $_GET[$mKey] = $sResults;
+                }
+            }
 
-			if (isset($oRoute->schemes) && $oRoute->schemes == 'https' && !Request::isHttpsRequest()) { return false; }
+            if (isset($oRoute->methods) && $oRoute->methods != $_SERVER['REQUEST_METHOD']) { return false; }
 
-			if (isset($oRoute->cache) && isset($oRoute->cache->max_age) && !isset($_GET['flush'])) {
+            if (isset($oRoute->schemes) && $oRoute->schemes == 'https' && !Request::isHttpsRequest()) { return false; }
 
-				$oMobileDetect = new \Mobile_Detect;
+            if (isset($oRoute->cache) && isset($oRoute->cache->max_age) && !isset($_GET['flush'])) {
 
-				if ($oMobileDetect->isMobile()) { $sCacheExt = '.mobi'; }
-				else { $sCacheExt = ''; }
+                $oMobileDetect = new \Mobile_Detect;
 
-				$mCacheReturn = Cache::get($RequestUri.$sCacheExt, $oRoute->cache->max_age);
+                if ($oMobileDetect->isMobile()) { $sCacheExt = '.mobi'; }
+                else { $sCacheExt = ''; }
 
-				if ($mCacheReturn && count($_POST) < 1) {
+                $mCacheReturn = Cache::get($RequestUri.$sCacheExt, $oRoute->cache->max_age);
 
-					echo $mCacheReturn;
-					return true;
-				}
-			}
+                if ($mCacheReturn && count($_POST) < 1) {
 
-			if (isset($oRoute->cache)) { $this->_checkCache($oRoute->cache); }
+                    echo $mCacheReturn;
+                    return true;
+                }
+            }
 
-			if (isset($oRoute->controller)) {
+            if (isset($oRoute->cache)) { $this->_checkCache($oRoute->cache); }
 
-			    define('PORTAL', preg_replace('/^\\\\Venus\\\\src\\\\([a-zA-Z0-9_]+)\\\\.+$/', '$1', $oRoute->controller));
-			    set_include_path(get_include_path().PATH_SEPARATOR.'src'.PATH_SEPARATOR.PORTAL.PATH_SEPARATOR.'public');
-			     
-				if (isset($oRoute->content_type)) {
+            if (isset($oRoute->controller)) {
 
-					if ($oRoute->content_type == 'json') {
+                define('PORTAL', preg_replace('/^\\\\Venus\\\\src\\\\([a-zA-Z0-9_]+)\\\\.+$/', '$1', $oRoute->controller));
+                set_include_path(get_include_path().PATH_SEPARATOR.'src'.PATH_SEPARATOR.PORTAL.PATH_SEPARATOR.'public');
 
-						header('Content-type: application/json; charset='.$sCharset.'');
-					}
-					else if ($oRoute->content_type == 'html') {
+                if (isset($oRoute->content_type)) {
 
-						header('Content-type: text/html; charset='.$sCharset.'');
-					}
-					else if ($oRoute->content_type == 'jpeg') {
+                    if ($oRoute->content_type == 'json') {
 
-						header('Content-type: image/jpeg');
-					}
-				}
-				else {
+                        header('Content-type: application/json; charset='.$sCharset.'');
+                    } else if ($oRoute->content_type == 'html') {
 
-					header('Content-type: text/html; charset='.$sCharset.'');
-				}
+                        header('Content-type: text/html; charset='.$sCharset.'');
+                    } else if ($oRoute->content_type == 'jpeg') {
 
-				$sControllerName = $oRoute->controller;
-				$sActionName = $oRoute->action;
+                        header('Content-type: image/jpeg');
+                    }
+                }
+                else {
 
-				$oController = new $sControllerName;
+                    header('Content-type: text/html; charset='.$sCharset.'');
+                }
 
-				$aEntries = array();
+                $sControllerName = $oRoute->controller;
+                $sActionName = $oRoute->action;
 
-				if (isset($oRoute->constraints) && is_object($oRoute->constraints)) {
+                $oController = new $sControllerName;
 
-					$mReturn = null;
-					
-					foreach ($oRoute->constraints as $sName => $sType) {
+                $aEntries = array();
 
-						if (isset($_GET[$sName]) && $_GET[$sName] != '') {
+                if (isset($oRoute->constraints) && is_object($oRoute->constraints)) {
 
-							$aEntries[] = $_GET[$sName];
-						}
-						else if (isset($oRoute->defaults_constraints) && is_object($oRoute->defaults_constraints)
-							&& isset($oRoute->defaults_constraints->{$sName})) {
+                    $mReturn = null;
 
-							$aEntries[] = $oRoute->defaults_constraints->{$sName};
-						}
-						else if (isset($_GET[$sName])) {
+                    foreach ($oRoute->constraints as $sName => $sType) {
 
-							$aEntries[] = $_GET[$sName];
-						}
-						else if (preg_match('/'.$sType.'/', '')) {
+                        if (isset($_GET[$sName]) && $_GET[$sName] != '') {
 
-							$aEntries[] = '';
-						}
-						else {
+                            $aEntries[] = $_GET[$sName];
+                        } else if (isset($oRoute->defaults_constraints) && is_object($oRoute->defaults_constraints)
+                            && isset($oRoute->defaults_constraints->{$sName})) {
 
-						    $this->_oLogger->warning('Error: Parameter '.$sName.' not exists!');
-							break;
-						}
-					}
+                            $aEntries[] = $oRoute->defaults_constraints->{$sName};
+                        } else if (isset($_GET[$sName])) {
 
-					if ($mReturn === null) {
+                            $aEntries[] = $_GET[$sName];
+                        } else if (preg_match('/'.$sType.'/', '')) {
 
-						$mReturn = $this->_loadController($oController, $sActionName, $aEntries);
+                            $aEntries[] = '';
+                        } else {
 
-					}
-				}
-				else {
+                            $this->_oLogger->warning('Error: Parameter '.$sName.' not exists!');
+                            break;
+                        }
+                    }
 
-					$mReturn = $this->_loadController($oController, $sActionName, $aEntries);
-				}
+                    if ($mReturn === null) {
 
-				if (isset($oRoute->content_type)) {
+                        $mReturn = $this->_loadController($oController, $sActionName, $aEntries);
 
-					if ($oRoute->content_type === 'json') {
+                    }
+                }
+                else {
 
-						$mReturn = json_encode($mReturn, JSON_PRETTY_PRINT);
-					}
-				}
-			}
-			else if (isset($oRoute->template) && isset($oRoute->layout) && $oRoute->layout === true) {
+                    $mReturn = $this->_loadController($oController, $sActionName, $aEntries);
+                }
 
-			    define('PORTAL', preg_replace('/^\\\\Venus\\\\src\\\\([a-zA-Z0-9_]+)\\\\.+$/', '$1', $oRoute->template));
-			    set_include_path(get_include_path().PATH_SEPARATOR.'src'.PATH_SEPARATOR.PORTAL.PATH_SEPARATOR.'public');
-			    
-			    $oLayout = Vendor::getVendor('Apollina\Template', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.PORTAL.DIRECTORY_SEPARATOR.'View'.DIRECTORY_SEPARATOR.'Layout.tpl');
+                if (isset($oRoute->content_type)) {
 
-				if (isset($oRoute->vars)) {
+                    if ($oRoute->content_type === 'json') {
 
-					foreach ($oRoute->vars as $sKey => $mValue) {
+                        $mReturn = json_encode($mReturn, JSON_PRETTY_PRINT);
+                    }
+                }
+            }
+            else if (isset($oRoute->template) && isset($oRoute->layout) && $oRoute->layout === true) {
 
-						$oLayout->assign($sKey, $mValue);
-					}
-				}
+                define('PORTAL', preg_replace('/^\\\\Venus\\\\src\\\\([a-zA-Z0-9_]+)\\\\.+$/', '$1', $oRoute->template));
+                set_include_path(get_include_path().PATH_SEPARATOR.'src'.PATH_SEPARATOR.PORTAL.PATH_SEPARATOR.'public');
 
-				$mReturn = $oLayout->assign('model', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.PORTAL.DIRECTORY_SEPARATOR.'View'.DIRECTORY_SEPARATOR.$oRoute->template.'.tpl')
-								   ->fetch();
-			}
-			else if (isset($oRoute->template)) {
+                $oLayout = Vendor::getVendor('Apollina\Template', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.PORTAL.DIRECTORY_SEPARATOR.'View'.DIRECTORY_SEPARATOR.'Layout.tpl');
 
-			    define('PORTAL', preg_replace('/^\\\\Venus\\\\src\\\\([a-zA-Z0-9_]+)\\\\.+$/', '$1', $oRoute->template));
-			    set_include_path(get_include_path().PATH_SEPARATOR.'src'.PATH_SEPARATOR.PORTAL.PATH_SEPARATOR.'public');
-			    
-				$oTemplate = Vendor::getVendor('Apollina\Template', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.PORTAL.DIRECTORY_SEPARATOR.'View'.DIRECTORY_SEPARATOR.$oRoute->template.'.tpl');
+                if (isset($oRoute->vars)) {
 
-				if (isset($oRoute->vars)) {
+                    foreach ($oRoute->vars as $sKey => $mValue) {
 
-					foreach ($oRoute->vars as $sKey => $mValue) {
+                        $oLayout->assign($sKey, $mValue);
+                    }
+                }
 
-						$oTemplate->assign($sKey, $mValue);
-					}
-				}
+                $mReturn = $oLayout->assign('model', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.PORTAL.DIRECTORY_SEPARATOR.'View'.DIRECTORY_SEPARATOR.$oRoute->template.'.tpl')
+                                   ->fetch();
+            }
+            else if (isset($oRoute->template)) {
 
-				$mReturn = $oTemplate->fetch();
-			}
+                define('PORTAL', preg_replace('/^\\\\Venus\\\\src\\\\([a-zA-Z0-9_]+)\\\\.+$/', '$1', $oRoute->template));
+                set_include_path(get_include_path().PATH_SEPARATOR.'src'.PATH_SEPARATOR.PORTAL.PATH_SEPARATOR.'public');
 
-			// management of return or cache of it
+                $oTemplate = Vendor::getVendor('Apollina\Template', DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.PORTAL.DIRECTORY_SEPARATOR.'View'.DIRECTORY_SEPARATOR.$oRoute->template.'.tpl');
 
-			if (isset($oRoute->cache) && isset($oRoute->cache->max_age) && $mReturn) {
+                if (isset($oRoute->vars)) {
 
-				$oMobileDetect = new \Mobile_Detect;
+                    foreach ($oRoute->vars as $sKey => $mValue) {
 
-				if ($oMobileDetect->isMobile()) { $sCacheExt = '.mobi'; }
-				else { $sCacheExt = ''; }
+                        $oTemplate->assign($sKey, $mValue);
+                    }
+                }
 
-				if (defined('COMPRESS_HTML') && COMPRESS_HTML) {
+                $mReturn = $oTemplate->fetch();
+            }
 
-					$mReturn = str_replace(array("\t", "\r", "  "), array("", "", " "), $mReturn);
-				}
+            // management of return or cache of it
 
-				Cache::set($RequestUri.$sCacheExt, $mReturn, $oRoute->cache->max_age);
-			}
+            if (isset($oRoute->cache) && isset($oRoute->cache->max_age) && $mReturn) {
 
-			if ($mReturn) {
+                $oMobileDetect = new \Mobile_Detect;
 
-				echo $mReturn;
-				return true;
-			}
-		}
-	}
+                if ($oMobileDetect->isMobile()) { $sCacheExt = '.mobi'; }
+                else { $sCacheExt = ''; }
 
-	/**
-	 * create the constants
-	 *
-	 * @access private
-	 * @return void
-	 */
-	private function _create_constant() 
-	{
-		foreach (Config::get('Const') as $sKey => $mValue) {
+                if (defined('COMPRESS_HTML') && COMPRESS_HTML) {
 
-			if (is_string($mValue) || is_int($mValue) || is_float($mValue) || is_bool($mValue)) {
+                    $mReturn = str_replace(array("\t", "\r", "  "), array("", "", " "), $mReturn);
+                }
 
-				define(strtoupper($sKey), $mValue);
-			}
-		}
-	}
+                Cache::set($RequestUri.$sCacheExt, $mReturn, $oRoute->cache->max_age);
+            }
 
-	/**
-	 * load the controller
-	 *
-	 * @access private
-	 * @param  object $oControllerName controller name
-	 * @param  string $sActionName method name
-	 * @param  array $aParams parameters
-	 * @return mixed
-	 */
-	private function _loadController($oControllerName, string $sActionName, array $aParams = array())
-	{
-		$aPhpDoc = PhpDoc::getPhpDocOfMethod($oControllerName, $sActionName);
+            if ($mReturn) {
 
-		if (isset($aPhpDoc['Cache'])) {
+                echo $mReturn;
+                return true;
+            }
+        }
+    }
 
-			if (!isset($aPhpDoc['Cache']['maxage'])) { $aPhpDoc['Cache']['maxage'] = 0; }
+    /**
+     * create the constants
+     *
+     * @access private
+     * @return void
+     */
+    private function _create_constant()
+    {
+        foreach (Config::get('Const') as $sKey => $mValue) {
 
-			$oMobileDetect = new \Mobile_Detect;
+            if (is_string($mValue) || is_int($mValue) || is_float($mValue) || is_bool($mValue)) {
 
-			if ($oMobileDetect->isMobile()) { $sCacheExt = '.mobi'; }
-			else { $sCacheExt = ''; }
+                define(strtoupper($sKey), $mValue);
+            }
+        }
+    }
 
-			$mCacheReturn = Cache::get($sActionName.$sCacheExt, $aPhpDoc['Cache']['maxage']);
+    /**
+     * load the controller
+     *
+     * @access private
+     * @param  object $oControllerName controller name
+     * @param  string $sActionName method name
+     * @param  array $aParams parameters
+     * @return mixed
+     */
+    private function _loadController($oControllerName, string $sActionName, array $aParams = array())
+    {
+        $aPhpDoc = PhpDoc::getPhpDocOfMethod($oControllerName, $sActionName);
 
-			if ($mCacheReturn !== false) { return $mCacheReturn; }
-		}
+        if (isset($aPhpDoc['Cache'])) {
 
-		if (isset($aPhpDoc['Secure'])) {
+            if (!isset($aPhpDoc['Cache']['maxage'])) { $aPhpDoc['Cache']['maxage'] = 0; }
 
-			if (isset($aPhpDoc['Secure']['roles']) && $this->_oSecurity->getUserRole() != $aPhpDoc['Secure']['roles']) {
+            $oMobileDetect = new \Mobile_Detect;
 
-				$this->_getPage403();
-			}
-		}
+            if ($oMobileDetect->isMobile()) { $sCacheExt = '.mobi'; }
+            else { $sCacheExt = ''; }
 
-		$oController = new $oControllerName;
+            $mCacheReturn = Cache::get($sActionName.$sCacheExt, $aPhpDoc['Cache']['maxage']);
 
-		ob_start();
+            if ($mCacheReturn !== false) { return $mCacheReturn; }
+        }
 
-		if (!defined('PORTAL')) { define('PORTAL', 'Batch'); }
-		
-		if (method_exists($oController, 'beforeExecuteRoute')) { 
-		    
-		    call_user_func_array(array($oController, 'beforeExecuteRoute'), array());
-		}
+        if (isset($aPhpDoc['Secure'])) {
 
-		$mReturnController = call_user_func_array(array($oController, $sActionName), $aParams);
+            if (isset($aPhpDoc['Secure']['roles']) && $this->_oSecurity->getUserRole() != $aPhpDoc['Secure']['roles']) {
 
-		if (method_exists($oController, 'afterExecuteRoute')) { 
-		    
-		    call_user_func_array(array($oController, 'afterExecuteRoute'), array());
-		}
-		
-		$mReturn = ob_get_clean();
+                $this->_getPage403();
+            }
+        }
 
-		if ($mReturn == '') { $mReturn = $mReturnController; }
+        $oController = new $oControllerName;
 
-		if (isset($aPhpDoc['Cache'])) {
+        ob_start();
 
-			$oMobileDetect = new \Mobile_Detect;
+        if (!defined('PORTAL')) { define('PORTAL', 'Batch'); }
 
-			if ($oMobileDetect->isMobile()) { $sCacheExt = '.mobi'; }
-			else { $sCacheExt = ''; }
+        if (method_exists($oController, 'beforeExecuteRoute')) {
 
-			if (defined('COMPRESS_HTML') && COMPRESS_HTML) {
+            call_user_func_array(array($oController, 'beforeExecuteRoute'), array());
+        }
 
-				$mReturn = str_replace(array("\t", "\r", "  "), array("", "", "", " "), $mReturn);
-			}
+        $mReturnController = call_user_func_array(array($oController, $sActionName), $aParams);
 
-			Cache::set($sActionName.$sCacheExt, $mReturn, $aPhpDoc['Cache']['maxage']);
-		}
+        if (method_exists($oController, 'afterExecuteRoute')) {
 
-		return $mReturn;
-	}
+            call_user_func_array(array($oController, 'afterExecuteRoute'), array());
+        }
 
-	/**
-	 * get the page 403
-	 *
-	 * @access private
-	 * @return void
-	 */
-	private function _getPage403() 
-	{
-		header("HTTP/1.0 403 Forbidden");
+        $mReturn = ob_get_clean();
 
-		if (isset($this->_oRoutes->e403)) {
+        if ($mReturn == '') { $mReturn = $mReturnController; }
 
-			$this->_oRoutes->e403->route = '/';
-			$_SERVER['REQUEST_URI'] = '/';
-			$this->_route($this->_oRoutes->e403, $_SERVER['REQUEST_URI']);
-		}
+        if (isset($aPhpDoc['Cache'])) {
 
-		exit;
-	}
+            $oMobileDetect = new \Mobile_Detect;
 
-	/**
-	 * get the page 404
-	 *
-	 * @access private
-	 * @return void
-	 */
-	private function _getPage404() 
-	{
-		header("HTTP/1.0 404 Not Found");
+            if ($oMobileDetect->isMobile()) { $sCacheExt = '.mobi'; }
+            else { $sCacheExt = ''; }
 
-		if (isset($this->_oRoutes->e404)) {
+            if (defined('COMPRESS_HTML') && COMPRESS_HTML) {
 
-			$this->_oRoutes->e404->route = '/';
-			$_SERVER['REQUEST_URI'] = '/';
-			$this->_route($this->_oRoutes->e404, $_SERVER['REQUEST_URI']);
-		}
+                $mReturn = str_replace(array("\t", "\r", "  "), array("", "", "", " "), $mReturn);
+            }
 
-		exit;
-	}
+            Cache::set($sActionName.$sCacheExt, $mReturn, $aPhpDoc['Cache']['maxage']);
+        }
 
-	/**
-	 * check the cache - just if it's not yet defined
-	 *
-	 * @access private
-	 * @param  \stdClass $oCache object of cache configuration
-	 * @return void
-	 */
-	private function _checkCache(\stdClass $oCache)
-	{
-		/**
-		 * cache-control http
-		 */
+        return $mReturn;
+    }
 
-		$sHearderValidity = false;
-		$sHeader = "Cache-Control:";
+    /**
+     * get the page 403
+     *
+     * @access private
+     * @return void
+     */
+    private function _getPage403()
+    {
+        header("HTTP/1.0 403 Forbidden");
 
-		if (isset($oCache->visibility) && ($oCache->visibility = 'public' || $oCache->visibility = 'private')) {
+        if (isset($this->_oRoutes->e403)) {
 
-			$sHearderValidity = true;
-			$sHeader .= " ".$oCache->visibility.",";
-		}
+            $this->_oRoutes->e403->route = '/';
+            $_SERVER['REQUEST_URI'] = '/';
+            $this->_route($this->_oRoutes->e403, $_SERVER['REQUEST_URI']);
+        }
 
-		if (isset($oCache->max_age)) {
+        exit;
+    }
 
-			$sHearderValidity = true;
-			$sHeader .= " maxage=".$oCache->max_age.",";
-		}
+    /**
+     * get the page 404
+     *
+     * @access private
+     * @return void
+     */
+    private function _getPage404()
+    {
+        header("HTTP/1.0 404 Not Found");
 
-		if (isset($oCache->must_revalidate) && $oCache->must_revalidate === true) {
+        if (isset($this->_oRoutes->e404)) {
 
-			$sHearderValidity = true;
-			$sHeader .= " must-revalidate,";
-		}
+            $this->_oRoutes->e404->route = '/';
+            $_SERVER['REQUEST_URI'] = '/';
+            $this->_route($this->_oRoutes->e404, $_SERVER['REQUEST_URI']);
+        }
 
-		if ($sHearderValidity === true) {
+        exit;
+    }
 
-			$sHeader = substr($sHeader, 0, -1);
+    /**
+     * check the cache - just if it's not yet defined
+     *
+     * @access private
+     * @param  \stdClass $oCache object of cache configuration
+     * @return void
+     */
+    private function _checkCache(\stdClass $oCache)
+    {
+        /**
+         * cache-control http
+         */
 
-			if (!headers_sent()) { header($sHeader); }
-		}
+        $sHearderValidity = false;
+        $sHeader = "Cache-Control:";
 
-		/**
-		 * ETag http
-		 */
+        if (isset($oCache->visibility) && ($oCache->visibility = 'public' || $oCache->visibility = 'private')) {
 
-		if (isset($oCache->ETag)) { header("ETag: \"".$oCache->ETag."\""); }
+            $sHearderValidity = true;
+            $sHeader .= " ".$oCache->visibility.",";
+        }
 
-		/**
-		 * expire
-		 */
+        if (isset($oCache->max_age)) {
 
-		if (isset($oCache->max_age)) { if (!headers_sent()) { header('Expires: '.gmdate('D, d M Y H:i:s', time() + $oCache->max_age).' GMT'); } }
+            $sHearderValidity = true;
+            $sHeader .= " maxage=".$oCache->max_age.",";
+        }
 
-		/**
-		 * Last-Modified http
-		 */
+        if (isset($oCache->must_revalidate) && $oCache->must_revalidate === true) {
 
-		if (isset($oCache->last_modified)) { if (!headers_sent()) { header('Last-Modified: '.gmdate('D, d M Y H:i:s', time() + $oCache->last_modified).' GMT'); } }
+            $sHearderValidity = true;
+            $sHeader .= " must-revalidate,";
+        }
 
-		/**
-		 * vary http
-		 */
+        if ($sHearderValidity === true) {
 
-		if (isset($oCache->vary)) { header('Vary: '.$oCache->vary); }
-	}
+            $sHeader = substr($sHeader, 0, -1);
 
-	/**
-	 * Sets a logger instance on the object
-	 *
-	 * @access private
-	 * @param  LoggerInterface $logger
-	 * @return null
-	 */
-	public function setLogger(LoggerInterface $logger) {
-	    
-	    $this->_oLogger = $logger;
-	}
+            if (!headers_sent()) { header($sHeader); }
+        }
+
+        /**
+         * ETag http
+         */
+
+        if (isset($oCache->ETag)) { header("ETag: \"".$oCache->ETag."\""); }
+
+        /**
+         * expire
+         */
+
+        if (isset($oCache->max_age)) { if (!headers_sent()) { header('Expires: '.gmdate('D, d M Y H:i:s', time() + $oCache->max_age).' GMT'); } }
+
+        /**
+         * Last-Modified http
+         */
+
+        if (isset($oCache->last_modified)) { if (!headers_sent()) { header('Last-Modified: '.gmdate('D, d M Y H:i:s', time() + $oCache->last_modified).' GMT'); } }
+
+        /**
+         * vary http
+         */
+
+        if (isset($oCache->vary)) { header('Vary: '.$oCache->vary); }
+    }
+
+    /**
+     * Sets a logger instance on the object
+     *
+     * @access private
+     * @param  LoggerInterface $logger
+     * @return null
+     */
+    public function setLogger(LoggerInterface $logger) {
+
+        $this->_oLogger = $logger;
+    }
 }
