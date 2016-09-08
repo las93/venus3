@@ -113,8 +113,8 @@
       <file leaf-file-name="AutoLoad.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bundles/conf/AutoLoad.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+            <state relative-caret-position="365">
+              <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -471,7 +471,7 @@
       <workItem from="1467982754982" duration="262000" />
       <workItem from="1467989327621" duration="6000" />
       <workItem from="1473244260921" duration="13832000" />
-      <workItem from="1473269251125" duration="14764000" />
+      <workItem from="1473269251125" duration="15217000" />
     </task>
     <task id="LOCAL-00001" summary="Adapt framework to PHP 7 (part 0.1)">
       <created>1467115390079</created>
@@ -669,11 +669,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473320187502</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="change composer - bug fixed">
+      <created>1473320708432</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1473320708432</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82325000" />
+    <option name="totallyTimeSpent" value="82778000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1099,8 +1106,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bundles/conf/AutoLoad.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+        <state relative-caret-position="365">
+          <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
           <folding />
         </state>
       </provider>
