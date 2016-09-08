@@ -2,6 +2,8 @@ VENUS 3 FRAMEWORK PHP
 =====================
 
 [![Build Status](https://travis-ci.org/las93/venus3.svg?branch=master)](https://travis-ci.org/las93/venus3)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/las93/venus3/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/las93/venus3/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/las93/venus3/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/las93/venus3/?branch=master)
 
 Venus 3 Framework
 
