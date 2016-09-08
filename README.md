@@ -1,6 +1,8 @@
 VENUS 3 FRAMEWORK PHP
 =====================
 
+[![Build Status](https://travis-ci.org/las93/venus3.svg?branch=master)](https://travis-ci.org/las93/venus3)
+
 Venus 3 Framework
 
 Contact judicael.paquet@gmail.com pour participer au projet ou avoir plus d'information
