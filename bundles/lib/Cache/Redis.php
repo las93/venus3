@@ -16,6 +16,7 @@
 namespace Venus\lib\Cache;
 
 use \Redis as RealRedis;
+use \Venus\lib\Cache\CacheInterface;
 
 /**
  * This class manage the Cache by Redis

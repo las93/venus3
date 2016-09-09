@@ -14,6 +14,7 @@
  * @since     	1.0
  */
 namespace Venus\lib\Cache;
+use \Venus\lib\Cache\CacheInterface;
 
 /**
  * This class manage the Cache by file

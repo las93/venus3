@@ -24,7 +24,7 @@ use \Venus\lib\Request as Request;
  * @author    Judicaël Paquet <judicael.paquet@rueducommerce.com>
  * @copyright Copyright (c) 2005-2013 RueDuCommerce.com FR Inc. (http://www.rueducommerce.com)
  * @license   http://www.rueducommerce.com Tout droit réservé à Rueducommerce.com
- * @version   Release: @VER@
+ * @version   3.0.0
  * @link      http://www.rueducommerce.com
  * @since     1.0rc1
  */

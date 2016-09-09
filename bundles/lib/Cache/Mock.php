@@ -14,6 +14,7 @@
  * @since     	1.0
  */
 namespace Venus\lib\Cache;
+use \Venus\lib\Cache\CacheInterface;
 
 /**
  * Manage Cache by Mock -> just for simulate the cache object
