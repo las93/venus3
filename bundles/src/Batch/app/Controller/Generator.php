@@ -60,29 +60,29 @@ class Generator extends Controller
 		}
 
 		$sActualDirectory = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);
-		$sPrivatePath = str_replace('/Batch/Controller', DIRECTORY_SEPARATOR.$sPortal.DIRECTORY_SEPARATOR.'app', $sActualDirectory).DIRECTORY_SEPARATOR;
-		$sPublicPath = str_replace('/Batch/Controller', DIRECTORY_SEPARATOR.$sPortal.DIRECTORY_SEPARATOR.'public', $sActualDirectory).DIRECTORY_SEPARATOR;
+		$sPrivatePath = str_replace('/Batch/app/Controller', DIRECTORY_SEPARATOR.$sPortal.DIRECTORY_SEPARATOR.'app', $sActualDirectory).DIRECTORY_SEPARATOR;
+        $sPublicPath = str_replace('/Batch/app/Controller', DIRECTORY_SEPARATOR.$sPortal.DIRECTORY_SEPARATOR.'public', $sActualDirectory).DIRECTORY_SEPARATOR;
 
-		if (!is_writable($sPublicPath)) {
+        if (!is_writable($sActualDirectory.'/../../../')) {
 
-			echo 'The batch can`t create public folders for '.$sPortal.'! Please check the rights.';
-			throw new \Exception('The batch can`t create public folders for '.$sPortal.'! Please check the rights.');
-		}
-		else {
+            echo 'The batch can`t create public folders for '.$sPortal.'! Please check the rights.';
+            throw new \Exception('The batch can`t create public folders for '.$sPortal.'! Please check the rights.');
+        }
+        else {
 
-			if (!file_exists($sPrivatePath.'Controller')) {
+            if (!file_exists($sPrivatePath.'Controller')) {
 
-				mkdir($sPublicPath . 'css', 0777, true);
-				mkdir($sPublicPath . 'js', 0777, true);
-				mkdir($sPublicPath . 'img', 0777, true);
-			}
-			else {
+                mkdir($sPublicPath . 'css', 0777, true);
+                mkdir($sPublicPath . 'js', 0777, true);
+                mkdir($sPublicPath . 'img', 0777, true);
+            }
+            else {
 
-				echo 'The Project (public part) ' . $sPrivatePath . " exists\n";
-			}
-		}
+                echo 'The Project (public part) ' . $sPrivatePath . " exists\n";
+            }
+        }
 
-		if (!is_writable($sPrivatePath)) {
+		if (!is_writable($sActualDirectory.'/../../../')) {
 
 			echo 'The batch can`t create private folders for '.$sPortal.'! Please check the rights.';
 			throw new \Exception('The batch can`t create private folders for '.$sPortal.'! Please check the rights.');
@@ -97,23 +97,44 @@ class Generator extends Controller
 				mkdir($sPrivatePath . 'View', 0777, true);
 				mkdir($sPrivatePath . 'conf', 0777, true);
 				mkdir($sPrivatePath . 'common', 0777, true);
+
+                $sContent = file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'Controller.php');
+                $sContent = str_replace('Batch', $sPortal, $sContent);
+                file_put_contents($sPrivatePath.'common'.DIRECTORY_SEPARATOR.'Controller.php', $sContent);
+
+                $sContent = file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'Model.php');
+                $sContent = str_replace('Batch', $sPortal, $sContent);
+                file_put_contents($sPrivatePath.'common'.DIRECTORY_SEPARATOR.'Model.php', $sContent);
+
+                $sContent = file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'Entity.php');
+                $sContent = str_replace('Batch', $sPortal, $sContent);
+                file_put_contents($sPrivatePath.'common'.DIRECTORY_SEPARATOR.'Entity.php', $sContent);
+
+                $content = "<?php
+
+namespace Venus\\src\\".$sPortal."\\Controller;
+
+use \\Venus\\src\\".$sPortal."\\common\\Controller as Controller;
+
+class ".$sPortal." extends Controller {
+
+	public function __construct() {
+
+		parent::__construct();
+	}
+
+	public function show() {
+        ;
+	}
+}
+";
+
+                file_put_contents($sPrivatePath.'Controller'.DIRECTORY_SEPARATOR.$sPortal.'.php', $content);
 			}
 			else {
 
 				echo 'The Project (private part) ' . $sPrivatePath . " exists\n";
 			}
-
-			$sContent = file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'Controller.php');
-			$sContent = str_replace('Batch', $sPortal, $sContent);
-			file_put_contents($sPrivatePath.'common'.DIRECTORY_SEPARATOR.'Controller.php', $sContent);
-
-			$sContent = file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'Model.php');
-			$sContent = str_replace('Batch', $sPortal, $sContent);
-			file_put_contents($sPrivatePath.'common'.DIRECTORY_SEPARATOR.'Model.php', $sContent);
-
-			$sContent = file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'Entity.php');
-			$sContent = str_replace('Batch', $sPortal, $sContent);
-			file_put_contents($sPrivatePath.'common'.DIRECTORY_SEPARATOR.'Entity.php', $sContent);
 		}
 
 		echo 'The project '.$sPortal.' is created!';

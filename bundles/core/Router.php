@@ -212,7 +212,7 @@ class Router implements LoggerAwareInterface
         } else if (Request::isCliRequest()) {
 
             if (isset($_SERVER['argv'])) { $aArguments = $_SERVER['argv']; }
-            else { $aArguments = $argv; }
+            else { $aArguments = []; }
 
             define('PORTAL', 'Batch');
             set_include_path(get_include_path().PATH_SEPARATOR.'src'.PATH_SEPARATOR.PORTAL.PATH_SEPARATOR.'public');

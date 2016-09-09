@@ -19,7 +19,6 @@ spl_autoload_register(function (string $sClassName)
 
     $sClassName = ltrim($sClassName, '\\');
     $sFileName  = '';
-    $sNamespace = '';
     $iLastNsPos = strrpos($sClassName, '\\');
 
     if ($iLastNsPos) {

@@ -49,7 +49,10 @@ class Config
 	 */
 	public static function get(string $sName, string $sPortal = null, bool $bNoDoRedirect = false)
 	{
-	    if ($bNoDoRedirect === true) { $sNameCache = $sName.'_true'; } else { $sNameCache = $sName; }
+        $aDirectories = [];
+        $sJsonFile='';
+
+        if ($bNoDoRedirect === true) { $sNameCache = $sName.'_true'; } else { $sNameCache = $sName; }
 	    
 		if ($sPortal === null || !is_string($sPortal)) {
 		    
@@ -66,7 +69,9 @@ class Config
 
 		if (!isset(self::$_aConfCache[$sNameCache])) {
 
-			$base = new \StdClass;
+			$base = new \stdClass;
+
+            if (count($aDirectories) < 1) { $aDirectories = [$sPortal]; }
 
 			foreach ($aDirectories as $sPortal) {
 			
@@ -143,7 +148,7 @@ class Config
         				$sJsonFile = str_replace('core', 'src'.DIRECTORY_SEPARATOR.$sPortal.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'conf', __DIR__).DIRECTORY_SEPARATOR.$sName.'.conf';
         				$base = self::_mergeAndGetConf($sJsonFile, $base);
         			}
-        
+
         			$sJsonFile = str_replace('core', 'conf', __DIR__).DIRECTORY_SEPARATOR.$sName.'.conf';
         			$base = self::_mergeAndGetConf($sJsonFile, $base);
 			    }
