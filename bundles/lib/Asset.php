@@ -89,8 +89,8 @@ class Asset
 	        }
 	    
     	    if (defined('ASSET_VERSION') && ASSET_VERSION) {
-    	        
-    	        $sJsPath = ASSET_VERSION;
+
+                $sCssPath = ASSET_VERSION;
     	    }
 	        
 	        $aReturns[] = $sCssPath;

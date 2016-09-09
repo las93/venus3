@@ -299,6 +299,8 @@ class Form
      */
     public function getFormInObject()
     {
+        $sExKey = null;
+
         if ($this->_iIdEntity > 0 && $this->_sSynchronizeEntity !== null && count($_POST) < 1) {
 
             $sModelName = str_replace('Entity', 'Model', $this->_sSynchronizeEntity);

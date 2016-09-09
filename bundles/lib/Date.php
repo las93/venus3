@@ -117,7 +117,7 @@ class Date
      * get age by date
      *
      * @access public
-     * @param unknown $sBirthday
+     * @param string $sBirthday
      * @return int
      */
     public static function getAgeByDate(string $sBirthday) : int
@@ -152,7 +152,8 @@ class Date
      * @access public
      * @param  int $iWeek number of week
      * @param  int $iYear year
-     * @return \Venus\lib\Date
+     * @param string $sFormat
+     * @return array|Date
      */
     public static function getMiddleWeek(int $iWeek, int $iYear, string $sFormat = "Y-m-d") : array
     {
@@ -215,7 +216,15 @@ class Date
             $sHours = 'heure(s) ';
             $sDays = 'jour(s) ';
             $sMonths = 'mois ';
-            $sYears = 'mois ';
+            $sYears = 'années ';
+        } else {
+            $sStartReturn = 'Ago';
+            $sEndReturn = '';
+            $sMinutes = 'minute(s) ';
+            $sHours = 'hour(s) ';
+            $sDays = 'day(s) ';
+            $sMonths = 'month ';
+            $sYears = 'years ';
         }
 
         $oDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $sDateTime);

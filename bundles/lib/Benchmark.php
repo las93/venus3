@@ -82,10 +82,7 @@ class Benchmark implements LoggerAwareInterface
 	public static function setPointInLog(string $sName = 'default')
 	{
 	    $oLogger = Debug::getInstance();
-		$oLogger->setLogger($oLogger);
-
-		$oLogger->getLogger()
-	         	->log('BENCHMARK: Time at this point '.(microtime(true) - self::$_fStart).' - '.$sName);
+		$oLogger->info('BENCHMARK: Time at this point '.(microtime(true) - self::$_fStart).' - '.$sName);
 	}
 	
 	/**

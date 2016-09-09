@@ -80,8 +80,6 @@ class UrlManager
 
                     if (isset($oHost->routes)) {
 
-                        $aRoutes = array();
-
                         foreach($oHost->routes as $sKey => $oRoute) {
 
                             if ($sKey === $sCode) {
