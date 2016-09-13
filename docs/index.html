@@ -10,38 +10,24 @@
     </head>
     <body>
         <h1>Getting Start</h1>
-        Pour commencer, il faut configurer votre base de données grâce à un fichier json. Par défaut celui-ci se trouve
-        Dans le dossier Attila/conf/Db.conf<br/><br/>
-        <span style="color:green">Sur Venus 3, vous trouverez celui-ci dans /bundles/conf/Db.conf</span><br/><br/>
-        Voici à quoi ressemble le fichier de configuration d'une base de données :<br/><br/>
+        Nouveau framework PHP basé sur un concept MVC solide et très malléable.<br/><br/>
+        Pour afficher Hello World, voici le Vhost apache Type à mettre en place :
         <pre>
-{
-    "configuration": {
-        "type": "mysql",
-        "host": "127.0.0.1",
-        "db": "attila",
-        "user": "root",
-        "password": "root",
-        "tables": {
-            "user": {
-                "fields": {
-                    "id": {
-                        "type": "int",
-                        "key": "primary",
-                        "null": false,
-                        "undefined": true,
-                        "autoincrement": true
-                    }
-                }
-            }
-        }
-    }
-}
+&lt;VirtualHost *:80&gt;
+ ServerName localhost
+ DocumentRoot E:/venus/public/Demo/
+ &lt;Directory E:/venus/public/Demo/&gt;
+     DirectoryIndex index.php
+     AllowOverride All
+     Order allow,deny
+     Allow from all
+&lt;/Directory&gt;
+&lt;/VirtualHost&gt;
         </pre>
-        La connexion se configure de façon classique comme vous pouvez le constater ci-dessus. Il est essentiel ensuite
-        de configurer les tables de notre projet (nous verrons cela en détail plus tard.<br/><br/>
-        Attila vous propose différents outils pour automatiser la création des tables, des entités et des modèles
-        (équivalent à un repository).<br/><br/>
+        N'oubliez pas de redémarrer Apache pour que les modifications soient prises en compte.<br/><br/>
+        Vous pouvez également utiliser le serveur interne proposé par Venus en faisant php bin/console server:run
+        <br/><br/>
+        Pour vori votre page, vous pouvez à présent faire http://localhost/ dans votre navigateur Internet.<br/><br/>
         <a href="mon-premier-bundle.html">[suivant]</a>
     </body>
 </html>

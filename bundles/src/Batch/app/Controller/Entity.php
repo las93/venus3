@@ -23,6 +23,7 @@ namespace Venus\src\Batch\Controller;
 
 use \Venus\core\Config as Config;
 use \Attila\Batch\Entity as BatchEntity;
+use \Attila\Batch\Operation as Operation;
 use \Venus\src\Batch\common\Controller as Controller;
 
 /**
@@ -63,4 +64,22 @@ class Entity extends Controller
 	    $oBatch = new BatchEntity;
 	    $oBatch->runScaffolding($aOptions);
 	}
+
+    /**
+     * run the batch to create entity
+     * @tutorial bin/console scaffolding
+     *
+     * @access public
+     * @param  array $aOptions options of script
+     * @return void
+     */
+    public function createDb(array $aOptions = array())
+    {
+        if (!isset($aOptions['p'])) { $aOptions['p'] = 'Batch'; }
+
+        if (!isset($aOptions['b'])) { $aOptions['b'] = json_encode(Config::get('Db', $aOptions['p'])); }
+
+        $oBatch = new Operation;
+        $oBatch->createDb($aOptions);
+    }
 }
