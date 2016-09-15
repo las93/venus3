@@ -222,7 +222,11 @@ class Router implements LoggerAwareInterface
                 $sBatchName = "phpunit";
                 $aArguments[0] = "bin/console";
                 $aArguments[1] = "phpunit";
-            } else {
+            } else if (isset($aArguments[1])) {
+                $sBatchName = $aArguments[1];
+            }
+            else {
+                $aArguments[1] = 'help';
                 $sBatchName = $aArguments[1];
             }
 
@@ -246,12 +250,14 @@ class Router implements LoggerAwareInterface
                             $sOptionValue = '';
                         }
 
-                        if (isset($oBatch->options->$sOptionName) && $oBatch->options->$sOptionName === false) {
+                        if (isset($oBatch->options->$sOptionName) && isset($oBatch->options->$sOptionName->type)
+                            && $oBatch->options->$sOptionName->type === false) {
 
                             $aOptions[$sOptionName] = true;
                             array_shift($aArguments);
-                        } else if (isset($oBatch->options->$sOptionName) && ($oBatch->options->$sOptionName === 'string'
-                                || $oBatch->options->$sOptionName === 'int')
+                        } else if (isset($oBatch->options->$sOptionName) && isset($oBatch->options->$sOptionName->type)
+                            && ($oBatch->options->$sOptionName->type === 'string'
+                            || $oBatch->options->$sOptionName->type === 'int')
                         ) {
 
                             $aOptions[$sOptionName] = $sOptionValue;

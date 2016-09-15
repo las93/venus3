@@ -19,7 +19,7 @@
   "require": {
     "php": ">=7.0.0",
     "las93/apollina2": "2.0.3-alpha",
-    "las93/attila": "*",
+    "las93/attila2": "*",
     "mobiledetect/mobiledetectlib": "*"
   },
   "require-dev": {

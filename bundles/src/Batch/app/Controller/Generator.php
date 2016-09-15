@@ -138,5 +138,12 @@ class ".$sPortal." extends Controller {
 		}
 
 		echo 'The project '.$sPortal.' is created!';
+
+
+        echo "\n\n";
+        echo Bash::setBackground("                                                                            ", 'green');
+        echo Bash::setBackground("          [OK] The bundle is created                                        ", 'green');
+        echo Bash::setBackground("                                                                            ", 'green');
+        echo "\n\n";
 	}
 }
